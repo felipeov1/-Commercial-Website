@@ -51,7 +51,7 @@ header{
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-left: -220px;
+    margin-left: -225px;
     top: 33%;
 }
 
@@ -60,7 +60,7 @@ header{
     justify-content: center;
     list-style: none; 
     position: absolute;
-    right: 1%;
+    right: 10%;
 }
 
 .btn-produtos{
@@ -109,7 +109,7 @@ footer{
 .text-box p{
     text-align: left;
     margin-left: 6%;
-    margin-top: -3%;
+    margin-top: -2%;
 }
 
 .text-box img{
@@ -117,11 +117,23 @@ footer{
 }
 
 .text-box form{
-    margin-left: 35%;
-    margin-top: -170px;
+    position: relative;
+    margin-left: 25%;
+    margin-top: -15%;
 
 }
 
+.text-box input{
+    border-radius: 5px;
+    padding: 5px;
+    border-color: rgb(0, 0, 0);
+}
+
+.text-box textarea{
+    border-radius: 5px;
+    padding: 5px;
+    border-color:  rgb(0, 0, 0);
+}
 
 
 

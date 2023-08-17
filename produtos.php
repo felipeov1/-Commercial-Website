@@ -22,7 +22,7 @@
             </div>
 
             <div class="menu-item">
-                <a href="#"><img src="/img/menuIcon.png" alt="" width="45px"></a>
+                <a href="#"><img src="img/menuIcon.png" alt="" width="45px"></a>
             </div>
         </nav>
     </header><br>

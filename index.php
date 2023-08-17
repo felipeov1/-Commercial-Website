@@ -16,7 +16,7 @@
             <div class="nav-list">
                 <ul>
                     <li class="nav-text"><a href="#" class="nav-link"><b>INÍCIO</b></a></li>
-                    <li class="nav-text"><a href="/produtos.php" class="nav-link"><b>EMPILHADEIRAS</b></a></li>
+                    <li class="nav-text"><a href="produtos.php" class="nav-link"><b>EMPILHADEIRAS</b></a></li>
                     <li class="nav-text"><a href="#" class="nav-link"><b>CONTATO</b></a></li>
                 </ul>
             </div>
@@ -44,9 +44,9 @@
         
         <div class="text-box">
             <h1>ENTRE EM CONTATO E FAÇA SEU ORÇAMENTO!</h1><br>
-            <img src="/img/mapa.png" alt="" width="35px"><p>Seu endereço</p>
-            <img src="/img/o-email.png" alt="" width="35px"><p>suaempresa@contato.com.br</p>
-            <img src="/img/whatsapp.png" alt="" width="35px"><p>(xx) xxxx-xxxx</p>
+            <img src="img/mapa.png" alt="" width="35px"><p>Seu endereço</p>
+            <img src="img/o-email.png" alt="" width="35px"><p>suaempresa@contato.com.br</p>
+            <img src="img/whatsapp.png" alt="" width="35px"><p>(xx) xxxx-xxxx</p>
 
             <form action="" method="post">
                 <input type="text" name="name" placeholder="Seu nome"><br><br>
