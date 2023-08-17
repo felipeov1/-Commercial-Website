@@ -1,0 +1,81 @@
+body{
+    background-color: rgb(255, 255, 255);
+    margin: 0;
+    font-family: sans-serif;
+    color: rgb(0, 0, 0);
+}
+
+header{
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 2px 15px #aaaaaa;
+    
+}
+
+.nav-bar{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    position: relative;
+    
+}
+
+.nav-list ul{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    position: absolute;
+    width: 300px;
+    height: 25px;
+    top: 50%;
+    left: 50%;
+    margin-left: -160px;
+    top: 30%;
+    
+}
+
+.nav-text{
+    margin: 0 15px;
+}
+
+#main-tabs a{
+    margin-left: 1em;
+    text-decoration: none;
+    color: black;
+}
+
+#main-tabs{
+    position: absolute; 
+    left: 50%; 
+    transform: translate(-50%, -50%)
+}
+
+#upload-section form{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 50%; 
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%) 
+}
+
+#upload-section form input{
+    padding: 8px;
+    outline: none;
+    border: 1px solid rgb(0, 0, 0);
+    margin-bottom: 8px;
+}
+
+#upload-section form input:hover[type="submit"]{
+    background-color: lightgray;
+}
+
+#upload-section form button{
+    border: 1px solid black;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: bolder;
+    margin-bottom: 5px;
+}
