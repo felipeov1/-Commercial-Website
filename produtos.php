@@ -30,7 +30,7 @@
     <main>
         <div class="card">
             <div class="image">
-                <img src="img/1-1d-empilhadeira.jpg" alt="empilhadeira">
+                <img src="" alt="">
             </div>
             <div class="caption">
                 <p class="product-name">Nome do produto</p>

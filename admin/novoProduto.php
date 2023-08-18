@@ -1,9 +1,12 @@
 <?php
     require_once '../db/connection.php';
 
-    if(isset($_POST["submit"])){
+    if(isset($_POST["submit"]) ){
         $productName = $_POST["productName"];
         $productDescription = $_POST["productDescription"];
+  
+        // upload: echo $_FILES['imgUpload']['name'];
+        
 
         $sql = "INSERT INTO products(product_name, product_description) VALUES('$productName', '$productDescription')";
 
@@ -13,7 +16,7 @@
             echo "Não é possível enviar: " . $sql . "<br>" . mysqli_error($conn);
         }
 
-    }
+    } 
 ?>
 
 <DOCTYPE html>
@@ -32,13 +35,15 @@
             </div>
         </nav>
     </header><br>
+
+    <a href="./controleDeProdutos.php">Voltar</a>
     <section id="upload-section">
         <form action="novoProduto.php" method="POST" enctype="multipart/form-data">
             <input type="text" name="productName" id="productName" placeholder="Nome do produto" required>
             <input type="text" name="productDescription" id="productDescription" placeholder="Descrição do produto" required>
             <input type="file" name="imgUpload" id="imgUpload" required hidden>
             <button id="choose" onclick="upload()">Escolher Imagem</button>
-            <input type="submit" value="Enviar" name="submit">
+            <input type="submit" value="Salvar" name="submit">
         </form>
     </section>
     
@@ -56,5 +61,6 @@
             choose.innerHTML = file.name; 
         });
     </script>
+
 </body>
 </html>

@@ -2,7 +2,6 @@ body{
     background-color: rgb(255, 255, 255);
     margin: 0;
     font-family: sans-serif;
-    color: red;
 }
 
 header{
@@ -18,3 +17,22 @@ header{
     position: relative;
     
 }
+
+.tabProducts{
+    background-color: rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 50%;
+    margin: auto  
+}
+
+#btnAdd{
+    padding: 5px;
+    margin-left: 25% 
+}
+
+#btnAdd a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+

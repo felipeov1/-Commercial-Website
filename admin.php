@@ -7,6 +7,6 @@
 </head>
 <body>
     <h1>Pagina de login para adm</h1>
-    <a href="./adm/controleDeProdutos.php">Tela principal</a>
+    <a href="./admin/controleDeProdutos.php">Tela principal</a>
 </body>
 </html>
