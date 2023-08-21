@@ -18,12 +18,29 @@ header{
     
 }
 
-.tabProducts{
-    background-color: rgba(0, 0, 0, 0.3);
-    text-align: center;
-    max-width: 50%;
-    margin: auto  
+table{
+  width: 100%;
+  table-layout: fixed;
+  min-width: 1000px;
+
+
 }
+
+thead th{
+    position: sticky;
+    top: 0;
+    background-color: #f6f9fc;
+    font-size: 15px; 
+}
+
+th,td{
+    border-bottom: 1px solid #dddddd;
+    padding: 10px 20px;
+    word-break: all;
+    text-align: center;
+}
+
+
 
 #btnAdd{
     padding: 5px;

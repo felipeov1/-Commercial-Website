@@ -58,6 +58,6 @@
             </form>
         </div>
     </section>
-    <footer></footer>
+    <footer><a href="/SiteVendas/admin.php">ADM</a></footer>
 </body>
 </html>
