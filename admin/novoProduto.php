@@ -2,20 +2,38 @@
     require_once '../db/connection.php';
 
     if(isset($_POST["submit"]) ){
-        $productName = $_POST["productName"];
-        $productDescription = $_POST["productDescription"];
-  
-        // upload: echo $_FILES['imgUpload']['name'];
-        
+        if(isset($_FILES['imgUpload'])){
+            $image = $_FILES['imgUpload'];
 
-        $sql = "INSERT INTO products(product_name, product_description) VALUES('$productName', '$productDescription')";
+            if($image['error']){
+                die("Falha ao enviar arquivo");
+            }
 
-        if(mysqli_query($conn, $sql)) {
-           // Sucesso
-        } else {
-            echo "Não é possível enviar: " . $sql . "<br>" . mysqli_error($conn);
+            $path = "images/";
+
+            $imageName = $image['name'];
+
+            $extension = strtolower(pathinfo($imageName, PATHINFO_EXTENSION)); // strtolower: tudo em minusculo 
+
+            if($extension != 'jpg' && $extension != 'png'){
+                die('Tipo de arquivo não aceito');
+            }else{
+                $imageCorrect = move_uploaded_file($image["tmp_name"], $path . $imageName);
+                if($imageCorrect){
+
+                    $productName = $_POST["productName"];
+                    $productDescription = $_POST["productDescription"];
+
+                    mysqli_query($conn, "INSERT INTO products(product_name, product_description, product_image) VALUES('$productName', '$productDescription', ' $imageName')");
+
+                    echo "<p>Arquivo enviado com sucesso! Para acessa-lo: <a target=\"_blank\" href=\"images/$imageName\"><\a></p>";
+                } else {
+                    echo "<p>Falha ao enviar</p>";
+                }
+            }
+            // var_dump($_FILES['imgUpload']);
+            // echo $_FILES['imgUpload']['name'];     
         }
-
     } 
 ?>
 

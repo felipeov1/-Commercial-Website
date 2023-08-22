@@ -41,9 +41,9 @@
                 while($products_data = mysqli_fetch_assoc($result)){
                     echo "<tr>";
                     echo "<td  style='height:75px; width:50px'>" .$products_data['product_id']. "</td>";
-                    echo "<td><img src='../img/logo.png' alt='logo' width='160px'></td>"; //teste
+                    echo "<td>" .$products_data['product_image']. "</td>"; 
                     echo "<td>" .$products_data['product_name']."</td>";                   
-                    echo "<td>" .$products_data['product_description']. "</td>"; 
+                    echo "<td><img src=\"<?php include 'novoProduto.php' echo $image[path]; ?>\"alt=\"\"></td>";
                     echo "<td> 
                         <a class='btn-primary' href='edit.php?id=$products_data[product_id]'>
                             <svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
@@ -58,6 +58,7 @@
                         </a>
                     </td>";
                 }
+    
                 // DESCRIÇÃO FAZER UMA FUNÇÃO PARA APARECER TEXTO COMPLETO
             ?>
         </table>
