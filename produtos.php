@@ -1,3 +1,12 @@
+<?php
+
+include_once "./db/connection.php";
+
+$sqlSelect = "SELECT * FROM products ORDER BY product_id DESC";
+
+$result = $conn->query($sqlSelect);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,17 +36,21 @@
         </nav>
     </header><br>
 
-    <main>
-        <div class="card">
-            <div class="image">
-                <img src="" alt="">
+    <?php
+    while($products_data = mysqli_fetch_assoc($result)){
+    "<maitn>
+        <div class='card'>
+            <div class='image'>
+                <img src=''>
             </div>
-            <div class="caption">
-                <p class="product-name">Nome do produto</p>
-                <p class="description">Descrição</p>
+            <div class='caption'>
+                <p class='product-name'" . $products_data['product_name'] . "</p>
+                <p class='description'" . $products_data['product_description'] ."</p>
             </div>
-                <button class="more_information">Mais informações</button>
+                <button class='more_information'>Mais informações</button>
         </div>
-    </main>
+    </main>";
+    }
+    ?>
 </body>
 </html>

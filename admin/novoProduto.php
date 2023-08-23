@@ -12,8 +12,10 @@
             $path = "images/";
 
             $imageName = $image['name'];
-
+            
             $extension = strtolower(pathinfo($imageName, PATHINFO_EXTENSION)); // strtolower: tudo em minusculo 
+
+            $pathImg = ($path . $imageName);
 
             if($extension != 'jpg' && $extension != 'png'){
                 die('Tipo de arquivo não aceito');
@@ -24,7 +26,7 @@
                     $productName = $_POST["productName"];
                     $productDescription = $_POST["productDescription"];
 
-                    mysqli_query($conn, "INSERT INTO products(product_name, product_description, product_image) VALUES('$productName', '$productDescription', ' $imageName')");
+                    mysqli_query($conn, "INSERT INTO products(product_name, product_description, product_image, product_imgName) VALUES('$productName', '$productDescription', ' $pathImg', '$imageName')");
 
                     echo "<p>Arquivo enviado com sucesso! Para acessa-lo: <a target=\"_blank\" href=\"images/$imageName\"><\a></p>";
                 } else {

@@ -1,19 +1,27 @@
 <?php
-    if(!empty($_GET['id'])) {
+    if (!empty($_GET['id'])) {
 
         include_once '../db/connection.php';
 
+        
+
         $id = $_GET['id'];
 
-        $sqlSelect = "SELECT * FROM products WHERE product_id=$id";
+        $sqlSelect = "SELECT * FROM products WHERE product_id = $id";
 
         $result = $conn->query($sqlSelect);
 
-        while($product_data = mysqli_fetch_assoc($result)){
+        if ($result->num_rows > 0) {
+            $product_data = $result->fetch_assoc();
+            $img = $product_data['product_imgName'];
             $productName = $product_data['product_name'];
             $productDescription = $product_data['product_description'];
+        } else {
+            echo "Produto não encontrado";
         }
-    } 
+    } else {
+        echo "ID do produto não fornecido";
+    }
 ?>
 
 <DOCTYPE html>
@@ -41,8 +49,7 @@
             <input type="text" name="productDescription" id="productDescription" placeholder="Descrição do produto" value="<?php echo $productDescription ?>" required>
 
             <input type="file" name="imgUpload" id="imgUpload" required hidden>
-
-            <button id="choose" onclick="upload()">Alterar Imagem</button>
+            <button id="choose" onclick="upload()"><?php echo $img ?></button>
             <input type="submit" value="Alterar" name="update" id="update">
         </form>
     </section>

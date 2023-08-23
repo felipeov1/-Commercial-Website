@@ -34,11 +34,11 @@
         <div class="nav-produtos"> <!-- AQUI RECEBRÁ OS ITENS DO BANCO DE DADOS -->
             <a href="/SiteVendas/produtos.php"><input class="btn-produtos" type="submit" value="Página Produtos"></a>
             <ul>
-                <li class="nav-item"><a href="#" class="nav-link"><img src="img/1-1d-empilhadeira.jpg" alt="" height="200px"></a><b><p>Empillhadeiras Série EFFO</p></b></li>
-                <li class="nav-item"><a href="#" class="nav-link"><img src="img/1.5-2.0T.jpg" alt="" height="200px"></a><b> <p>Empilhadeiras de Tamanho Médio I</p></b></li>
-                <li class="nav-item"><a href="#" class="nav-link"><img src="img/5t.jpg" alt="" height="200px"></a><b><p>Empilhadeiras de Tamanho Médio II</p> </b></li>
-                <li class="nav-item"><a href="#" class="nav-link"><img src="img/1.5T.jpg" alt="" height="200px"></a><b><p>Empilhadeiras Elétricas</p></b></li>
-                <li class="nav-item"><a href="#" class="nav-link"><img src="img/1.5-2.0T.jpg" alt="" height="200px"></a><b><p>Empilhadeira Elétrica de Três Rodas 1.5-2.0T</p></b></li>
+                <li class="nav-item"><a href="#" class="nav-link"><img src="" alt="" height="200px"></a><b><p>Empillhadeiras Série EFFO</p></b></li>
+                <li class="nav-item"><a href="#" class="nav-link"><img src="" alt="" height="200px"></a><b> <p>Empilhadeiras de Tamanho Médio I</p></b></li>
+                <li class="nav-item"><a href="#" class="nav-link"><img src="" alt="" height="200px"></a><b><p>Empilhadeiras de Tamanho Médio II</p> </b></li>
+                <li class="nav-item"><a href="#" class="nav-link"><img src="" alt="" height="200px"></a><b><p>Empilhadeiras Elétricas</p></b></li>
+                <li class="nav-item"><a href="#" class="nav-link"><img src="" alt="" height="200px"></a><b><p>Empilhadeira Elétrica de Três Rodas 1.5-2.0T</p></b></li>
             </ul>
         </div>
         
