@@ -18,6 +18,7 @@
                     <li class="nav-text"><a href="#" class="nav-link"><b>INÍCIO</b></a></li>
                     <li class="nav-text"><a href="produtos.php" class="nav-link"><b>EMPILHADEIRAS</b></a></li>
                     <li class="nav-text"><a href="#" class="nav-link"><b>CONTATO</b></a></li>
+                    <li class="nav-text"><a href="#" class="nav-link"><b><a href="/SiteVendas/admin.php">ADMIN</a></b></a></li>
                 </ul>
             </div>
 
@@ -58,6 +59,6 @@
             </form>
         </div>
     </section>
-    <footer><a href="/SiteVendas/admin.php">ADM</a></footer>
+    <footer></footer>
 </body>
 </html>

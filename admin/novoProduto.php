@@ -9,7 +9,7 @@
                 die("Falha ao enviar arquivo");
             }
 
-            $path = "images/";
+            $path = "imagesUpload/";
 
             $imageName = $image['name'];
             

@@ -1,9 +1,7 @@
 <?php
-
 include_once "./db/connection.php";
 
 $sqlSelect = "SELECT * FROM products ORDER BY product_id DESC";
-
 $result = $conn->query($sqlSelect);
 ?>
 
@@ -29,28 +27,30 @@ $result = $conn->query($sqlSelect);
                     <li class="nav-text"><a href="#" class="nav-link"><b>CONTATO</b></a></li>
                 </ul>
             </div>
-
             <div class="menu-item">
                 <a href="#"><img src="img/menuIcon.png" alt="" width="45px"></a>
             </div>
         </nav>
     </header><br>
 
-    <?php
-    while($products_data = mysqli_fetch_assoc($result)){
-    "<maitn>
-        <div class='card'>
-            <div class='image'>
-                <img src=''>
-            </div>
-            <div class='caption'>
-                <p class='product-name'" . $products_data['product_name'] . "</p>
-                <p class='description'" . $products_data['product_description'] ."</p>
-            </div>
-                <button class='more_information'>Mais informações</button>
-        </div>
-    </main>";
-    }
-    ?>
+    <main class="main-container">
+        <?php
+        while ($products_data = mysqli_fetch_assoc($result)) {
+            echo "<main class='main'>";
+            echo    "<div class='card'>";
+            echo        "<div class='image'>";
+            $img = $products_data['product_imgName'];
+            echo             "<img src='../SiteVendas/admin/imagesUpload/$img'>";
+            echo        "</div>";
+            echo        "<div class='caption'>";
+            echo            "<p class='productNameTitle'>" . $products_data['product_name'] . "</p>";
+            echo            "<p class='productDescription'>" . $products_data['product_description'] . "</p>";
+            echo       "</div>";
+            echo            "<button class='more_information'>Mais informações</button>";
+            echo   "</div>";
+            echo "</main>";
+        }
+        ?>
+    </main>
 </body>
 </html>
