@@ -32,7 +32,23 @@ $result = $conn->query($sqlSelect);
             </div>
         </nav>
     </header><br>
-
+    <div class="filterPorducts">
+        <div>
+            <h1>TIPO</h1>
+            <input type="checkbox" name="" id=""><br>
+            <input type="checkbox" name="" id=""><br>
+            <input type="checkbox" name="" id=""><br>
+        </div>
+        <br><br>
+        <hr>
+        <div>
+            <h1>CAPACIDADE DE CARGA</h1>
+        </div>
+        <hr>
+        <div>
+            <h1>MÁXIMA ALTURA DE ELEVAÇÃO DOS GARFOS</h1>
+        </div>
+    </div>
     <main class="main-container">
         <?php
         while ($products_data = mysqli_fetch_assoc($result)) {
@@ -44,6 +60,7 @@ $result = $conn->query($sqlSelect);
             echo        "</div>";
             echo        "<div class='caption'>";
             echo            "<p class='productNameTitle'>" . $products_data['product_name'] . "</p>";
+            echo             "<button id='btnMore'>Ver mais</button>";
             echo            "<p class='productDescription'>" . $products_data['product_description'] . "</p>";
             echo       "</div>";
             echo            "<button class='more_information'>Mais informações</button>";

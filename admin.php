@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Pagina de login para adm</h1>
-    <a href="./admin/controleDeProdutos.php">Tela principal</a>
+    <a href="./index.php">Tela principal</a>
     <a href="/SiteVendas/admin/controleDeProdutos.php">Controle de Produtos</a>
 </body>
 </html>
