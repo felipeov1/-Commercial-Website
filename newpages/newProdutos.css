@@ -1,0 +1,145 @@
+body {
+    margin: 0;
+    font-size: 10px; 
+    background-color: #abb8c3;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    align-items: center;
+    overflow: hidden;
+    transition: all .5s;
+}
+
+nav {
+    background-color: white;
+    padding: 0 20px;
+    justify-content: space-between;
+}
+
+nav, ul{
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+}
+
+li {
+    padding: 0 20px;
+}
+
+li:hover,
+button:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+#btnHeader {
+    background-color: transparent;
+    border: none;
+    font-size: 36px;
+    position: absolute;
+    right: 10px;
+    top: 30px;
+    display: none;
+}
+
+#btnHeader:focus ~ ul {
+    height: 250px;
+}
+
+@media (max-width: 760px) {
+nav, ul{
+    flex-direction: column;
+}
+ul{
+    text-align: center;
+    margin: 10px;
+    height: 0;
+}
+nav{
+    padding: 0;
+    align-items: flex-start;
+
+}
+#imgLogo{
+    margin: 10px;
+}
+#btnHeader{
+    display: flex;
+    align-items: center;
+}
+li, ul{
+    width: 100%;
+}
+li:hover{
+    background-color: rgba(43, 43, 43, 0.2);
+}
+}
+
+.aprImg{
+object-fit: contain;
+
+}
+
+.nav-produtos{
+width: 100%;
+}
+
+
+
+.container{
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100vh;
+}
+
+.container .navFilter{
+    
+    width: 230px;
+    height: auto;
+    margin: 5% 0px 0px 6%;
+    display: inline-block;
+}
+
+.container .navFilter .filterBox{
+    background-color: rgb(255, 217, 0);
+    justify-content: center;
+    display:inline-flex;
+    width: 280px;
+    height: 40px;
+    border-radius: 4px;
+}
+
+
+
+
+
+
+.container .navFilter #btnSearch{
+    border: none;
+    background-color: rgb(255, 217, 0);
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 8px;  
+}
+
+
+.container .section{
+    width: 1000px;
+    background-color: blueviolet;
+    margin: 5% 0px 0px 4%;
+    display: inline-flex;
+    position: absolute;
+    justify-content: space-between;
+    
+}
+
+.card{
+    background-color: black;
+    height: 370px;
+    width: 250px;
+}
+
