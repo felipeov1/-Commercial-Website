@@ -58,6 +58,7 @@
                 <button type="submit">Enviar</button>  
             </form>
         </div>
+        <a href="newIndex.php">newPage</a>
     </section>
     <footer></footer>
 </body>
