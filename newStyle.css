@@ -1,8 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap');
+
+
     body {
-        margin: 0; 
+        background-color: #e9e9e9;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: 'Inter', sans-serif;
+    }
+
+    #imgLogo{
+        margin: 5px 5px 5px 5px;
     }
     
     ul {
+        margin: 0;
         list-style: none;
         padding: 0;
         align-items: center;
@@ -11,22 +23,34 @@
     }
     
     nav {
-        background-color: white;
-        padding: 0 20px;
+        background-color: #f2f1efff;
+        padding: 0;
         justify-content: space-between;
+        
     }
     
     nav, ul{
         display: flex;
         flex-direction: row;
-        padding-top: 10px;
+        padding-top: 0;
+    }
+
+    li p{
+        margin: 30px 0 0 0;
     }
     
     li {
         padding: 0 20px;
+        text-align: center;
+        height: 100%;
     }
     
-    li:hover,
+    li:hover{
+        color: #fbb400;
+        background-color: #354759;
+        
+    }
+
     button:hover{
         cursor: pointer;
         opacity: 0.8;
@@ -58,6 +82,7 @@
     nav{
         padding: 0;
         align-items: flex-start;
+
     
     }
     #imgLogo{
@@ -71,18 +96,122 @@
         width: 100%;
     }
     li:hover{
-        background-color: rgba(43, 43, 43, 0.2);
+        color: #fbb400;
+        background-color: #354759;;
     }
 }
 
-.aprImg{
-    object-fit: contain;
-  
+
+/* main image */
+
+.mainImage{
+    position: relative;
+    background: url(img/mainImageLarge.jpg) no-repeat center;
+    background-size: cover;
+    height: 500px;
+    overflow: hidden;
 }
 
-.nav-produtos{
-    width: 100%;
+.mainImage .container{
+   position: absolute; 
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   text-align: center;
+   color: #fff;
+   font-weight: 700;
 }
+
+
+.textTitle{
+    margin: 5px;
+    display: block;
+    font-size: 35px;
+    color: #fbb400;
+    
+}
+
+.textPrice{
+    display: block;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.text{
+    display: block;
+    margin: 30px 0 30px 0;
+}
+
+.mainImage .container .btnLink{
+    color: black;
+    padding: 10px 20px;
+    background-color: #fbb400;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: .6s;
+}
+
+.btnLink:hover{
+    opacity: .6;
+}
+
+@media screen and (max-width: 760px){
+    .mainImage{
+        background: url(img/mainImageSmall.jpg) no-repeat center;
+        background-size: cover;
+    }
+    .textTitle{
+        display: block;
+        font-size: 20px;
+        
+    }
+    
+    .textPrice{
+        display: block;
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+    
+    .text{
+        display: block;
+        inline-size: 360px;
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 364px){
+    .text{
+        display: block;
+        inline-size: 300px;
+        font-size: 12px;
+    }
+
+}
+
+
+/* products */
+
+.containerProducts{
+    display: flex;
+    height: 400px;
+}
+
+.firstProduct{
+   border: 1px solid black;
+   width: 50%;
+   height: 400px;
+}
+
+.secondProduct{
+    border: 1px solid black;
+    width: 50%;
+    height: 400px;
+}
+
+
+
+
+
 
 
 
