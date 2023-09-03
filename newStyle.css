@@ -107,7 +107,8 @@
 .mainImage{
     position: relative;
     background: url(img/mainImageLarge.jpg) no-repeat center;
-    background-size: cover;
+    background-size: contain;
+    width: 100%;
     height: 500px;
     overflow: hidden;
 }
@@ -155,9 +156,9 @@
     opacity: .6;
 }
 
-@media screen and (max-width: 760px){
+/* @media screen and (max-width: 760px){
     .mainImage{
-        background: url(img/mainImageSmall.jpg) no-repeat center;
+       
         background-size: cover;
     }
     .textTitle{
@@ -177,9 +178,9 @@
         inline-size: 360px;
         font-size: 12px;
     }
-}
+} */
 
-@media screen and (max-width: 364px){
+/* @media screen and (max-width: 364px){
     .text{
         display: block;
         inline-size: 300px;
@@ -187,7 +188,7 @@
         height: 850px;
     }
 
-}
+} */
 
 
 /* products */
@@ -262,7 +263,6 @@
 }
 
 
-
 .information{
     display: inline;
     flex-direction: column;
@@ -302,7 +302,103 @@
     opacity: .6;
 }
 
-@media screen and (max-width: 760px){
+@media screen and (max-width: 728px){
+    .container{
+        inline-size: 300px;
+    }
+    .container .text{
+        font-size: 14px;
+    }
+    .container .textPrice{
+        font-size: 18px;
+    }
+    .container .textTitle{
+        font-size: 22px;
+    }
+    .mainImage{
+        width: 100%;
+        background-size: cover;
+        
+    }
+    .information{
+        display: flex;
+    }
+
+    .information h1{ 
+        margin: 0px 0px 80px 0px;
+        font-size: 18px; 
+    }
+    .information p{
+        position: relative;
+        max-width: 250px;
+        font-size: 16px;
+        margin: 0px 0px 10px 0px;
+    }
+    .mainProducts{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+    .mainProducts .card{
+        margin: 35px 0px 0px 0px;
+        width: 200px;
+        height: 390px;
+        inline-size: 300px;
+    }
+    .btnProductsPage{
+        margin: 0px 0px 0px 10px;
+    }
+   
+
+}
+
+/* @media (min-width: 321px) and (max-width: 376px){
+    .mainImage{
+        width: 100%;
+        background-size: cover;
+        
+    }
+    .information{
+        margin: 0;
+    }
+    .information p{
+        display: block;
+        position: relative;
+        align-items: center;
+        font-size: 14px;
+        margin: 0;
+        margin-right: 0;
+    }
+    .information h1{
+        font-size: 18px;
+        margin: 0;
+    }
+    .mainProducts{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .mainProducts .card{
+        margin: 35px 0px 0px 0px;
+        width: 200px;
+        height: 390px;
+        inline-size: 300px;
+    }
+    .btnProductsPage{
+        margin: 0px 0px 0px 10px;
+    }
+}
+
+@media (min-width: 376px) and (max-width: 426px){
+        .mainImage{
+        width: 100%;
+        background-size: cover;
+        
+    }
+    .information{
+        margin: 0;
+    }
     .information p{
         display: flex;
         position: relative;
@@ -321,16 +417,18 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        height: auto;
+        
     }
     .mainProducts .card{
+        margin: 35px 0px 0px 0px;
         width: 200px;
         height: 390px;
         inline-size: 300px;
     }
-   
-
-}
+    .btnProductsPage{
+        margin: 0px 0px 0px 10px;
+    }
+} */
 
 
 
