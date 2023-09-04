@@ -12,102 +12,22 @@
     #imgLogo{
         margin: 5px 5px 5px 5px;
     }
-    
-    ul {
-        margin: 0;
-        list-style: none;
-        padding: 0;
-        align-items: center;
-        overflow: hidden;
-        transition: all .5s;
+    #navbarNavAltMarkup{
+        margin: 0px 0px 0px 20px;
     }
-    
-    nav {
-        background-color: #f7f6f6;
-        padding: 0;
-        justify-content: space-between;
+    .navbar-nav{
         
+        font-size: 20px;
     }
-    
-    nav, ul{
-        display: flex;
-        flex-direction: row;
-        padding-top: 0;
-    }
-
-    li p{
-        margin: 30px 0 0 0;
-    }
-    
-    li {
-        padding: 0 20px;
-        text-align: center;
-        height: 100%;
-    }
-    
-    li:hover{
+    .navbar-nav a:hover{
         color: #fbb400;
-        background-color: #1c1c52;
-        
     }
-
-    #btnSeeMore:hover{
-        cursor: pointer;
-        opacity: 0.8;
-    }
-    
-    #btnSeeMore {
-        background-color: transparent;
-        border: none;
-        font-size: 36px;
-        position: absolute;
-        right: 10px;
-        top: 30px;
-        display: none;
-    }
-    
-    #btnSeeMore:focus ~ ul {
-        height: 250px;
-    }
- 
-    @media (max-width: 760px) {
-    nav, ul{
-        flex-direction: column;
-    }
-    ul{
-        text-align: center;
-        margin: 10px;
-        height: 0;
-    }
-    nav{
-        padding: 0;
-        align-items: flex-start;
-
-    
-    }
-    #imgLogo{
-        margin: 10px;
-    }
-    #btnSeeMore{
-        display: flex;
-        align-items: center;
-    }
-    li, ul{
-        width: 100%;
-    }
-    li:hover{
-        color: #fbb400;
-        background-color: #1c1c52;
-    }
-}
-
 
 /* main image */
 
 .mainImage{
     position: relative;
     background: url(img/mainImageLarge.jpg) no-repeat center;
-    background-size: contain;
     width: 100%;
     height: 500px;
     overflow: hidden;
@@ -156,39 +76,6 @@
     opacity: .6;
 }
 
-/* @media screen and (max-width: 760px){
-    .mainImage{
-       
-        background-size: cover;
-    }
-    .textTitle{
-        display: block;
-        font-size: 20px;
-        
-    }
-    
-    .textPrice{
-        display: block;
-        font-size: 15px;
-        margin-bottom: 10px;
-    }
-    
-    .text{
-        display: block;
-        inline-size: 360px;
-        font-size: 12px;
-    }
-} */
-
-/* @media screen and (max-width: 364px){
-    .text{
-        display: block;
-        inline-size: 300px;
-        font-size: 12px;
-        height: 850px;
-    }
-
-} */
 
 
 /* products */
@@ -198,9 +85,7 @@
     height: auto;
     justify-content: center;
     margin: 0;
-    padding: 0;
-    
-    
+    padding: 0; 
 }
 
 .mainProducts .card{
@@ -252,6 +137,7 @@
     padding: 10px 20px;
     margin: 20px;
     border: 2px solid #1c1c52;
+    color: black;
     background-color: transparent;
     text-decoration: none;
     border-radius: 5px;
@@ -282,8 +168,11 @@
 }
 
 .btnProductsPage{
-    display: inline;
-    
+    display: flex;
+    position: relative;
+    left: 50%; 
+    transform: translate(-50%);
+    width: max-content;
 }
 
 #btnMoreProdutcs {
@@ -302,7 +191,10 @@
     opacity: .6;
 }
 
-@media screen and (max-width: 728px){
+@media screen and (max-width: 768px){
+    .mainImage{
+        background-size: contain;
+    }
     .container{
         inline-size: 300px;
     }
@@ -320,19 +212,23 @@
         background-size: cover;
         
     }
+    .dataCard h1{
+        margin: 80px 0px 0px 0px;
+        width: max-content;
+    }
+    
     .information{
         display: flex;
     }
 
     .information h1{ 
-        margin: 0px 0px 80px 0px;
+        margin: 0px 0px 10px 0px;
         font-size: 18px; 
     }
-    .information p{
-        position: relative;
-        max-width: 250px;
-        font-size: 16px;
-        margin: 0px 0px 10px 0px;
+
+    .information h5{
+        font-size: 14px;
+        color: rgb(81, 81, 81);
     }
     .mainProducts{
         display: flex;
@@ -353,82 +249,35 @@
 
 }
 
-/* @media (min-width: 321px) and (max-width: 376px){
-    .mainImage{
-        width: 100%;
-        background-size: cover;
-        
-    }
-    .information{
-        margin: 0;
-    }
-    .information p{
-        display: block;
-        position: relative;
-        align-items: center;
-        font-size: 14px;
-        margin: 0;
-        margin-right: 0;
-    }
-    .information h1{
-        font-size: 18px;
-        margin: 0;
-    }
-    .mainProducts{
-        display: flex;
-        flex-direction: column;
-        
-    }
-    .mainProducts .card{
-        margin: 35px 0px 0px 0px;
-        width: 200px;
-        height: 390px;
-        inline-size: 300px;
-    }
-    .btnProductsPage{
-        margin: 0px 0px 0px 10px;
-    }
+
+.contact-img{
+    background-image: linear-gradient(#0009,#0000004d) ,url(img/Forklift-Training-Hero-Image.png);
+    text-align: center;
+    background-position: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 250px;
+    background-attachment: fixed;
 }
 
-@media (min-width: 376px) and (max-width: 426px){
-        .mainImage{
-        width: 100%;
-        background-size: cover;
-        
-    }
-    .information{
-        margin: 0;
-    }
-    .information p{
-        display: flex;
-        position: relative;
-        align-items: center;
-        inline-size: 300px;
-        font-size: 14px;
-        margin: 55px 0px 0px 0px;
-        margin-right: 0;
-    }
-    .information h1{
-        font-size: 18px;
-        inline-size: 300px;
-        margin: 10px 0px 55px 0px;
-    }
-    .mainProducts{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        
-    }
-    .mainProducts .card{
-        margin: 35px 0px 0px 0px;
-        width: 200px;
-        height: 390px;
-        inline-size: 300px;
-    }
-    .btnProductsPage{
-        margin: 0px 0px 0px 10px;
-    }
-} */
+
+li{
+    list-style: none;
+}
+
+.footerNav a {
+    text-decoration: none;
+    color: white;
+}
+
+.mediaIcon i:hover{
+    color: #fbb400 !important;
+}
+
 
 
 
