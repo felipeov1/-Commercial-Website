@@ -19,6 +19,9 @@
         
         font-size: 20px;
     }
+    .navbar{
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
     .navbar-nav a:hover{
         color: #fbb400;
     }
@@ -250,8 +253,10 @@
 }
 
 
+/* banner movel */
+
 .contact-img{
-    background-image: linear-gradient(#0009,#0000004d) ,url(img/Forklift-Training-Hero-Image.png);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.618),#00000080) ,url(img/Forklift-Training-Hero-Image.png);
     text-align: center;
     background-position: 0;
     display: flex;
@@ -264,19 +269,45 @@
     background-attachment: fixed;
 }
 
-
-li{
-    list-style: none;
-}
+/* footer */
 
 .footerNav a {
     text-decoration: none;
     color: white;
 }
 
-.mediaIcon i:hover{
-    color: #fbb400 !important;
+.footerNav a:hover{
+    color: #fbb400;
 }
+
+.mediaIcon i:hover{
+    color: #fbb400;
+}
+
+.SectionContact{
+    color: white;
+    font-size: 16px;
+}
+
+.SectionContact p{
+    inline-size: 850px;
+}
+
+.ContactBar a{
+    text-decoration: none;
+    color: white;
+}
+
+@media screen and (max-width: 768px){
+    .SectionContact p{
+        font-size: 12px;
+        inline-size: 300px;
+    }
+    .contact-img{
+        background-position: 50%;
+    }
+}
+
 
 
 
