@@ -3,21 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="contactStyle.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <title>CONTATO</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="img/logo.png" height="70px" alt=""></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link" aria-current="page"  href="index.html">Início</a>
+                    <a class="nav-link" aria-current="page" href="index.html">Início</a>
                     <a class="nav-link" href="#">Empilhadeiras</a>
                     <a class="nav-link" href="#">Contato</a>
                 </div>
@@ -25,25 +31,99 @@
         </div>
     </nav>
 
-
-    <div class=" container-fluid" id="main">
-        <div class="headerTable ">
-            <h1>Entre em contato</h1>
+    <div class="frmTitle container-fluid">
+        <h1>Entre em Contato</h1>
+        <p>Possuímos divesas formas de contato para atendimento.</p>
+    </div>
+    <div class="container container-fluid ">
+        <div class="row">
+            <div class="contactColum col-sm">
+                <h1>Formulário de Contato</h1>
+                <p>Para entrar em contato conosco por email, preencha o formulário abaixo e clique em Enviar Mensagem.
+                </p>
+                <hr>
+                <form class="frmMain" action="https://formsubmit.co/ofelipe439@gmail.com" method="POST">
+                    <input type="hidden" name="_captcha" value="false">
+                    <div class="mb-3">
+                        <label class="form-label">Nome</label>
+                        <input type="name" name="name" class="form-control" placeholder="seu nome" required>
+                    </div>
+                    <div class="mb-3">
+                        <div class="conatinerContact container">
+                            <div class="row">
+                                <div class="col gx-2">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" name="email" class="form-control" id="exampleFormControlInput1"
+                                        placeholder="nome@exemplo.com" required>
+                                </div>
+                                <div class="col  gx-2">
+                                    <label class="form-label">WhatsApp</label>
+                                    <input type="tel" name="tel" class="form-control"
+                                        pattern="\([0-9]{2}\)[9]{1}[0-9]{4}-[0-9]{4}" placeholder="(xx)9xxxx-xxxx"
+                                        required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Menssagem</label>
+                        <textarea type="textarea" name="textarea" class="form-control" rows="8"></textarea required>
+                    </div>
+                    <div class="btn d-grid gap-2">
+                        <button class="btn btn-dark" type="submit">Enviar Mensagem</button>
+                    </div>
+                    <p>Entraremos o contato com você o mais rápido possível</p>
+                </form> 
+            </div>
+            <div class="information mapsColum col-sm">
+                <div class="container text-center">
+                    <div class="contactInformation row">
+                      <div class="whatsapp col-5">
+                        <h1>WhatsApp:</h1>
+                        <p>(xx) xxxxx-xxxx</p>
+                      </div>
+                      <div class="email col-6">
+                        <h1>E-mail:</h1>
+                        <p>seuemail@contato.com</p>
+                      </div>
+                      <div class="adresse row">
+                        <div class="col-4">
+                            <h1>Endereço:</h1>
+                            <p>Rua...</p>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="mediaIcon">
+                    <ul class="list-unstyled list-inline">
+                        <li class="list-inline-item">
+                            <a href="" class="text-black"><i class="bi bi-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="" class="text-black"><i class="bi bi-whatsapp"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="" class="text-black"><i class="bi bi-instagram"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="map">
+                    <script>
+                        var map = L.map('map').setView([-23.3122, -51.159656], 13);
+                        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                        }).addTo(map);
+                        L.marker([-23.3122, -51.159656]).addTo(map)
+                            .bindPopup('Sua empresa.<br>')
+                            .openPopup();
+                    </script>
+                </div>
+            </div>
         </div>
-        <form class="form" action="https://formsubmit.co/ofelipe439@gmail.com" method="POST"> 
-            <title>Entre em contato</title>
-            <label for="name">Digite seu nome:</label>
-            <input type="text" class="form-control" name="name" id="name" required>
-            <label for="email">Digite seu e-mail:</label>
-            <input type="email" class="form-control" name="email" id="email" required>
-            <label for="message">Digite sua mensagem:</label>
-            <textarea name="message" class="form-control" id="message" cols="30" rows="10" required></textarea>
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="http://127.0.0.1:5501/contato.html">
-            <button class="btn btn-outline-warning"  type="submit">Enviar</button> 
-       </form>
-</div>
-<div class="blank container-fluid"></div>
+    </div>
+
+
+    <div class="blank container-fluid"></div>
     <footer class=" footer text-white bg-dark pt-5 pb-4">
         <div class="container text-center text-md-start">
 
@@ -77,11 +157,11 @@
                             <a href="" class="bi bi-geo-alt-fill"> Seu endereço</a><br>
                         </p>
                         <p>
-                            <a href=""  class="bi bi-telephone-fill"> (xx) xxxx-xxxx</a><br>
+                            <a href="" class="bi bi-telephone-fill"> (xx) xxxx-xxxx</a><br>
                         </p>
                         <p>
                         </p>
-                            <a href="" class="bi bi-envelope-fill"> seuemail@contato.com</a>
+                        <a href="" class="bi bi-envelope-fill"> seuemail@contato.com</a>
                         </p><br><br>
                     </div>
                     <hr class="mb-4">
@@ -104,5 +184,9 @@
         </div>
     </footer>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script>
+        src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity = "sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin = "anonymous"
+    </script>
 </html>
