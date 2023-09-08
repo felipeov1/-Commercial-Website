@@ -194,7 +194,7 @@
     opacity: .6;
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 800px){
     .mainImage{
         background-size: contain;
     }
@@ -248,9 +248,9 @@
     .btnProductsPage{
         margin: 0px 0px 0px 10px;
     }
-   
-
 }
+
+
 
 
 /* banner movel */
@@ -270,6 +270,7 @@
 }
 
 /* footer */
+
 
 .footerNav a {
     text-decoration: none;

@@ -58,11 +58,15 @@
         margin-bottom: 50px;
     }
 
-   .frmMain input:hover, textarea:hover{
-        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-        border:  none;
+    .frmMain input{
+        box-shadow: 0 0 0 0;
+        border: 1px solid rgba(0, 0, 0, 0.218);
         outline: 0;
-   }
+    } 
+
+   .frmMain input:hover, textarea:hover{
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;  
+    }
 
 
     .btn p{
@@ -120,10 +124,21 @@
         .whatsapp{
             margin-right: 10px;
         }
+        .frmMain input{
+            width: 200px;
+        }
+        .celular{
+            margin-top: 16px;
+        }
+
     }
 
     /* footer */
 
+    footer{
+        margin-top: 150px;
+    }
+    
     .footerNav a {
         text-decoration: none;
         color: white;
@@ -149,11 +164,6 @@
     .ContactBar a{
         text-decoration: none;
         color: white;
-    }
-
-    .blank{
-        background-color: #f7f6f6;
-        height: 250px;
     }
 
   
