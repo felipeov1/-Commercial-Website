@@ -54,7 +54,7 @@
     }
     .containerImg .container h1{
         position: absolute;
-        top: 35%;
+        top: 40%;
         left: 50%;
         transform: translate(-50%, -50%);
         text-align: center;
@@ -73,82 +73,41 @@
 
     /* ContentPage */
 
-    .ContentPage{
-        /* display: grid; */
-        grid-template-columns: 1fr auto;
-        gap: 20px;
-    }
+  
 
     /* menu filter */
 
-    .containerFilter{
-        position: absolute;
-        background-color: white;
+    .DivMenu{
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-        max-width: 374px;
-    }
-
-    .menuFilter{
-        margin: 10px;
-        width: 350px;
+        width: max-content;
+        min-width: 250px;
         height: 500px;
-    }
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 50px;
+        margin-left: 50px;
 
-    .menuFilter div{
-        margin: 15px;
     }
-
-    .menuFilter p{
-        width: fit-content;
-        margin: 0;
-    }
+    
+  
 
     /* card */
-
-
-    .containerCard{
-       position: relative;
-       width: 100%;
-       max-width: calc(100% - 374px - 20px);
-       flex-grow: 1;
-       left: 35%;
-       display: flex    ;
-       flex-wrap: wrap;
-    } 
-
     .card{
-        flex: 0 0 calc(33.33% - 20px);
-        box-sizing: border-box;
-        justify-content: space-between;
-        margin: 0px 10px 20px 10px;
+        margin: 10px;
     }
-
-    .card a{
-        background-color: black;
-        border: none;
+    .DivCard{
+        background-color: #ffffff;
+        width: max-content;
+        min-width: 250px;
+        vertical-align: top;
         
+        display: inline-block;
     }
-
-    .card a:hover{
-        color: #fbb400;
-        background-color: black;
-    }
+    
 
     /* paginas */
 
-    .page{
-        position: absolute;
-        top: 120%;
-        left: 40%;
-        transform: translate(-50%, -50%);
-    }
 
-    .page a{
-        color: #fbb400;
-    }
-    .page a:hover{
-        color: black;
-    }
     
 
 
@@ -158,7 +117,6 @@
         margin-top: 40px;
         bottom: 0;
         left: 0;
-        width: 100%;
         position: relative;
         z-index: 999;
     }
