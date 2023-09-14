@@ -67,12 +67,7 @@
         color: white;
     }
 
-    @media screen and (max-width: 800px){
-        .containerImg{
-            background-position: 21%;
-        }
-   
-    }
+
 
     /* ContentPage */
 
@@ -89,7 +84,7 @@
         display: inline-block;
         vertical-align: top;
         margin-right: 50px;
-        margin-left: 100px;
+        margin-left: 50px;
         padding: 20px;
     }
     
@@ -112,25 +107,7 @@
         transition: 2s;
     }
 
-    @media screen and (max-width: 800px){
-        .DivMenu{
-            position: relative;
-            align-items: center;
-            left: 50%;
-            transform: translate(-50%);
-            margin: 0;
-        }
-    }
 
-    @media (min-width: 801px) and (max-width: 1348px){
-        .DivMenu{
-            margin: 0 5px 0 20px;
-        }
-        .container-card.container-fluid{
-           width: auto;
-        }  
-
-    }
 
 
   
@@ -142,14 +119,12 @@
         position: relative;
         display: inline-flex;
         flex-wrap: wrap;
-        break-inside: auto;
-        max-width: 70%;
+        max-width: 75%;
         gap: 20px;
         
     }
 
     .card{
-        
         margin-bottom: 20px;
         box-sizing: border-box;
     }
@@ -170,26 +145,8 @@
         opacity: .6;
     }
 
-    @media screen and (max-width: 800px){
-        .container-card{
-            margin-top: 35px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-width: 100%;
-            
-        }
-    }
 
-    @media (min-width: 801px) and (max-width: 800px){
-
-    }
-
-
-   
-
-
-
+  
     /* paginas */
 
     #NumberPages{
@@ -207,15 +164,6 @@
 
     .pagination  li a:hover{
         color: #fbb400;
-    }
-
-    @media screen and (max-width: 800px){
-        #NumberPages{
-            position: absolute;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            margin: 20px 0 0 0;
-        }
     }
 
 
@@ -255,6 +203,48 @@
         text-decoration: none;
         color: white;
     }
+
+
+    @media (min-width: 801px) and (max-width: 1024px){
+        #NumberPages{
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            margin: 20px 0 0 0;
+        }
+        
+        .container-card{
+            max-width: 65%;
+        }
+        .card{
+            width: 150px !important;
+        }
+        .DivMenu{
+            margin: 0 5px 0 20px;
+        }
+    }
+
+    @media screen and (max-width: 800px){
+        .containerImg{
+            background-position: 21%;
+        }
+        .container-card{
+            margin-top: 35px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 100%;
+            
+        }
+        .DivMenu{
+            position: relative;
+            align-items: center;
+            left: 50%;
+            transform: translate(-50%);
+            margin: 0;
+        }
+    }
+
 
 
 

@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap');
+
+/* header */
+
+body {
+    background-color: #f7f6f6;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+
+#imgLogo {
+    margin: 5px 5px 5px 5px;
+}
+
+#navbarNavAltMarkup {
+    margin: 0px 0px 0px 20px;
+}
+
+.navbar-nav {
+
+    font-size: 20px;
+}
+
+.navbar {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.navbar-nav a:hover {
+    color: #fbb400;
+}
+
+/* carrousel */
+
+
+
+
+/* images */
+
+.view{
+    border: 1px solid;
+    height: 58%;
+    width: fit-content;
+}
+.mainImg{
+    text-align: center;
+}
+
+.mainImg img{
+    height: 300px;
+}
+
+.imageSide, .informationSide{
+   height: 100vh;
+   width: 100%;    
+   padding: 0;
+}
+
+.card{
+    border: 1px solid rgba(213, 213, 213, 0.137) !important;
+    height: 120px !important;
+    width: 120px !important;
+}
+
+
+
+/* information */
+
+.informationSide{
+    background-color: blue;
+}
+
+
+/* footer */
+
+footer {
+    margin-top: 100px;
+    bottom: 0;
+    left: 0;
+    position: relative;
+    z-index: 999;
+}
+
+.footerNav a {
+    text-decoration: none;
+    color: white;
+}
+
+.footerNav a:hover {
+    color: #fbb400;
+}
+
+.mediaIcon i:hover {
+    color: #fbb400;
+}
+
+.SectionContact {
+    color: white;
+    font-size: 16px;
+}
+
+.SectionContact p {
+    inline-size: 850px;
+}
+
+.ContactBar a {
+    text-decoration: none;
+    color: white;
+}
+
+@media screen and (min-width: 768px){
+    .imageSide, .informationSide{
+        height: 100vh;
+    }
+}
