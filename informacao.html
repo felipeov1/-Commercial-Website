@@ -30,45 +30,157 @@
         </div>
     </nav>
 
-    <div class="row ">
-        <div class="col-md-6" style="padding: 0;">
-            <div class="view">
-                <div class="imageSide ">
+    <div  class="row d-flex align-items-center">
+        <div class="colImg col-md-6" style="padding: 0;">
+            <div class="imageSide ">
+                <div class="view">
                     <div class="mainImg">
-                        <img src="img/combustao.jpg" class="img-fluid" alt="...">
+                        <img id="fullImage" src="img/FD45T/2-1b.jpg" class="img-fluid" alt="...">
                     </div>
-                    <div id="carouselExampleControls" class="carousel carousel-dark slide">
-                        <div class="carousel-inner">
+                    <div id="carouselExample" class="carousel carousel-dark slide">
+                        <div class="carousel-inner" id="carouselCard">
                             <div class="carousel-item active">
-                                <div class="card-wrapper container-sm d-flex  justify-content-center">
-                                    <div class="card  " style="width: 18rem;">
-                                        <img src="img/combustao.jpg" class="card-img-top" alt="...">
+                                <div class="carouselCard card-wrapper container-sm d-flex  justify-content-center">
+                                    <div class="card">
+                                        <img src="img/FD45T/11b.jpg" class="card-img-top" alt="..."
+                                            onclick="change(this)">
                                     </div>
-                                    <div class="card  " style="width: 18rem;">
-                                        <img src="img/combustao.jpg" class="card-img-top" alt="...">
+                                    <div class="card">
+                                        <img src="img/FD45T/12b.jpg" class="card-img-top" alt="..."
+                                            onclick="change(this)">
                                     </div>
-                                    <div class="card  " style="width: 18rem;">
-                                        <img src="img/combustao.jpg" class="card-img-top" alt="...">
+                                    <div class="card">
+                                        <img src="img/FD45T/13b.jpg" class="card-img-top" alt="..."
+                                            onclick="change(this)">
                                     </div>
-                                    <div class="card  " style="width: 18rem;">
-                                        <img src="img/combustao.jpg" class="card-img-top" alt="...">
+                                    <div class="card">
+                                        <img src="img/FD45T/14b.jpg" class="card-img-top" alt="..."
+                                            onclick="change(this)">
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
 
+                </div>
+
+                <!-- MOBILE DEVICE -->
+                <div id="carouselExampleDark" class="carouselMobile carousel carousel-dark slide">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="10000">
+                            <img src="img/FD45T/2-1b.jpg" class="imgMobile d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block"></div>
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2000">
+                            <img src="img/FD45T/14b.jpg" class="imgMobile d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block"></div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/FD45T/13b.jpg" class="imgMobile d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block"></div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
             </div>
         </div>
 
+
+        <script>
+            function change(smallImg) {
+
+                let fullImage = document.getElementById("fullImage");
+                fullImage.src = smallImg.src;
+            }
+        </script>
+
         <div class="col-md-6" style="padding: 0;">
 
-            <div class="informationSide"></div>
-
+            <div class="informationSide">
+                <div class="textInformation">
+                    <h1>Empilhadeira 4.5T</h1><br>
+                    <p><i class="bi bi-chevron-right" style="color: #fbb400;"></i>Boa estabilidade</p>
+                    <p><i class="bi bi-chevron-right" style="color: #fbb400;"></i>Alta potência</p>
+                    <p><i class="bi bi-chevron-right" style="color: #fbb400;"></i>Baixo ruído</p>
+                    <p><i class="bi bi-chevron-right" style="color: #fbb400;"></i>Tamanho pequeno</p><br>
+                    <p class="description">Nossa empilhadeira adota gasolina como fonte de energia. Está disponível com
+                        capacidade de 4,5 toneladas. A empilhadeira a gasolina de 4,5 toneladas é bastante recomendada
+                        para carregar cargas pesadas. Pode ser utilizada a qualquer momento e ao ar livre. A carga desta
+                        empilhadeira a gasolina de 4.5 toneladas varia de 0.5 a 45 toneladas.</p><br>
+                    <a href=""><button>Adquirir</button></a>
+                </div>
+                <div>
+                </div>
+            </div>
         </div>
-
     </div>
+    <div class="container">
+        <table class="table table-striped border">
+            <thead>
+                <th colspan="3" class="text-center" style="background-color: #fbb400;">Especificações</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>CAPACIDADE DE CARGA (KG)</td>
+                    <td>3000 kg</td>
+                </tr>
+                <tr>
+
+                    <td>MOTOR</td>
+                    <td>Nissan K25</td>
+                </tr>
+                <tr>
+                    <td>POTÊNCIA</td>
+                    <td>37,4 KW / 2.300 rpm</td>
+                </tr>
+                <tr>
+                    <td>RAIO DE GIRO</td>
+                    <td>2.450 mm</td>
+                </tr>
+                <tr>
+                    <td>VELOCIDADE</td>
+                    <td>19 km/h</td>
+                </tr>
+                <tr>
+                    <td>VELOCIDADE DE ELEVAÇÃO</td>
+                    <td>0,425 / 0,440 m/s</td>
+                </tr>
+                <tr>
+                    <td>MÁXIMA ALTURA DE ELEVAÇÃO DOS GARFOS</td>
+                    <td>4000 a 6000 mm</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
 
 
 
