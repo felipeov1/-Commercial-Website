@@ -43,37 +43,21 @@ body {
     display: none;
 }
 
-.view{
-    position: absolute;
-    height: fit-content;
-    top: 50%;
-    left: 30%;
-    transform: translate(-50%, -50%);
-    width: fit-content;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
 
-.mainImg img{
-    height: 400px;
-    width: 600px;
-}
 
-.imageSide, .informationSide{
-   height: 90vh !important;
-   width: 100%;    
-   padding: 0;
+#fullImage{
+    width: 100%;
 }
 
 
-
-.card{
-    height: 130px !important;
-    width: 150px !important;
-   
+.imageSide, .informationSide{   
+   padding: 50px;
 }
+
+.imageSide{
+    width: 650px !important;
+}
+
 
 
 
@@ -95,10 +79,18 @@ body {
 
 /* information */
 
-.textInformation{
-    position: absolute;
-    top: 18%;
-}
+/* .informationSide{
+    display: flex;
+    position: relative;
+    left: 10%;
+    margin: 40px;
+} */
+
+.informationSide .textInformation{
+    max-width: 50%;
+    text-align: left;
+
+} 
 
 .textInformation h1{
     color: rgb(44,57,70);
@@ -127,7 +119,9 @@ body {
 }
 
 
-@media screen and (max-width: 767px) {
+
+
+/* @media screen and (max-width: 767px) {
     .textInformation{
         position: relative;
         top: 0%;
@@ -145,11 +139,10 @@ body {
         position: absolute;
         margin: 10px;
     }
-
-
-
 }
-@media  (min-width: 728px) and (max-width: 1024px) {
+*/
+
+/* @media  (min-width: 768px) and (max-width: 1024px) {
     .textInformation{
         position: relative;
         top: 0%;
@@ -170,7 +163,7 @@ body {
     .colImg{
         max-height: 350px;
     } 
-}
+}  */
 
 /* footer */
 
