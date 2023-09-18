@@ -34,16 +34,23 @@ body {
 
 /* carrousel */
 
-
-
-
-/* images */
+#carouselExample{
+    width: 100%;
+}
 
 .carouselMobile{
     display: none;
 }
 
+/* images */
 
+.view{
+    position: relative;
+    left: 65%;
+    transform: translateX(-50%);
+    width: 450px;
+    margin: 0;
+}
 
 #fullImage{
     width: 100%;
@@ -53,11 +60,6 @@ body {
 .imageSide, .informationSide{   
    padding: 50px;
 }
-
-.imageSide{
-    width: 650px !important;
-}
-
 
 
 
@@ -79,18 +81,14 @@ body {
 
 /* information */
 
-/* .informationSide{
-    display: flex;
-    position: relative;
-    left: 10%;
-    margin: 40px;
-} */
+.informationSide{
+    width: 100%;
+}
 
-.informationSide .textInformation{
-    max-width: 50%;
-    text-align: left;
-
-} 
+.textInformation {
+    max-width: 100%;
+    
+}
 
 .textInformation h1{
     color: rgb(44,57,70);
@@ -101,7 +99,7 @@ body {
 }
 
 .description{
-    max-width: 750px;
+    max-width: 550px;
 }
 
 .textInformation button{
@@ -121,49 +119,20 @@ body {
 
 
 
-/* @media screen and (max-width: 767px) {
+ @media screen and (max-width: 1023px) {
+    .view{
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: 100%;
+          
+    }
     .textInformation{
-        position: relative;
-        top: 0%;
-        margin-top: 50px;
         text-align: center;
+        padding: 10px;
     }
-    .mainImg{
-        display: none;
-    }
-    #carouselCard{
-        display: none;
-    }
-    .carouselMobile{
-        display: flex;
-        position: absolute;
-        margin: 10px;
-    }
-}
-*/
+} 
 
-/* @media  (min-width: 768px) and (max-width: 1024px) {
-    .textInformation{
-        position: relative;
-        top: 0%;
-        margin-top: 50px;
-        text-align: center;
-    }
-    .mainImg{
-        display: none;
-    }
-    #carouselCard{
-        display: none;
-    }
-    .carouselMobile{
-        display: flex;
-        position: absolute;
-        margin: 10px;
-    }
-    .colImg{
-        max-height: 350px;
-    } 
-}  */
+
 
 /* footer */
 
