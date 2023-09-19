@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap');
+
+/* header */
+
+body {
+    background-color: #f7f6f6;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+
+
+
+#imgLogo {
+    margin: 5px 5px 5px 5px;
+}
+
+#navbarNavAltMarkup {
+    margin: 0px 0px 0px 20px;
+}
+
+.navbar-nav {
+
+    font-size: 20px;
+}
+
+.navbar {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.navbar-nav a:hover {
+    color: #fbb400;
+}
+
+/* container */
+
+.containerContent {
+    width: 100%;
+    margin: 0 !important;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    height: 100%;
+}
+
+
+.image-text {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(20px);
+}
+
+#mobile{
+    display: none;
+}
+
+
+
+.image-text img {
+    height: 500px;
+}
+
+.text p{
+    font-size: 20px;
+    margin: 25px;
+}
+
+
+.fade-in {
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+.fade-in.show {
+    opacity: 1;
+}
+
+.btnProducts{
+    color: black;
+    padding: 10px 20px;
+    background-color: #fbb400;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid;
+    transition: .6s;
+}
+
+.btnProducts:hover{
+    opacity: .6;
+}
+
+@media screen and (max-width: 728px) {
+    .image-text, #mobile{
+        display: inline;
+        padding: 0px 0px 50px 0px !important;
+    }
+    .image-text img{
+        position: relative;
+        height: fit-content;
+        margin-bottom: 30px;
+    }
+    .text p{
+        font-size: 20px;
+        margin: 5px;
+    }
+    #invert{
+        display: none;
+    }
+ 
+}
+
+
+
+/* footer */
+
+footer {
+    margin-top: 100px;
+    bottom: 0;
+    left: 0;
+    position: relative;
+    z-index: 999;
+}
+
+.footerNav a {
+    text-decoration: none;
+    color: white;
+}
+
+.footerNav a:hover {
+    color: #fbb400;
+}
+
+.mediaIcon i:hover {
+    color: #fbb400;
+}
+
+.SectionContact {
+    color: white;
+    font-size: 16px;
+}
+
+.SectionContact p {
+    inline-size: 850px;
+}
+
+.ContactBar a {
+    text-decoration: none;
+    color: white;
+}
