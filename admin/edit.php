@@ -1,73 +1,123 @@
 <?php
-    if (!empty($_GET['id'])) {
+if (!empty($_GET['id'])) {
 
-        include_once '../db/connection.php';
+    include_once '../db/connection.php';
 
-        
+    $id = $_GET['id'];
 
-        $id = $_GET['id'];
+    $sqlSelect = "SELECT * FROM products WHERE product_id = $id";
 
-        $sqlSelect = "SELECT * FROM products WHERE product_id = $id";
+    $result = $conn->query($sqlSelect);
 
-        $result = $conn->query($sqlSelect);
-
-        if ($result->num_rows > 0) {
-            $product_data = $result->fetch_assoc();
-            $img = $product_data['product_imgName'];
-            $productName = $product_data['product_name'];
-            $productDescription = $product_data['product_description'];
-        } else {
-            echo "Produto não encontrado";
-        }
+    if ($result->num_rows > 0) {
+        $product_data = $result->fetch_assoc();
+        $id = $product_data['product_id'];
+        $img = $product_data['product_imgName'];
+        $productName = $product_data['product_name'];
+        $productDetail1 = $product_data['product_detail1'];
+        $productDetail2 = $product_data['product_detail2'];
+        $productDetail3 = $product_data['product_detail3']; 
     } else {
-        echo "ID do produto não fornecido";
+        echo "Produto não encontrado";
     }
+} else {
+    echo "ID do produto não fornecido";
+}
 ?>
 
 <DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="novoProdutoStyle.css">
-    <title>Document</title>
-</head>
-<body>
-    <header>
-        <nav class="nav-bar">
-            <div class="logo">
-                <img src="../img/logo.png" alt="logo" width="160px">
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="editStyle.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.php"><img src="../img/logo.png" height="70px" alt="Imagem Logo"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link" href="contato.php">Sair</a>
+                    </div>
+                </div>
             </div>
         </nav>
-    </header><br>
 
-    <a href="./controleDeProdutos.php">Voltar</a>
-    <section id="upload-section">
-        <form action="saveEdit.php" method="POST" enctype="multipart/form-data">
-            <input type="text" name="productName" id="productName" placeholder="Nome do produto" value="<?php echo $productName ?>" required>
-
-            <input type="text" name="productDescription" id="productDescription" placeholder="Descrição do produto" value="<?php echo $productDescription ?>" required>
-
-            <input type="file" name="imgUpload" id="imgUpload" required hidden>
-            <button id="choose" onclick="upload()"><?php echo $img ?></button>
-            <input type="submit" value="Alterar" name="update" id="update">
-        </form>
-    </section>
+        <div class="container">
+           <div class="form">
+                <form action="./saveEdit.php" method="POST" enctype="multipart/form-data">
+                    <div class="formHeader">
+                        <div class="returnBtn">
+                            <button><a href="controleDeProdutos.php">Voltar</a></button>
+                        </div>
+                        <div>
+                            
+                        </div>
+                    </div>
+                    <div class="inputGroup">
+                        <div class="inputBox">
+                            <label for="productName">Produto:</label>
+                            <input id="productName" type="text" value="<?php echo $productName ?>" name="productName">
+                        </div>
+                    </div><br>
+                    <div class="inputGroup">
+                        <div class="inputBox">
+                            <label for="productDetail1">Tipo de combustível:</label>
+                            <input type="text" name="productDetail1" value="<?php echo $productDetail1 ?>" id="productDetail1">
+                        </div>
+                    </div>
+                    <div class="inputGroup">
+                        <div class="inputBox">
+                            <label for="productDetail1">Elevacão:</label>
+                            <input type="text" name="productDetail2" value="<?php echo $productDetail2 ?>" id="productDetail2">
+                        </div>
+                    </div>
+                    <div class="inputGroup">
+                        <div class="inputBox">
+                            <label for="productDetail1">Capacidade de carga:</label>
+                            <input type="text" name="productDetail3" value="<?php echo $productDetail3 ?>" id="productDetail3">
+                        </div>
+                    </div>
+                    <div class="imgBtn">
+                        <button id="choose" onclick="upload()"><?php echo "Alterar:<br>" . $img  ?></button>
+                    </div><br>
+                    <div class="updateBtn">
+                    <input type="submit" value="Alterar" name="update" id="update">
+                    </div>
+                </form>
+           </div> 
+        </div>
     
-    <script>
-        var productName = document.getElementById("productName");
-        var choose = document.getElementById("choose");
-        var imgUpload = document.getElementById("imgUpload");
+        <script>
+            var productName = document.getElementById("productName");
+            var choose = document.getElementById("choose");
+            var imgUpload = document.getElementById("imgUpload");
 
-        function upload() {
-            imgUpload.click();
-        }
+            function upload() {
+                imgUpload.click();
+            }
 
-        imgUpload.addEventListener("change", function() {
-            var file = this.files[0];
-            choose.innerHTML = file.name; 
-        });
-    </script>
+            imgUpload.addEventListener("change", function () {
+                var file = this.files[0];
+                choose.innerHTML = file.name;
+            });
+        </script>
 
-</body>
-</html>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+    </html>

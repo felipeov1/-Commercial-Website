@@ -15,16 +15,16 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html"><img src="img/logo.png" height="70px" alt="Imagem Logo"></a>
+            <a class="navbar-brand" href="index.php"><img src="img/logo.png" height="70px" alt="Imagem Logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link" aria-current="page" href="index.html">Início</a>
-                    <a class="nav-link" href="empilhadeiras.html">Empilhadeiras</a>
-                    <a class="nav-link" href="contato.html">Contato</a>
+                    <a class="nav-link" aria-current="page" href="index.php">Início</a>
+                    <a class="nav-link" href="empilhadeiras.php">Empilhadeiras</a>
+                    <a class="nav-link" href="contato.php">Contato</a>
                 </div>
             </div>
         </div>
@@ -86,9 +86,9 @@
                         capacidade de 4,5 toneladas. A empilhadeira a gasolina de 4,5 toneladas é bastante recomendada
                         para carregar cargas pesadas. Pode ser utilizada a qualquer momento e ao ar livre. A carga desta
                         empilhadeira a gasolina de 4.5 toneladas varia de 0.5 a 45 toneladas.</p><br>
-                    <form action="/comprar-empilhadeira.html">
-                        <button type="submit">Adquirir</button>
-                    </form>
+                    
+                    <a href="/comprar-empilhadeira.php"><button type="submit">Adquirir</button></a>
+                    
                 </div>
                 <div>
                 </div>
@@ -155,13 +155,13 @@
                         </h5>
                         <hr class="mb-4">
                         <p>
-                            <a href="index.html">Início</a>
+                            <a href="index.php">Início</a>
                         </p>
                         <p>
-                            <a href="empilhadeiras.html">Empilhadeiras</a>
+                            <a href="empilhadeiras.php">Empilhadeiras</a>
                         </p>
                         <p>
-                            <a href="contato.html">Contato</a>
+                            <a href="contato.php">Contato</a>
                         </p>
                     </div>
                     <div class="ContactBar col-md-2 col-lg-2 col-xl-3 mx-auto mt-3">

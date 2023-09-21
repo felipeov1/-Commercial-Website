@@ -16,16 +16,16 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html"><img src="img/logo.png" height="70px" alt="Imagem Logo"></a>
+            <a class="navbar-brand" href="index.php"><img src="img/logo.png" height="70px" alt="Imagem Logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link" aria-current="page" href="index.html">Início</a>
-                    <a class="nav-link" href="empilhadeiras.html">Empilhadeiras</a>
-                    <a class="nav-link" href="contato.html">Contato</a>
+                    <a class="nav-link" aria-current="page" href="index.php">Início</a>
+                    <a class="nav-link" href="empilhadeiras.php">Empilhadeiras</a>
+                    <a class="nav-link" href="contato.php">Contato</a>
                 </div>
             </div>
         </div>
@@ -43,7 +43,7 @@
                     gasolina é caracterizado por ser compacto, leve, silencioso, com baixa vibração e um preço
                     acessível.
                 </p>
-                <a href="empilhadeiras.html"  class="btnProducts">Ver Produtos</a>
+                <a href="empilhadeiras.php"  class="btnProducts">Ver Produtos</a>
             </div>
         </div>
         <div class="image-text" id="invert" style="padding-left: 50px;">
@@ -59,7 +59,7 @@
                     permitindo operações contínuas por até 7 horas após cada carga. Seu controle e motor de corrente
                     alternada proporcionam um desempenho sólido e eficiente.
                 </p>
-                <a href="empilhadeiras.html"  class="btnProducts fade-in">Ver Produtos</a>
+                <a href="empilhadeiras.php"  class="btnProducts fade-in">Ver Produtos</a>
             </div>
             <img src="img/combustao.jpg" alt="Imagem 2" class="fade-in">
         </div>
@@ -79,7 +79,7 @@
                     permitindo operações contínuas por até 7 horas após cada carga. Seu controle e motor de corrente
                     alternada proporcionam um desempenho sólido e eficiente.
                 </p>
-                <a href="empilhadeiras.html"  class="btnProducts fade-in">Ver Produtos</a>
+                <a href="empilhadeiras.php"  class="btnProducts fade-in">Ver Produtos</a>
             </div>
         </div>
 
@@ -99,7 +99,7 @@
                     marca EATON. Isso assegura um desempenho consistente e confiável da empilhadeira retrátil em suas
                     operações.
                 </p>
-                <a href="empilhadeiras.html"  class="btnProducts fade-in">Ver Produtos</a>
+                <a href="empilhadeiras.php"  class="btnProducts fade-in">Ver Produtos</a>
             </div>
         </div>
     </div>
@@ -131,13 +131,13 @@
                         </h5>
                         <hr class="mb-4">
                         <p>
-                            <a href="index.html">Início</a>
+                            <a href="index.php">Início</a>
                         </p>
                         <p>
-                            <a href="empilhadeiras.html">Empilhadeiras</a>
+                            <a href="empilhadeiras.php">Empilhadeiras</a>
                         </p>
                         <p>
-                            <a href="contato.html">Contato</a>
+                            <a href="contato.php">Contato</a>
                         </p>
                     </div>
                     <div class="ContactBar col-md-2 col-lg-2 col-xl-3 mx-auto mt-3">

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="compraStyle.css">
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/arrow-align-v.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -23,14 +23,50 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link" aria-current="page" href="index.html">Início</a>
-                    <a class="nav-link" href="empilhadeiras.html">Empilhadeiras</a>
-                    <a class="nav-link" href="contato.html">Contato</a>
+                    <a class="nav-link" aria-current="page" href="index.php">Início</a>
+                    <a class="nav-link" href="empilhadeiras.php">Empilhadeiras</a>
+                    <a class="nav-link" href="contato.php">Contato</a>
                 </div>
             </div>
         </div>
     </nav>
 
+
+    <div class="container frmBx">
+        <form class="frmMain" action="https://formsubmit.co/ofelipe439@gmail.com" method="POST">
+            <input type="hidden" name="_captcha" value="false">
+            <div class="mb-3">
+                <label class="form-label">Nome Completo:</label>
+                <input type="name" name="name" class="form-control" placeholder="seu nome" required>
+            </div>
+            <div class="mb-3">
+                <div class="conatinerContact container">
+                    <div class="row">
+                        <div class="col gx-2">
+                            <label class="form-label">Email:</label>
+                            <input type="email" name="email" class="form-control" id="exampleFormControlInput1"
+                                placeholder="nome@exemplo.com" required>
+                        </div>
+                        <div class="celular col  gx-2">
+                            <label class="form-label">Celular:</label>
+                            <input type="tel" name="tel" class="form-control"
+                                pattern="\([0-9]{2}\)[9]{1}[0-9]{4}-[0-9]{4}" placeholder="(xx)9xxxx-xxxx"
+                                required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Menssagem:</label>
+                <textarea type="textarea" name="textarea" class="form-control" rows="8" placeholder="Digite o que você precisa..." ></textarea required>
+            </div>
+            <input type="hidden" name="_next" value="http://localhost/felipe/ecommerce/SiteComercial/enviado.php">
+            <div class="btn d-grid gap-2">
+                <button class="btn btn-dark" type="submit">Enviar Mensagem</button>
+            </div>
+            <p>Entraremos em contato com você o mais rápido possível.</p>
+        </form> 
+    </div>
 
 
     <footer class="text-white bg-dark pt-5 pb-4">

@@ -13,14 +13,14 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="img/logo.png" height="70px" alt=""></a>
+            <a class="navbar-brand" href="index.php"><img src="img/logo.png" height="70px" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link" aria-current="page" href="index.html">Início</a>
+                    <a class="nav-link" aria-current="page" href="index.php">Início</a>
                     <a class="nav-link" href="#">Empilhadeiras</a>
                     <a class="nav-link" href="#">Contato</a>
                 </div>
@@ -30,7 +30,7 @@
     <div class="boxMessage container-fluid">
         <h1>Obrigado!</h1>
         <p>A sua mensagem foi enviada e logo entraremos em contato.</p>
-        <a href="index.html"><button id="btnReturn">Voltar</button></a>
+        <a href="index.php"><button id="btnReturn">Voltar</button></a>
     </div>
 
     <div class="blank container-fluid"></div>

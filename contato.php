@@ -16,15 +16,15 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html"><img src="img/logo.png" height="70px" alt="Imagem Logo"></a>
+            <a class="navbar-brand" href="index.php"><img src="img/logo.png" height="70px" alt="Imagem Logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link" aria-current="page" href="index.html">Início</a>
-                    <a class="nav-link" href="empilhadeiras.html">Empilhadeiras</a>
-                    <a class="nav-link" href="contato.html">Contato</a>
+                    <a class="nav-link" aria-current="page" href="index.php">Início</a>
+                    <a class="nav-link" href="empilhadeiras.php">Empilhadeiras</a>
+                    <a class="nav-link" href="contato.php">Contato</a>
                 </div>
             </div>
         </div>
@@ -68,7 +68,7 @@
                         <label for="exampleFormControlTextarea1" class="form-label">Menssagem</label>
                         <textarea type="textarea" name="textarea" class="form-control" rows="8"></textarea required>
                     </div>
-                    <input type="hidden" name="_next" value="http://127.0.0.1:5501/enviado.html">
+                    <input type="hidden" name="_next" value="http://localhost/felipe/ecommerce/SiteComercial/enviado.php">
                     <div class="btn d-grid gap-2">
                         <button class="btn btn-dark" type="submit">Enviar Mensagem</button>
                     </div>
@@ -138,13 +138,13 @@
                         </h5>
                         <hr class="mb-4" width=230px>
                         <p>
-                            <a href="index.html">Início</a>
+                            <a href="index.php">Início</a>
                         </p>
                         <p>
-                            <a href="empilhadeira.html">Empilhadeiras</a>
+                            <a href="empilhadeira.php">Empilhadeiras</a>
                         </p>
                         <p>
-                            <a href="contato.html">Contato</a>
+                            <a href="contato.php">Contato</a>
                         </p>
                     </div>
                     <div class="ContactBar col-md-2 col-lg-2 col-xl-3 mx-auto mt-3">

@@ -24,9 +24,11 @@
                 if($imageCorrect){
 
                     $productName = $_POST["productName"];
-                    $productDescription = $_POST["productDescription"];
+                    $productDetail1 = $_POST["productDetail1"];
+                    $productDetail2 = $_POST["productDetail2"];
+                    $productDetail3 = $_POST["productDetail3"];
 
-                    mysqli_query($conn, "INSERT INTO products(product_name, product_description, product_image, product_imgName) VALUES('$productName', '$productDescription', ' $pathImg', '$imageName')");
+                    mysqli_query($conn, "INSERT INTO products(product_name, product_image, product_imgName, product_detail1, product_detail2, product_detail3) VALUES('$productName', '$pathImg', '$imageName', '$productDetail1', '$productDetail2', '$productDetail3')");
 
                     echo "<p>Arquivo enviado com sucesso! Para acessa-lo: <a target=\"_blank\" href=\"images/$imageName\"><\a></p>";
                 } else {
@@ -56,15 +58,16 @@
         </nav>
     </header><br>
 
-    <a href="./controleDeProdutos.php">Voltar</a>
+
     <section id="upload-section">
         <form action="novoProduto.php" method="POST" enctype="multipart/form-data">
             <input type="text" name="productName" id="productName" placeholder="Nome do produto" required>
-            <input type="text" name="productDescription" id="productDescription" placeholder="Descrição do produto" required>
+            <input type="text" name="productDetail1" id="productDetail1" placeholder="Combustível" required>
+            <input type="text" name="productDetail2" id="productDetail2" placeholder="Elevação" required>
+            <input type="text" name="productDetail3" id="productDetail3" placeholder="Capacidade de Carga" required>
             <input type="file" name="imgUpload" id="imgUpload" required hidden>
             <button id="choose" onclick="upload()">Escolher Imagem</button>
             <input type="submit" value="Salvar" name="submit">
-        </form>
     </section>
     
     <script>

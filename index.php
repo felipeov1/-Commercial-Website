@@ -12,15 +12,15 @@
 <body>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html"><img src="img/logo.png" height="70px" alt="Imagem Logo"></a>
+                <a class="navbar-brand" href="index.php"><img src="img/logo.png" height="70px" alt="Imagem Logo"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link" aria-current="page"  href="index.html">Início</a>
-                        <a class="nav-link" href="empilhadeiras.html">Empilhadeiras</a>
-                        <a class="nav-link" href="contato.html">Contato</a>
+                        <a class="nav-link" aria-current="page"  href="index.php">Início</a>
+                        <a class="nav-link" href="empilhadeiras.php">Empilhadeiras</a>
+                        <a class="nav-link" href="contato.php">Contato</a>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
             <span class="textPrice">OS MELHORES PREÇOS</span>
             <span class="textTitle">ELEVANDO PADRÕES COM EXCELÊNCIA</span>
             <span class="text">Potencialize sua eficiência com o poder incomparável de nossas empilhadeiras de alta performance. Combinando força, precisão e confiabilidade, estamos prontos para elevar seus padrões de produtividade</span>
-            <a class="btnLink" href="empilhadeiras.html">DESCUBRA</a>
+            <a class="btnLink" href="empilhadeiras.php">DESCUBRA</a>
         </div>
     </div>
 
@@ -47,7 +47,7 @@
                 <h1>Empilhadeira a Combustão</h1>
             </div>
             <div class="btnData">
-                <a href="sobre.html" id="btnMoreInformation">Sobre</a>
+                <a href="sobre.php" id="btnMoreInformation">Sobre</a>
             </div>
         </div>
 
@@ -59,7 +59,7 @@
                 <h1>Empilhadeira Elétrica</h1>
             </div>
             <div class="btnData">
-                <a href="sobre.html" id="btnMoreInformation">Sobre</a>
+                <a href="sobre.php" id="btnMoreInformation">Sobre</a>
             </div>
         </div>
 
@@ -71,13 +71,13 @@
                 <h1>Empilhadeira Elétrica Retrátil</h1>
             </div>
             <div class="btnData">
-                <a href="sobre.html" id="btnMoreInformation">Sobre</a>
+                <a href="sobre.php" id="btnMoreInformation">Sobre</a>
             </div>
         </div>
     </div>
     
     <div class="btnProductsPage">
-        <button id="btnMoreProdutcs">Ver mais</button>
+        <a href="empilhadeiras.php"><button id="btnMoreProdutcs">Ver mais</button></a>
     </div>
 
 
