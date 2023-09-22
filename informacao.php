@@ -87,7 +87,7 @@
                         para carregar cargas pesadas. Pode ser utilizada a qualquer momento e ao ar livre. A carga desta
                         empilhadeira a gasolina de 4.5 toneladas varia de 0.5 a 45 toneladas.</p><br>
                     
-                    <a href="/comprar-empilhadeira.php"><button type="submit">Adquirir</button></a>
+                    <a href="./comprar-empilhadeira.php"><button type="submit">Adquirir</button></a>
                     
                 </div>
                 <div>
@@ -132,15 +132,6 @@
             </tbody>
         </table>
     </div>
-
-
-
-
-
-
-
-
-
     <footer class="text-white bg-dark pt-5 pb-4">
         <div class="container text-center text-md-start">
             <div class="row text-center text-md-start">

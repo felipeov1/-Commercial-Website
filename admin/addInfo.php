@@ -1,26 +1,32 @@
-// TODA INFORMAÇÃO QUE SAIR DAQUI TERA QUE TER O MESMO ID QUE O PRODUTO 
-
 <?php
-    if (!empty($_GET['id'])) {
 
-        include_once '../db/connection.php';
+require_once '../db/connection.php';
+
+
+if(isset($_POST['submit'])){
+
+    if (isset($_GET['id'])) {
+       
+        $idReference = $_GET['id'];
+        print_r($idReference);
+        $productSmallInfo = $_POST["productSmallInfo"];
+        print_r($productSmallInfo);
+        $productDescription = $_POST["productDescription"];
+        print_r($productDescription);
+        $tableNameInfo = $_POST["tableNameInfo"];
+        print_r($tableNameInfo);
+        $tableInfo = $_POST["tableInfo"];
+        print_r($tableInfo);
     
-        $id = $_GET['id'];
-    
-    
-        $sqlSelect = "SELECT * FROM products WHERE product_id = $id";
-    
-        $result = $conn->query($sqlSelect);
-    
-        if ($result->num_rows > 0) {
-            $product_data = $result->fetch_assoc();
-            
-        } else {
-            echo "Produto não encontrado";
-        }
-    } else {
-        echo "ID do produto não fornecido";
+        mysqli_query($conn, "INSERT INTO productsinformations(product_smallinfo, product_description, nameInfo, info, id_reference) VALUES('$productSmallInfo', '$productDescription', '$tableNameInfo', '$tableInfo', '$idReference')");
+    }else{
+        print_r("erro");
     }
+    
+
+}
+
+
 ?>
 
 <DOCTYPE html>
@@ -37,12 +43,12 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.php"><img src="../img/logo.png" height="70px" alt="Imagem Logo"></a>
                 <a href="../index.php"><button class="btn btn-outline-danger" type="submit">Sair</button></a>
             </div>
-        </nav>
+        </nav> -->
 
         <div class="container">
             <div class="form">
@@ -59,9 +65,6 @@
                         <div class="inputBox">
                             <label for="productSmallInfo">Característica principais:</label>
                             <input type="text" name="productSmallInfo" id="productSmallInfo" required>
-                            <input type="text" name="productSmallInfo" id="productSmallInfo" required>
-                            <input type="text" name="productSmallInfo" id="productSmallInfo" required>
-                            <input type="text" name="productSmallInfo" id="productSmallInfo" required>
                         </div>
                     </div><br>
                     <div class="inputGroup">
@@ -76,16 +79,18 @@
                     <div class="inputGroup">
                         <div class="inputBox">
                             <label for="tableNameInfo">Nome da especificação:</label>
-                            <input type="text" name="tableNameInfo" id="tableNameInfo" placeholder="ex: POTÊNCIA"required>
+                            <input type="text" name="tableNameInfo" id="tableNameInfo" placeholder="ex: POTÊNCIA"
+                                required>
                         </div>
                     </div>
                     <div class="inputGroup">
                         <div class="inputBox">
                             <label for="tableInfo">Característica da especificação:</label>
-                            <input type="text" name="tableInfo" id="tableInfo"
-                                placeholder="ex: 37,4 KW / 2.300 rpm" required>
+                            <input type="text" name="tableInfo" id="tableInfo" placeholder="ex: 37,4 KW / 2.300 rpm"
+                                required>
                         </div>
                     </div>
+                    <input type="text" name="idReference" hidden>
                     <div class="updateBtn">
                         <input id="update" type="submit" value="Salvar" name="submit">
                     </div>
@@ -96,4 +101,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
+
     </html>
