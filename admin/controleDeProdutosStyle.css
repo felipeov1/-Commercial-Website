@@ -59,7 +59,8 @@ th,td{
 }
 
 #btnAdd{
-    background-color: rgb(49, 255, 8);
+    /* background-color: rgb(49, 255, 8); */
+    background-color: lightgray;
     margin: 25px 0px 5px 10px;
     padding: 5px;
     border-radius: 5px;
@@ -73,7 +74,6 @@ th,td{
 }
 
 #btnAction{
-    background-color: #ffffff;
     margin: 10px;
     padding: 10px;
     border-radius: 5px;
@@ -86,6 +86,10 @@ th,td{
 #btnAction a{
     text-decoration: none;
     color: #000000;
+}
+
+#btnAction a:hover{
+    opacity: 0.6;
 }
 
 

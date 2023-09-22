@@ -14,7 +14,6 @@ body {
 }
 
 .navbar-nav {
-
     font-size: 20px;
 }
 
@@ -27,9 +26,9 @@ body {
 }
 
 .container {
-    margin: 50px 0px 100px 0px;
-    max-width: 700px !important;
-    height: 70%;
+    /* margin: 50px 0px 100px 0px; */
+    max-width: 100% !important;
+    height: 100%;
     display: flex;
 }
 
@@ -67,16 +66,16 @@ body {
     width: 576px;
 }
 
-#choose {
+#choose{
     background-color: rgb(228, 224, 224);
     position: relative;
     left: 50%;
     transform: translate(-50%);
+    width: 30%;
     border-radius: 5px;
     padding: 3px;
     border: 0.5px solid rgba(0, 0, 0, 0.377);
     transition: .6s;
-    width: 100%;
 }
 
 #choose:hover{

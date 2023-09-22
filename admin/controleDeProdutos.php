@@ -24,15 +24,7 @@ $result = $conn->query($sql);
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php"><img src="../img/logo.png" height="70px" alt="Imagem Logo"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link" href="contato.php">Sair</a>
-                </div>
-            </div>
+            <a href="../index.php"><button class="btn btn-outline-danger" type="submit">Sair</button></a>
         </div>
     </nav>
 
@@ -62,9 +54,9 @@ $result = $conn->query($sql);
                 echo "<td>" . $products_data['product_detail3'] . "</td>";
                 echo "<td>";
                 echo "<div class='container btnContainer'>
-        <button id='btnAction' style='background-color: yellow';><a  href='edit.php?id=" . $products_data['product_id'] . "'>Editar</a></button>
-        <button id='btnAction' style='background-color: blue';> <a href='edit.php?id=" . $products_data['product_id'] . "'>Adicionar informações</a></button>
-        <button id='btnAction' style='background-color: red';> <a href='delete.php?id=" . $products_data['product_id'] . "'>Excluir</a></button>
+        <button id='btnAction' style='background-color: lightgray;';><a  href='edit.php?id=" . $products_data['product_id'] . "'>Editar</a></button>
+        <button id='btnAction' style='background-color: lightgray;';><a href='addInfo.php?id=" . $products_data['product_id'] . "'>Adicionar informações</a></button>
+        <button id='btnAction' style='background-color: lightgray;';><a href='delete.php?id=" . $products_data['product_id'] . "'>Excluir</a></button>
         
         </div>";
                 "</td>";
