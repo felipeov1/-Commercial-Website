@@ -2,30 +2,19 @@
 
 require_once '../db/connection.php';
 
-
-if(isset($_POST['submit'])){
-
-    if (isset($_GET['id'])) {
-       
-        $idReference = $_GET['id'];
-        print_r($idReference);
-        $productSmallInfo = $_POST["productSmallInfo"];
-        print_r($productSmallInfo);
-        $productDescription = $_POST["productDescription"];
-        print_r($productDescription);
-        $tableNameInfo = $_POST["tableNameInfo"];
-        print_r($tableNameInfo);
-        $tableInfo = $_POST["tableInfo"];
-        print_r($tableInfo);
-    
-        mysqli_query($conn, "INSERT INTO productsinformations(product_smallinfo, product_description, nameInfo, info, id_reference) VALUES('$productSmallInfo', '$productDescription', '$tableNameInfo', '$tableInfo', '$idReference')");
-    }else{
-        print_r("erro");
-    }
-    
-
+if (isset($_GET['id'])) {
+    $idReference = $_GET['id'];
 }
 
+if (isset($_POST['submit'])) {
+    $idReference = $_POST["idReference"];
+    $productSmallInfo = $_POST["productSmallInfo"];
+    $productDescription = $_POST["productDescription"];
+    $tableNameInfo = $_POST["tableNameInfo"];
+    $tableInfo = $_POST["tableInfo"];
+
+    mysqli_query($conn, "INSERT INTO productsinformations(product_smallinfo, product_description, nameInfo, info, id_reference) VALUES('$productSmallInfo', '$productDescription', '$tableNameInfo', '$tableInfo', '$idReference')");
+}
 
 ?>
 
@@ -43,12 +32,12 @@ if(isset($_POST['submit'])){
     </head>
 
     <body>
-        <!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.php"><img src="../img/logo.png" height="70px" alt="Imagem Logo"></a>
                 <a href="../index.php"><button class="btn btn-outline-danger" type="submit">Sair</button></a>
             </div>
-        </nav> -->
+        </nav>
 
         <div class="container">
             <div class="form">
@@ -76,24 +65,29 @@ if(isset($_POST['submit'])){
                     <div>
                     </div>
                     <label>Tabela Técnica:</label><br>
-                    <div class="inputGroup">
-                        <div class="inputBox">
-                            <label for="tableNameInfo">Nome da especificação:</label>
-                            <input type="text" name="tableNameInfo" id="tableNameInfo" placeholder="ex: POTÊNCIA"
-                                required>
+                    <div>
+
+                        <div class="inputGroup">
+                            <div class="inputBox">
+                                <label for="tableNameInfo">Nome da especificação:</label>
+                                <input type="text" name="tableNameInfo" id="tableNameInfo" placeholder="ex: POTÊNCIA"
+                                    required>
+                            </div>
                         </div>
-                    </div>
-                    <div class="inputGroup">
-                        <div class="inputBox">
-                            <label for="tableInfo">Característica da especificação:</label>
-                            <input type="text" name="tableInfo" id="tableInfo" placeholder="ex: 37,4 KW / 2.300 rpm"
-                                required>
+                        <div class="inputGroup">
+                            <div class="inputBox">
+                                <label for="tableInfo">Característica da especificação:</label>
+                                <input type="text" name="tableInfo" id="tableInfo" placeholder="ex: 37,4 KW / 2.300 rpm"
+                                    required>
+
+                            </div>
                         </div>
-                    </div>
-                    <input type="text" name="idReference" hidden>
-                    <div class="updateBtn">
-                        <input id="update" type="submit" value="Salvar" name="submit">
-                    </div>
+
+
+                        <input type="hidden" name="idReference" value="<?php echo $idReference; ?>">
+                        <div class="updateBtn">
+                            <input id="update" type="submit" value="Salvar" name="submit">
+                        </div>
                 </form>
             </div>
         </div>

@@ -1,3 +1,21 @@
+<?php
+require_once './db/connection.php';
+
+$sql = "SELECT products.*, productsinformations.nameInfo, productsinformations.info, productsinformations.product_description, 
+    productsinformations.product_smallinfo   
+    FROM `products` JOIN `productsinformations` ON products.product_id = productsinformations.id_reference";
+
+$result = $conn->query($sql);
+
+while ($product_data = $result->fetch_assoc()) {
+    $product_name = $product_data['product_name'];
+    $nameInfo = $product_data['nameInfo'];
+    $info = $product_data['info'];
+    $product_smallinfo = $product_data['product_smallinfo'];
+    $product_description = $product_data['product_description'];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -77,18 +95,12 @@
 
             <div class="informationSide">
                 <div class="textInformation">
-                    <h1>Empilhadeira 4.5T</h1><br>
-                    <p><i class="bi bi-chevron-right" style="color: #fbb400;"></i>Boa estabilidade</p>
-                    <p><i class="bi bi-chevron-right" style="color: #fbb400;"></i>Alta potência</p>
-                    <p><i class="bi bi-chevron-right" style="color: #fbb400;"></i>Baixo ruído</p>
-                    <p><i class="bi bi-chevron-right" style="color: #fbb400;"></i>Tamanho pequeno</p><br>
-                    <p class="description">Nossa empilhadeira adota gasolina como fonte de energia. Está disponível com
-                        capacidade de 4,5 toneladas. A empilhadeira a gasolina de 4,5 toneladas é bastante recomendada
-                        para carregar cargas pesadas. Pode ser utilizada a qualquer momento e ao ar livre. A carga desta
-                        empilhadeira a gasolina de 4.5 toneladas varia de 0.5 a 45 toneladas.</p><br>
-                    
+                    <?php
+                    echo "<h1>$product_name</h1><br>";
+                    echo "<p><i class='bi bi-chevron-right' style='color: #fbb400;'></i>$product_smallinfo</p>";
+                    echo "<p class='description'>$product_description</p><br>"
+                        ?>
                     <a href="./comprar-empilhadeira.php"><button type="submit">Adquirir</button></a>
-                    
                 </div>
                 <div>
                 </div>
@@ -96,39 +108,17 @@
         </div>
     </div>
     <div class="tableContainer container">
-        <table class="table table-striped border">
+        <table class='table table-striped border'>
             <thead>
                 <th colspan="3" class="text-center" style="background-color: #fbb400;">Especificações</th>
             </thead>
             <tbody>
-                <tr>
-                    <td>CAPACIDADE DE CARGA (KG)</td>
-                    <td>3000 kg</td>
-                </tr>
-                <tr>
-                    <td>MOTOR</td>
-                    <td>Nissan K25</td>
-                </tr>
-                <tr>
-                    <td>POTÊNCIA</td>
-                    <td>37,4 KW / 2.300 rpm</td>
-                </tr>
-                <tr>
-                    <td>RAIO DE GIRO</td>
-                    <td>2.450 mm</td>
-                </tr>
-                <tr>
-                    <td>VELOCIDADE</td>
-                    <td>19 km/h</td>
-                </tr>
-                <tr>
-                    <td>VELOCIDADE DE ELEVAÇÃO</td>
-                    <td>0,425 / 0,440 m/s</td>
-                </tr>
-                <tr>
-                    <td>MÁXIMA ALTURA DE ELEVAÇÃO DOS GARFOS</td>
-                    <td>4000 a 6000 mm</td>
-                </tr>
+                <?php
+                echo "<tr>";
+                echo "<td>$nameInfo</td>";
+                echo "<td>$info</td>";
+                echo "</tr>";
+                ?>
             </tbody>
         </table>
     </div>

@@ -138,3 +138,11 @@ body {
    color: black;
    text-decoration: none;
 }
+
+.addMore{
+    text-align: center;
+    display: flex;
+    position: relative;
+    left: 75%;
+    margin-top: 5px;
+}
