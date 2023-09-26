@@ -54,8 +54,9 @@ $result = $conn->query($sql);
                 echo "<td>" . $products_data['product_detail3'] . "</td>";
                 echo "<td>";
                 echo "<div class='container btnContainer'>
-        <button id='btnAction' style='background-color: lightgray;';><a  href='edit.php?id=" . $products_data['product_id'] . "'>Editar</a></button>
+        <button id='btnAction' style='background-color: lightgray;';><a  href='edit.php?id=" . $products_data['product_id'] . "'>Editar caracteristicas</a></button>
         <button id='btnAction' style='background-color: lightgray;';><a href='addInfo.php?id=" . $products_data['product_id'] . "'>Adicionar informações</a></button>
+        <button id='btnAction' style='background-color: lightgray;';><a href='editInfo.php?id=" . $products_data['product_id'] . "'>Editar informações</a></button>
         <button id='btnAction' style='background-color: lightgray;';><a href='delete.php?id=" . $products_data['product_id'] . "'>Excluir</a></button>
         
         </div>";

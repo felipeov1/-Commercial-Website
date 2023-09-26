@@ -6,14 +6,6 @@ $sql = "SELECT products.*, productsinformations.nameInfo, productsinformations.i
     FROM `products` JOIN `productsinformations` ON products.product_id = productsinformations.id_reference";
 
 $result = $conn->query($sql);
-
-while ($product_data = $result->fetch_assoc()) {
-    $product_name = $product_data['product_name'];
-    $nameInfo = $product_data['nameInfo'];
-    $info = $product_data['info'];
-    $product_smallinfo = $product_data['product_smallinfo'];
-    $product_description = $product_data['product_description'];
-}
 ?>
 
 <!DOCTYPE html>
@@ -90,16 +82,24 @@ while ($product_data = $result->fetch_assoc()) {
                 fullImage.src = smallImg.src;
             }
         </script>
-
+        <?php
+        $sql_info = "SELECT products.*, productsinformations.nameInfo, productsinformations.info, productsinformations.product_description, 
+        productsinformations.product_smallinfo   
+        FROM `products` JOIN `productsinformations` ON products.product_id = productsinformations.id_reference";
+        $result_info = $conn->query($sql_info);
+        ?>
         <div class="col-md-6" style="padding: 0;">
 
             <div class="informationSide">
                 <div class="textInformation">
                     <?php
-                    echo "<h1>$product_name</h1><br>";
-                    echo "<p><i class='bi bi-chevron-right' style='color: #fbb400;'></i>$product_smallinfo</p>";
-                    echo "<p class='description'>$product_description</p><br>"
-                        ?>
+                        $sql_info = $result_info->fetch_assoc();
+                        echo "<h1>" . $sql_info['product_name'] . "</h1><br>";
+                        echo "<p class='description'>" . $sql_info['product_description'] . "</p><br>";
+                        do{
+                            echo "<p><i class='bi bi-chevron-right' style='color: #fbb400;'></i>" . $sql_info['product_smallinfo'] . "</p>";
+                        }while( $sql_info = $result_info->fetch_assoc());
+                    ?>
                     <a href="./comprar-empilhadeira.php"><button type="submit">Adquirir</button></a>
                 </div>
                 <div>
@@ -114,10 +114,12 @@ while ($product_data = $result->fetch_assoc()) {
             </thead>
             <tbody>
                 <?php
+                while ($product_data = $result->fetch_assoc()) {
                 echo "<tr>";
-                echo "<td>$nameInfo</td>";
-                echo "<td>$info</td>";
+                echo "<td>" . $product_data['nameInfo'] . "</td>";
+                echo "<td>" . $product_data['info'] . "</td>";
                 echo "</tr>";
+                }
                 ?>
             </tbody>
         </table>

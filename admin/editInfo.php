@@ -2,27 +2,26 @@
 require_once '../db/connection.php';
 
 if (isset($_GET['id'])) {
+
+
+
     $idReference = $_GET['id'];
-}
-
-if (isset($_POST['submit'])) {
-    $idReference = $_POST["idReference"];
-    $productSmallInfo = $_POST['productSmallInfo'];
-    $productDescription = $_POST['productDescription'];
-    $tableNameInfos = $_POST['tableNameInfo'];
-    $tableInfos = $_POST['tableInfo'];
+    print_r($idReference);
 
 
-    $stmt = $conn->prepare("INSERT INTO productsinformations (nameInfo, info, product_smallinfo, product_description, id_reference) VALUES (?, ?, ?, ?, ?)");
-        for ($i = 0; $i < count($tableNameInfos); $i++) {
-        $stmt->bind_param("ssssi", $tableNameInfos[$i], $tableInfos[$i], $productSmallInfo[$i], $productDescription, $idReference);
-        $stmt->execute();
+    $sqlSelect = "SELECT * FROM productsinformations WHERE $idReference = $idReference ";
+    print_r($sqlSelect);
+
+    $result = $conn->query($sqlSelect);
+
+    if ($result->num_rows > 0) {
+        $product_data = $result->fetch_assoc();
+        $productDescription = $product_data['product_description'];
+    } else {
+        echo "Produto não encontrado";
     }
-
-    $stmt->close();
-    $conn->close();
-
-    echo "Informações adicionadas com sucesso.";
+} else {
+    echo "ID do produto não fornecido";
 }
 ?>
 
@@ -49,7 +48,7 @@ if (isset($_POST['submit'])) {
 
     <div class="container">
         <div class="form">
-            <form action="addInfo.php" method="POST">
+            <form action="saveEditInfo.php" method="POST">
                 <div class="formHeader">
                     <div class="returnBtn">
                         <a class="btn" href="controleDeProdutos.php">Voltar</a>
@@ -60,7 +59,11 @@ if (isset($_POST['submit'])) {
                     <div id="inputGroup-info" class="inputGroup">
                         <div class="inputBox">
                             <label for="productSmallInfo">Características principais:</label>
-                            <input type="text" name="productSmallInfo" id="productSmallInfo">
+                            <?php
+                            do {
+                                echo "<input type='text' name='productSmallInfo[]' id='productSmallInfo' value=" . $product_data['product_smallinfo'] . ">";
+                            } while ($product_data = $result->fetch_assoc());
+                            ?>
                         </div>
                     </div><br>
                 </div>
@@ -68,7 +71,8 @@ if (isset($_POST['submit'])) {
                 <div class="inputGroup">
                     <div class="inputBox">
                         <label for="productDescription">Descrição:</label>
-                        <input type="text" name="productDescription" id="productDescription">
+                        <input type="text" name="productDescription" id="productDescription"
+                            value="<?php echo $productDescription ?>">
                     </div>
                 </div><br>
                 <label>Tabela Técnica:</label><br>
@@ -77,11 +81,28 @@ if (isset($_POST['submit'])) {
                         <div class="inputGroup">
                             <div class="inputBox">
                                 <label for="tableNameInfo">Nome da especificação:</label>
-                                <input type="text" name="tableNameInfo[]" placeholder="ex: POTÊNCIA">
+                                <?php
+                                $sqlSelectTable = "SELECT * FROM productsinformations WHERE $idReference = $idReference ";
+                                $resultTable = $conn->query($sqlSelectTable);
+                                $tableName_data = $resultTable->fetch_assoc();
+
+                                do {
+                                    echo "<input type='text' name='tableNameInfo[]' value=" . $tableName_data['nameInfo'] . "
+                                    placeholder='ex: POTÊNCIA'>";
+                                } while ($tableName_data = $resultTable->fetch_assoc());
+                                ?>
                             </div>
                             <div class="inputBox">
                                 <label for="tableInfo">Característica da especificação:</label>
-                                <input type="text" name="tableInfo[]" placeholder="ex: 37,4 KW / 2.300 rpm">
+                                <?php
+                                    $sqlSelectTable = "SELECT * FROM productsinformations WHERE $idReference = $idReference ";
+                                    $resultTable = $conn->query($sqlSelectTable);
+                                    $tableName_data = $resultTable->fetch_assoc();
+                                do {
+                                    echo "<input type='text' name='tableInfo[]' value=" . $tableName_data['info'] . "
+                                    placeholder='ex: POTÊNCIA'>";
+                                } while ($tableName_data = $resultTable->fetch_assoc());
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -102,11 +123,9 @@ if (isset($_POST['submit'])) {
             inputGroup.classList.add("input-group");
             inputGroup.innerHTML = `
                 <div class="inputBox">
-                    <label for="tableNameInfo">Nome da especificação:</label>
                     <input type="text" name="tableNameInfo[]" placeholder="ex: POTÊNCIA" required>
                 </div>
                 <div class="inputBox">
-                    <label for="tableInfo">Característica da especificação:</label>
                     <input type="text" name="tableInfo[]" placeholder="ex: 37,4 KW / 2.300 rpm" required>
                 </div>
             `;

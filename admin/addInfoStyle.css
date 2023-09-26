@@ -125,7 +125,7 @@ body {
     border: 0.5px solid rgba(0, 0, 0, 0.377);
 }
 
-.returnBtn button {
+.returnBtn .btn{
     color: black;
     padding: 3px 15px;
     background-color: #fbb400;
@@ -147,4 +147,15 @@ body {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+}
+
+.addMore_info{
+    text-align: center;
+    display: flex;
+    position: relative;
+    
+}
+
+#inputGroup-info{
+    padding-bottom: 0 !important;
 }
