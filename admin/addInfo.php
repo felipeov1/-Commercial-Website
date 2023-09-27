@@ -60,7 +60,7 @@ if (isset($_POST['submit'])) {
                     <div id="inputGroup-info" class="inputGroup">
                         <div class="inputBox">
                             <label for="productSmallInfo">Características principais:</label>
-                            <input type="text" name="productSmallInfo" id="productSmallInfo">
+                            <input type="text" name="productSmallInfo[]" id="productSmallInfo">
                         </div>
                     </div><br>
                 </div>

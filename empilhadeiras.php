@@ -104,7 +104,7 @@
         echo                "</div>";
         echo            "</div>";
         echo        "</div>";
-        echo        "<a href='informacao.php'><button id='btnMoreProdutcs'>Saiba Mais</button></a>"; //AQUI VAI TER QUE PEGAR O ID DESSE PRODUTO MANDAR PARA A PAGINA DE INFORMAÇÕES E TODAS INFORMAÇÕES SER PEGAS DE ACORDO COM O ID
+        echo        "<a href='informacao.php?id=" . $products_data['product_id'] . "'><button id='btnMoreProdutcs'>Saiba Mais</button></a>"; 
         echo    "</div>";
         echo    "</div>";
                             }

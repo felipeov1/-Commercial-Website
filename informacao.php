@@ -1,11 +1,25 @@
 <?php
 require_once './db/connection.php';
 
-$sql = "SELECT products.*, productsinformations.nameInfo, productsinformations.info, productsinformations.product_description, 
-    productsinformations.product_smallinfo   
-    FROM `products` JOIN `productsinformations` ON products.product_id = productsinformations.id_reference";
+if (isset($_GET['id'])) {
 
-$result = $conn->query($sql);
+
+    $idReference = $_GET['id'];
+    print_r($idReference);
+
+
+    $sql = "SELECT products.*, productsinformations.nameInfo, productsinformations.info, productsinformations.product_description, 
+    productsinformations.product_smallinfo   
+    FROM `products` JOIN `productsinformations` ON products.product_id = productsinformations.id_reference WHERE productsinformations.id_reference = $idReference";
+
+    $result = $conn->query($sql);
+
+
+} else {
+    echo "ID do produto não fornecido";
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -82,30 +96,44 @@ $result = $conn->query($sql);
                 fullImage.src = smallImg.src;
             }
         </script>
-        <?php
-        $sql_info = "SELECT products.*, productsinformations.nameInfo, productsinformations.info, productsinformations.product_description, 
-        productsinformations.product_smallinfo   
-        FROM `products` JOIN `productsinformations` ON products.product_id = productsinformations.id_reference";
-        $result_info = $conn->query($sql_info);
-        ?>
-        <div class="col-md-6" style="padding: 0;">
 
-            <div class="informationSide">
-                <div class="textInformation">
-                    <?php
-                        $sql_info = $result_info->fetch_assoc();
-                        echo "<h1>" . $sql_info['product_name'] . "</h1><br>";
-                        echo "<p class='description'>" . $sql_info['product_description'] . "</p><br>";
-                        do{
-                            echo "<p><i class='bi bi-chevron-right' style='color: #fbb400;'></i>" . $sql_info['product_smallinfo'] . "</p>";
-                        }while( $sql_info = $result_info->fetch_assoc());
-                    ?>
-                    <a href="./comprar-empilhadeira.php"><button type="submit">Adquirir</button></a>
-                </div>
-                <div>
-                </div>
-            </div>
-        </div>
+        <?php
+
+        $sql_info = "SELECT products.*, productsinformations.nameInfo, productsinformations.info, productsinformations.product_description, 
+            productsinformations.product_smallinfo   
+            FROM `products` JOIN `productsinformations` ON products.product_id = productsinformations.id_reference WHERE productsinformations.id_reference = $idReference";
+
+        $result_info = $conn->query($sql_info);
+
+        if ($result_info->num_rows > 0) {
+            $product_data = $result->fetch_assoc();
+            echo "<div class='col-md-6' style='padding: 0;'>";
+            echo "<div class='informationSide'>";
+            echo "<div class='textInformation'>";
+            echo "<h1>" . $product_data['product_name'] . "</h1><br>";
+            echo "<p class='description'>" . $product_data['product_description'] . "</p><br>";
+            while ($product_data = $result_info->fetch_assoc()){
+                if( $product_data['product_smallinfo'] != ""){
+                    echo "<p><i class='bi bi-chevron-right' style='color: #fbb400;'></i>" .
+                    $product_data['product_smallinfo'] . "</p>";
+                }
+            }
+        } else{
+            echo "<div class='col-md-6' style='padding: 0;'>";
+            echo "<div class='informationSide'>";
+            echo "<div class='textInformation'>";
+            echo "<h1>Nome não cadastrado</h1><br>";
+            echo "<p class='description'>Descrição não cadastrada</p><br>";
+            echo "<p><i class='bi bi-chevron-right' style='color: #fbb400;'>Características gerais não cadastradas</i></p>";
+        }
+
+        echo "<a href='./comprar-empilhadeira.php'><button type='submit'>Adquirir</button></a>";
+        echo "</div>";
+        echo "<div>";
+        echo "</div>";
+        echo "</div>";
+        echo "</div>";
+        ?>
     </div>
     <div class="tableContainer container">
         <table class='table table-striped border'>
@@ -114,11 +142,23 @@ $result = $conn->query($sql);
             </thead>
             <tbody>
                 <?php
-                while ($product_data = $result->fetch_assoc()) {
-                echo "<tr>";
-                echo "<td>" . $product_data['nameInfo'] . "</td>";
-                echo "<td>" . $product_data['info'] . "</td>";
-                echo "</tr>";
+                $sql_info = "SELECT products.*, productsinformations.nameInfo, productsinformations.info, productsinformations.product_description, 
+                    productsinformations.product_smallinfo   
+                    FROM `products` JOIN `productsinformations` ON products.product_id = productsinformations.id_reference WHERE productsinformations.id_reference = $idReference";
+
+                $result_info = $conn->query($sql_info);
+                if ($result_info->num_rows > 0) {
+                    while ($product_data = $result_info->fetch_assoc()) {
+                        echo "<tr>";
+                        echo "<td>" . $product_data['nameInfo'] . "</td>";
+                        echo "<td>" . $product_data['info'] . "</td>";
+                        echo "</tr>";
+                    }
+                } else {
+                    echo "<tr>";
+                    echo "<td>Nome da especificação não informada</td>";
+                    echo "<td>Características da especificação não informada</td>";
+                    echo "</tr>";
                 }
                 ?>
             </tbody>

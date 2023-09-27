@@ -4,12 +4,11 @@ require_once '../db/connection.php';
 if (isset($_GET['id'])) {
 
 
-
     $idReference = $_GET['id'];
     print_r($idReference);
 
 
-    $sqlSelect = "SELECT * FROM productsinformations WHERE $idReference = $idReference ";
+    $sqlSelect = "SELECT * FROM productsinformations WHERE id_reference = $idReference ";
     print_r($sqlSelect);
 
     $result = $conn->query($sqlSelect);
@@ -152,3 +151,4 @@ if (isset($_GET['id'])) {
 </body>
 
 </html>
+
