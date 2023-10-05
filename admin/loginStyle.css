@@ -2,12 +2,12 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-image: radial-gradient(circle at 120.71% 50%, #4954da 0, #074bd6 50%, #0043d2 100%);
+    background-color: black;
 }
 .tela-login{
     display: flex;
     flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: #fbb400;
     color: white;
     position: absolute;
     top: 50%;
@@ -27,7 +27,7 @@ h5{
     font-weight: 5
 }
 .btn-login{
-    background-color: #f72585;
+    background-color: #1c1c52;
     color: #fff;
     font-size: 15px;
     font-weight: 600;

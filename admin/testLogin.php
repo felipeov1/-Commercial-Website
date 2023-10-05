@@ -9,17 +9,12 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        print_r('Email: ' . $email);
-        print_r('<br>');
-        print_r('Senha: ' . $password);
 
         $sql = "SELECT * FROM users WHERE user_email = '$email' and user_password = '$password'";
 
         $result = $conn->query($sql);
 
-        print_r($sql);
-        print_r('<br>');
-        print_r($result);
+
 
         if(mysqli_num_rows($result) < 1){
             unset($_SESSION['email']);
@@ -34,6 +29,5 @@
 
     } else {
         header('Location: login.php');
-        echo "erro";
 
     }

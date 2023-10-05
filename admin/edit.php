@@ -67,7 +67,7 @@ if (!empty($_GET['id'])) {
                     <div class="inputGroup">
                         <div class="inputBox">
                             <label for="productDetail1">Tipo de combustível:</label>
-                            <input type="text" name="productDetail1" value="<?php echo $productDetail1 ?>"
+                            <input type="text" name="productDetail1" value="<?php if($product_data['product_detail1'] =! "") echo $productDetail1 ?>"
                                 id="productDetail1">
                         </div>
                     </div>

@@ -1,25 +1,29 @@
 <?php
 require_once '../db/connection.php';
 
-if (isset($_GET['id'])) {
-    $idReference = $_GET['id'];
+if (isset($_POST['submit'])) {
+    $idReference = $_POST['idReference'];
+    $productDescription = $_POST['productDescription'];
+
+    for ($i = 1; $i <= 5; $i++) {
+        $productSmallInfo = $_POST['productSmallInfo'][$i];
+        $sqlUpdateSmallInfo = "UPDATE productsinformations SET product_smallinfo$i = '$productSmallInfo' WHERE id_reference = $idReference";
+        $conn->query($sqlUpdateSmallInfo);
+    }
+
+    for ($i = 1; $i <= 5; $i++) {
+        $nameInfo = $_POST['nameInfo'][$i];
+        $info = $_POST['info'][$i];
+
+        if (!empty($nameInfo) && !empty($info)) {
+            $sqlUpdateInfo = "UPDATE productsinformations SET nameInfo$i = '$nameInfo', info$i = '$info' WHERE id_reference = $idReference";
+            $conn->query($sqlUpdateInfo);
+        }
+    }
+
+    $sqlUpdateDescription = "UPDATE productsinformations SET product_description = '$productDescription' WHERE id_reference = $idReference";
+    $conn->query($sqlUpdateDescription);
+
+    header("Location: editInfo.php?id=$idReference");
 }
-
-            if (isset($_POST['submit'])) {
-$idReference = $_POST["idReference"];
-            $productSmallInfo = $_POST['productSmallInfo'];
-            $productDescription = $_POST['productDescription'];
-            $tableNameInfos = $_POST['tableNameInfo'];
-            $tableInfos = $_POST['tableInfo'];
-
-            
-            $stmt = $conn->prepare("INSERT INTO productsinformations (nameInfo, info, product_smallinfo, product_description, id_reference) VALUES (?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE nameInfo = VALUES(nameInfo), info = VALUES(info), product_smallinfo = VALUES(product_smallinfo), product_description = VALUES(product_description)");
-    for ($i = 0; $i < count($tableNameInfos); $i++) {
-            $stmt->bind_param("ssssi", $tableNameInfos[$i], $tableInfos[$i], $productSmallInfo[$i], $productDescription, $idReference);
-            $stmt->execute();
-            }
-            $stmt->close();
-            $conn->close();
-
-            }
-header("Location: controleDeProdutos.php");
+?>

@@ -67,56 +67,17 @@
         color: white;
     }
 
-
-    /* menu filter */
-
-    .DivMenu{
-        text-align: left;
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;        
-        max-width: 15%;
-        min-width: 250px;
-        height: 500px;
-        display: inline-block;
-        vertical-align: top;
-        margin-right: 50px;
-        margin-left: 50px;
-        padding: 20px;
-    }
-    
-    #inputSearch{
-        height: 23px;
-    }
-
-    #btnSearch{
-        font-size: 12px;
-        margin-top: 10px;
-        width: 75px;
-        height: 25px;
-        border: none;
-        border-radius: 3px;
-        background-color: #fbb400;
-    }
-
-    #btnSearch:hover{
-        opacity: .6;
-        transition: 2s;
-    }
-
-
-
-
-  
-
     /* card */
 
     .container-card{
         text-align: center;
         position: relative;
+        left: 50%;
+        transform: translate(-50%);
         display: inline-flex;
         flex-wrap: wrap;
         max-width: 75%;
         gap: 20px;
-        
     }
 
     .card{
@@ -157,7 +118,7 @@
 
     #NumberPages{
         position: absolute;
-        left: 55%;
+        left: 50%;
         transform: translate(-50%,-50%);
         margin: 50px 0 0 0;
         

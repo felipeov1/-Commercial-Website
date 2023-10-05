@@ -85,7 +85,7 @@
         <div class="contact-img">
             <h2 class="our-mission-h2">Nossa Missão</h2>
             <p>Nossa missão é elevar sua produtividade e eficiência, fornecendo as melhores empilhadeiras para impulsionar seu negócio. Trabalhamos para facilitar cada elevação, tornando seu trabalho mais ágil e seguro.</p>
-            <a  href="contato.html"><button type="button" class="btn btn-outline-light ">Entre em contato</button></a></div>
+            <a  href="contato.php"><button type="button" class="btn btn-outline-light ">Entre em contato</button></a></div>
     </section>
 
     <footer class="text-white bg-dark pt-5 pb-4">
@@ -102,13 +102,13 @@
                         </h5>
                         <hr class="mb-4">
                         <p>
-                            <a href="index.html">Início</a>
+                            <a href="index.php">Início</a>
                         </p>
                         <p>
-                            <a href="empilhadeiras.html">Empilhadeiras</a>
+                            <a href="empilhadeiras.php">Empilhadeiras</a>
                         </p>
                         <p>
-                            <a href="contato.html">Contato</a>
+                            <a href="contato.php">Contato</a>
                         </p>
                     </div>
                     <div class="ContactBar col-md-2 col-lg-2 col-xl-3 mx-auto mt-3">

@@ -106,49 +106,24 @@ if (isset($_POST["submit"])) {
                     <div id="dynamic-inputs">
                         <div class="imgBtn">
                             <div class="inputBox">
-                                <input type="file" name="imgUpload[]" id="imgUpload" required hidden>
-                                <button id="choose" onclick="upload()">Escolher Imagem Principal</button>
+                                <input type="file" name="imgUpload" id="imgUpload" required hidden>
+                                <a><button id="choose" onclick="upload()">Escolher Imagem</button></a>
                             </div>
                         </div>
                     </div>
-                    <div><input type="button" id="btnPhoto" onclick="addphoto()" value="Adicionar Mais"></div><br>
                     <script>
-                        let NumberInput = 0;
-                        function addphoto() {
-                            let dynamicInputs = document.getElementById("dynamic-inputs");
-                            let inputGroup = document.createElement("div");
-                            inputGroup.classList.add("input-group");
+                        var productName = document.getElementById("productName");
+                        var choose = document.getElementById("choose");
+                        var imgUpload = document.getElementById("imgUpload");
 
-                            const maxInputs = 4;
-
-                            if (NumberInput < maxInputs) {
-                                let inputNumber = NumberInput + 1;
-                                inputGroup.innerHTML = `
-                                <div class="imgBtn">
-                                    <div class='inputBox'>
-                                        <input type="file" name="imgUpload[]" id="imgUpload" required hidden>
-                                        <button class="chooseAdd" id="chooseAdd${inputNumber}" onclick="upload()">Escolher Imagem secundária</button>
-                                    </div>
-                                </div>
-                                `;
-                                dynamicInputs.appendChild(inputGroup);
-                                NumberInput++
-                            } else {
-                                alert("Limite")
-                            }
-                        }
-
-                        function upload(inputNumber) {
-                            let imgUpload = document.getElementById(`imgUpload${inputNumber}`);
-                            let chooseAdd = document.getElementById(`chooseAdd${inputNumber}`);
-
+                        function upload() {
                             imgUpload.click();
-
-                            imgUpload.addEventListener("change", function () {
-                                let file = this.files[0];
-                                chooseAdd.innerHTML = `Imagem selecionada: ${file.name}`;
-                            });
                         }
+
+                        imgUpload.addEventListener("change", function () {
+                            var file = this.files[0];
+                            choose.innerHTML = file.name;
+                        });
                     </script>
                     <div class="updateBtn">
                         <input id="update" type="submit" value="Salvar" name="submit">

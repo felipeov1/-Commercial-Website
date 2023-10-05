@@ -1,4 +1,12 @@
 <?php
+session_start();
+if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)) {
+    unset($_SESSION['email']);
+    unset($_SESSION['senha']);
+    header('location: login.php');
+    exit();
+}
+$logado = $_SESSION['email'];
 require_once '../db/connection.php';
 
 $sql = "SELECT * FROM  `products` ORDER BY `products`.`product_id` DESC";
@@ -23,17 +31,16 @@ $result = $conn->query($sql);
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php"><img src="../img/logo.png" height="70px" alt="Imagem Logo"></a>
+            <a class="navbar-brand" href="controleDeProdutos.php"><img src="../img/logo.png" height="70px"
+                    alt="Imagem Logo"></a>
             <a href="../index.php"><button class="btn btn-outline-danger" type="submit">Sair</button></a>
         </div>
     </nav>
-
     <section>
         <button id="btnAdd"><a href="./novoProduto.php">Adicionar Produto</a></button>
         <table>
-            <thead>
+            <thead id="thead">
                 <tr>
-                    <th>Id</th>
                     <th>Imagem</th>
                     <th>Título</th>
                     <th>Detalhe</th>
@@ -45,7 +52,6 @@ $result = $conn->query($sql);
             <?php
             while ($products_data = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
-                echo "<td>" . $products_data['product_id'] . "</td>";
                 $img = $products_data['product_image'];
                 echo "<td><img height='80' src='$img'></td>";
                 echo "<td>" . $products_data['product_name'] . "</td>";
@@ -54,12 +60,11 @@ $result = $conn->query($sql);
                 echo "<td>" . $products_data['product_detail3'] . "</td>";
                 echo "<td>";
                 echo "<div class='container btnContainer'>
-        <button id='btnAction' style='background-color: lightgray;';><a  href='edit.php?id=" . $products_data['product_id'] . "'>Editar caracteristicas</a></button>
-        <button id='btnAction' style='background-color: lightgray;';><a href='addInfo.php?id=" . $products_data['product_id'] . "'>Adicionar informações</a></button>
-        <button id='btnAction' style='background-color: lightgray;';><a href='editInfo.php?id=" . $products_data['product_id'] . "'>Editar informações</a></button>
-        <button id='btnAction' style='background-color: lightgray;';><a href='delete.php?id=" . $products_data['product_id'] . "'>Excluir</a></button>
-        
-        </div>";
+                <button id='btnAction' style='background-color: lightgray;';><a href='addInfo.php?id=" . $products_data['product_id'] . "'>Adicionar informações</a></button>
+                <button id='btnAction' style='background-color: lightgray;';><a href='editInfo.php?id=" . $products_data['product_id'] . "'>Editar informações</a></button>
+                <button id='btnAction' style='background-color: lightgray;';><a  href='edit.php?id=" . $products_data['product_id'] . "'>Editar caracteristicas</a></button>
+                <button id='btnAction' style='background-color: lightgray;';><a href='delete.php?id=" . $products_data['product_id'] . "'>Excluir</a></button>
+                </div>";
                 "</td>";
                 echo "</tr>";
             }
