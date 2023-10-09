@@ -13,7 +13,9 @@ $offset = ($currentPage - 1) * $itemsPerPage;
 
 $sql = "SELECT * FROM `products`";
 $result = $conn->query($sql);
+
 $totalRows = mysqli_num_rows($result);
+
 
 $totalPages = ceil($totalRows / $itemsPerPage);
 

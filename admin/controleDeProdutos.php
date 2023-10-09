@@ -38,6 +38,7 @@ $result = $conn->query($sql);
     </nav>
     <section>
         <button id="btnAdd"><a href="./novoProduto.php">Adicionar Produto</a></button>
+        <button id="btnAdd"><a href="./addMail.php">Adicionar email</a></button>
         <table>
             <thead id="thead">
                 <tr>

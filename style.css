@@ -275,8 +275,7 @@ font-size: 18px; ;
     align-items: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 250px;
-    background-attachment: fixed;
+    height: 350px;
 }
 
 /* footer */
@@ -316,6 +315,8 @@ font-size: 18px; ;
     }
     .contact-img{
         background-position: 50%;
+        height: 250px;
+
     }
 }
 

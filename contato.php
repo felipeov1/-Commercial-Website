@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="contactStyle.css">
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <title>Empresa</title>
-</title>
+    </title>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php"><img src="img/logo.png" height="70px" alt="Imagem Logo"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
@@ -41,8 +45,7 @@
                 <p>Para entrar em contato conosco por email, preencha o formulário abaixo e clique em Enviar Mensagem.
                 </p>
                 <hr>
-                <form class="frmMain" action="https://formsubmit.co/ofelipe439@gmail.com" method="POST">
-                    <input type="hidden" name="_captcha" value="false">
+                <form class="frmMain" action="enviarEmail.php" method="POST">
                     <div class="mb-3">
                         <label class="form-label">Nome:</label>
                         <input type="name" name="name" class="form-control" placeholder="seu nome" required>
@@ -58,22 +61,38 @@
                                 <div class="celular col  gx-2">
                                     <label class="form-label">Celular:</label>
                                     <input type="tel" name="tel" class="form-control"
-                                        pattern="\([0-9]{2}\)[9]{1}[0-9]{4}-[0-9]{4}" placeholder="(xx)9xxxx-xxxx"
-                                        required>
+                                        placeholder="DDD + número" id="telefoneInput" required>
                                 </div>
+
+                                <script>
+                                    function formatarTelefone() {
+                                        let telefoneInput = document.getElementById('telefoneInput');
+                                        let valor = telefoneInput.value;
+
+                                        valor = valor.replace(/\D/g, '');
+
+                                        if (valor.length === 11) {
+                                            valor = `(${valor.substr(0, 2)}) ${valor.substr(2, 1)}${valor.substr(3, 4)}-${valor.substr(7)}`;
+                                        } 
+                                        telefoneInput.value = valor;
+                                    }
+
+                                    let telefoneInput = document.getElementById('telefoneInput');
+                                    telefoneInput.addEventListener('input', formatarTelefone);
+                                </script>
                             </div>
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Menssagem</label>
+                        <label for="exampleFormControlTextarea1" class="form-label">Mensagem</label>
                         <textarea type="textarea" name="textarea" class="form-control" rows="8"></textarea required>
                     </div>
-                    <input type="hidden" name="_next" value="http://localhost/felipe/ecommerce/SiteComercial/enviado.php">
                     <div class="btn d-grid gap-2">
-                        <button class="btn btn-dark" type="submit">Enviar Mensagem</button>
+                        <button class="btn btn-dark" name="enviar" type="submit">Enviar Mensagem</button>
                     </div>
                     <p>Entraremos em contato com você o mais rápido possível</p>
                 </form> 
+              
             </div>
             <div class="information mapsColum col-sm">
                 <div class="container text-center">

@@ -42,7 +42,7 @@
                     empilhadeira é ideal para uso ao ar livre, pois não possui limite de tempo de uso. Seu motor a
                     gasolina é caracterizado por ser compacto, leve, silencioso, com baixa vibração e um preço
                     acessível.
-                </p>
+                </p><br>
                 <a href="empilhadeiras.php"  class="btnProducts">Ver Produtos</a>
             </div>
         </div>

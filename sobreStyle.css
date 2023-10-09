@@ -98,7 +98,7 @@ body {
     opacity: .6;
 }
 
-@media screen and (max-width: 728px) {
+@media screen and (max-width: 992px) {
     .image-text, #mobile{
         display: inline;
         padding: 0px 0px 50px 0px !important;
@@ -115,7 +115,10 @@ body {
     #invert{
         display: none;
     }
- 
+    p.fade-in.fade-in.show{
+        margin-bottom: 30px;
+    }
+  
 }
 
 
