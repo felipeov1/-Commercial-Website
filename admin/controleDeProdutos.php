@@ -37,8 +37,18 @@ $result = $conn->query($sql);
         </div>
     </nav>
     <section>
-        <button id="btnAdd"><a href="./novoProduto.php">Adicionar Produto</a></button>
-        <button id="btnAdd"><a href="./addMail.php">Adicionar email</a></button>
+        <div class="dropdown">
+            <a class="btn btn-warning dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Gerenciar
+            </a>
+
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./novoProduto.php">Adicionar Produto</a></li>
+                <li><a class="dropdown-item" href="./addMail.php">Adiconar Email</a></li>
+                <li><a class="dropdown-item" href="./administradores.php">Administradores</a></li>
+            </ul>
+        </div>
         <table>
             <thead id="thead">
                 <tr>
@@ -61,7 +71,7 @@ $result = $conn->query($sql);
                 echo "<td>" . $products_data['product_detail3'] . "</td>";
                 echo "<td>";
                 echo "<div class='container btnContainer'>
-                <button id='btnAction' style='background-color: lightgray;';><a href='addInfo.php?id=" . $products_data['product_id'] . "'>Adicionar informações</a></button>
+<button id='btnAction' style='background-color: lightgray;';><a href='addInfo.php?id=" . $products_data['product_id'] . "'>Adicionar informações</a></button>
                 <button id='btnAction' style='background-color: lightgray;';><a href='editInfo.php?id=" . $products_data['product_id'] . "'>Editar informações</a></button>
                 <button id='btnAction' style='background-color: lightgray;';><a  href='edit.php?id=" . $products_data['product_id'] . "'>Editar caracteristicas</a></button>
                 <button id='btnAction' style='background-color: lightgray;';><a href='delete.php?id=" . $products_data['product_id'] . "'>Excluir</a></button>
@@ -70,8 +80,6 @@ $result = $conn->query($sql);
                 echo "</tr>";
             }
             ?>
-
-
         </table>
     </section>
 

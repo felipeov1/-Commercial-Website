@@ -40,7 +40,6 @@ body {
     align-items: center;
     flex-direction: column;
     background-color: white;
-    padding: 3rem;
 }
 
 .formHeader {
@@ -82,21 +81,25 @@ body {
     opacity: 0.6
 }
 
-#btnMoreProdutcs {
+.btnAdmin a{
+    position: relative;
+    left: 30%;
+    transform: translate(-50%);
     box-shadow: 3px 3px 6px #aaa;
     padding: 10px 20px;
-    margin: 30px 0 50px 0;
     border: none;
-    background-color: #1c1c52;
+    background-color: #797979;
     color: white;
     text-decoration: none;
     border-radius: 5px;
     transition: .6s;
 }
 
-#btnMoreProdutcs:hover{
-    opacity: .6;
+.btnAdmin a:hover{
+    opacity: 0.6
 }
+
+
 
 
 .inputGroup input {
@@ -118,24 +121,17 @@ body {
 .returnBtn{
     position: relative;
     right: 100%;
-    transform: translate(-50%);
+    top: 100%;
+    transform: translateY(-100%);
 }
 .returnBtn a{
    color: black;
    text-decoration: none;
 }
 
-.formHeader{
-    margin-top: 15px;
-}
 
-#btnPhoto{
-    margin-top: 5px;
-    display: flex;
-    position: relative;
-    left: 50%;
-    transform: translate(-50%);
-}
+
+
 
 @media screen and (max-width: 1023px){
     form{

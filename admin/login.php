@@ -1,22 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela de login</title>
-    <link rel="stylesheet" type="text/css" href="loginStyle.css">
+    <link rel="stylesheet" href="loginStyle.css">
 </head>
+
 <body>
-    <div class="tela-login">
-        <h1>Login</h1>
-        <form action="testLogin.php" method="POST">
-            <h5>Digite seus dados para acessar.</h5>
-            <input type="text" name="email" placeholder="Digite seu email">
-            <br><br>
-            <input type="password" name="password" placeholder="Digite sua senha">
-            <br><br>
-            <input class="btn-login" type="submit" name="submit" value="Enviar" />
+    <div class="page">
+        <form action="testLogin.php" method="POST"  class="formLogin">
+            <h1>Login</h1>
+            <p>Digite os seus dados de acesso no campo abaixo.</p>
+            <label for="email">E-mail</label>
+            <input name="email" type="email" placeholder="Digite seu e-mail" autofocus="true" />
+            <label for="password">Senha</label>
+            <input name="password" type="password" placeholder="Digite sua senha" />
+            <a href="/">Esqueci minha senha</a>
+            <input name="submit" type="submit" value="Acessar" class="btn" />
         </form>
     </div>
 </body>
+
 </html>

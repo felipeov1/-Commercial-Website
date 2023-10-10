@@ -26,7 +26,7 @@ table{
   left: 50%;
   transform: translate(-50%);
   background-color: white;  
-  width: 99%;
+  width: 60%;
   table-layout: fixed;
   
 }
@@ -38,6 +38,7 @@ td{
 tr{
     text-align: center;
     align-items: center;
+    word-break: break-all;
 }
 th{
 
@@ -52,26 +53,34 @@ th,td{
 }
 
 
-
-#btnAdd a{
+#btnAdd a, #btnReturn a{
     text-decoration: none;
     color: #000000;
 }
 
-#btnAdd{
-    /* background-color: rgb(49, 255, 8); */
-    background-color: lightgray;
-    margin: 25px 0px 5px 10px;
-    padding: 5px;
+#btnReturn{
+    padding: 3px 15px;
+    background-color: #fbb400 !important;
+    text-decoration: none;
     border-radius: 5px;
-    border: 0.5px solid;}
-
-
-.btnContainer{
-    align-items: center;
-    display: flex;
-    flex-direction: column
+    border: none;
+    transition: .6s;
+    margin: 50px;
 }
+
+#btnAdd{
+    padding: 3px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: .6s;
+    position: relative;
+    left: 8%;
+}
+
+
+
+
+
 
 #btnAction{
     margin: 10px;
@@ -100,16 +109,11 @@ th,td{
 
 @media (max-width: 768px) {
     td{
-        display: flex;
-        flex-direction: column;
         align-items: center;
-        margin: 0px 10px 0px 10px !important;
     }
-    #thead{
-        display: none;
+    table{
+        width: 100%;
     }
-    .dropdown{
-        margin-left: 10px;
-    }
+
    
 }

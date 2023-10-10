@@ -6,15 +6,15 @@
 
         $id = $_GET['id'];
 
-        $sqlSelect = "SELECT * FROM products WHERE product_id=$id";
+        $sqlSelect = "SELECT * FROM users WHERE id=$id";
 
         $result = $conn->query($sqlSelect);
 
         if($result->num_rows > 0){
 
-        $sqlDelete = "DELETE FROM products WHERE product_id=$id";
+        $sqlDelete = "DELETE FROM user WHERE id=$id";
         $resultDelete = $conn->query($sqlDelete);
 
         }
-        header('Location: controleDeProdutos.php');
+        header('Location: administradores.php');
     }

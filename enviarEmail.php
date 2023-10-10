@@ -1,7 +1,7 @@
 <?php
-require_once '../db/connection.php';
+require_once './db/connection.php';
 
-$sql = "SELECT * from ´mail´";
+$sql = "SELECT * from `mail`";
 $result = $conn->query($sql);
 
 
@@ -10,7 +10,6 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-//Load Composer's autoloader
 require 'vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable("./admin", 'data.env');
@@ -22,43 +21,77 @@ if (isset($_POST['enviar'])) {
     $products_data = mysqli_fetch_assoc($result);
 
     try {
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER;
-        $mail->isSMTP(); 
+        $mail->isSMTP();
         $mail->Host = $products_data['host']; //$_ENV['EMAIL_HOST'];
-        $mail->SMTPAuth = true; 
+        $mail->SMTPAuth = true;
         $mail->Username = $products_data['user']; //$_ENV['EMAIL_USERNAME'];
         $mail->Password = $products_data['password']; //$_ENV['EMAIL_PASSWORD'];
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; 
-        $mail->Port = $products_data['port'];; 
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+        $mail->Port = $products_data['port'];
+        ;
 
 
-        $mail->setFrom(/*$_ENV['EMAIL_USERNAME']*/ $products_data['user'], 'Empresa Nome');
-        $mail->addAddress(/*$_ENV['EMAIL_USERNAME']*/$products_data['user'], 'Recebendo'); 
-   
-        $mail->addReplyTo(/*$_ENV['EMAIL_USERNAME']*/ $products_data['user'], 'Information');
+        $mail->setFrom( /*$_ENV['EMAIL_USERNAME']*/$products_data['user'], 'Nome da Empresa');
 
-      
-        $mail->isHTML(true); 
-        $mail->Subject = 'Mensagem de contato via site - Empilhadeiras';
+        $mail->addAddress( /*$_ENV['EMAIL_USERNAME']*/$products_data['user'], 'Cliente'); //Company
+        $mail->addReplyTo( /*$_ENV['EMAIL_USERNAME']*/$products_data['user'], 'Nome da Empresa');
+
+        $mail->isHTML(true);
+
+
+
+        $mail->Subject = 'Mensagem de contato via site - Empilhadeiras ';
 
         $body = "Mensagem enviada através do site, segue 
-        informações abaixo:<br>
-        Nome: $_POST[name]<br>
-        Email: $_POST[email]<br>
-        Telefone: $_POST[tel]<br>
-        Mensagem: $_POST[textarea]";
+                informações abaixo:<br>
+                Nome: $_POST[name]<br>
+                Email: $_POST[email]<br>
+                Telefone: $_POST[tel]<br>
+                Mensagem: $_POST[textarea]";
 
         $mail->Body = $body;
-      
-        $mail->send();
 
-        echo 'Mensagem enviada com sucesso';
+        $mail->send();
     } catch (Exception $e) {
         echo "Erro ao enviar a mensagem: {$mail->ErrorInfo}";
     }
-}else{
+} else {
     echo "Erro ao enviar a mensagem, acesso não foi via formulário";
 }
+
+// Create a new PHPMailer instance for the client
+$mailClient = new PHPMailer(true);
+
+try {
+    $mailClient->isSMTP();
+    $mailClient->Host = $products_data['host']; 
+    $mailClient->SMTPAuth = true;
+    $mailClient->Username = $products_data['user']; 
+    $mailClient->Password = $products_data['password']; 
+    $mailClient->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+    $mailClient->Port = $products_data['port'];
+
+    $mailClient->setFrom($products_data['user'], 'Empresa Nome');
+    $mailClient->addAddress($_POST['email'], $_POST['name']); // Destination client email
+
+    $mailClient->isHTML(true);
+
+    $mailClient->Subject = 'Mensagem de contato via site - Empilhadeiras';
+
+    $body = "Segue uma cópia de sua mensagem de contato:<br>
+            Nome: $_POST[name]<br>
+            Email: $_POST[email]<br>
+            Telefone: $_POST[tel]<br>
+            Mensagem: $_POST[textarea]";
+
+    $mailClient->Body = $body;
+
+    $mailClient->send();
+
+} catch (Exception $e) {
+    echo "Message could not be sent. Mailer Error: {$mailClient->ErrorInfo}";
+}
+
 ?>
 
 <!DOCTYPE html>
