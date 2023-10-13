@@ -43,6 +43,7 @@ $result = $conn->query($sql);
             <thead id="thead">
                 <tr>
                     <th>Email</th>
+                    <th>Senha</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -50,9 +51,10 @@ $result = $conn->query($sql);
             while ($products_data = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
                 echo "<td>" . $products_data['user_email'] . "</td>";
+                echo "<td>" . $products_data['user_password'] . "</td>";
                 echo "<td>";
                 echo "<div class='container btnContainer'>
-                <button id='btnAction' style='background-color: lightgray;';><a href='deleteAdm.php?id=" . $products_data['user_email'] . "'>Excluir</a></button>
+                <button id='btnAction' style='background-color: red;';><a href='deleteAdm.php?id=" . $products_data['id'] . "'>Excluir</a></button>
                 </div>";
                 "</td>";
                 echo "</tr>";

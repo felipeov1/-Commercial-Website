@@ -24,7 +24,7 @@
                     </div>
                 </div>
             </div>
-        </nav>
+        </nav> 
     <div class="mainImage">
         <div class="container">
             <span class="textPrice">OS MELHORES PREÇOS</span>

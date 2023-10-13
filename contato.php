@@ -155,7 +155,7 @@
                         <h5 class=" mb-4 font-weight-bold text-white">
                             Navegação
                         </h5>
-                        <hr class="mb-4" width=230px>
+                        <hr class="mb-4">
                         <p>
                             <a href="index.php">Início</a>
                         </p>
@@ -170,7 +170,7 @@
                         <h5 class=" mb-4 font-weight-bold text-white">
                             Contato
                         </h5>
-                        <hr class="mb-4" width=230px>
+                        <hr class="mb-4">
                         <p>
                             <a ef="" class="bi bi-geo-alt-fill"> Seu endereço</a><br>
                         </p>

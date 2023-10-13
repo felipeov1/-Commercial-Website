@@ -17,7 +17,6 @@
             <input name="email" type="email" placeholder="Digite seu e-mail" autofocus="true" />
             <label for="password">Senha</label>
             <input name="password" type="password" placeholder="Digite sua senha" />
-            <a href="/">Esqueci minha senha</a>
             <input name="submit" type="submit" value="Acessar" class="btn" />
         </form>
     </div>

@@ -1,5 +1,12 @@
 <?php
 session_start();
+if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)) {
+    unset($_SESSION['email']);
+    unset($_SESSION['senha']);
+    header('location: login.php');
+    exit();
+}
+$logado = $_SESSION['email'];
 
 require_once '../db/connection.php';
 
@@ -65,9 +72,6 @@ if (isset($_POST['submit'])) {
                     <div class="updateBtn">
                         <input id="update" type="submit" value="Salvar" name="submit">
                     </div><br>
-                    <div class="btnAdmin">
-                        <a href="controleDeAdm.php">Editar</a>
-                    </div>
                 </form>
             </div>
         </div>

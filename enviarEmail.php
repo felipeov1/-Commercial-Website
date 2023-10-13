@@ -33,7 +33,7 @@ if (isset($_POST['enviar'])) {
 
         $mail->setFrom( /*$_ENV['EMAIL_USERNAME']*/$products_data['user'], 'Nome da Empresa');
 
-        $mail->addAddress( /*$_ENV['EMAIL_USERNAME']*/$products_data['user'], 'Cliente'); //Company
+        $mail->addAddress( /*$_ENV['EMAIL_USERNAME']*/$products_data['user'], 'Cliente'); 
         $mail->addReplyTo( /*$_ENV['EMAIL_USERNAME']*/$products_data['user'], 'Nome da Empresa');
 
         $mail->isHTML(true);
