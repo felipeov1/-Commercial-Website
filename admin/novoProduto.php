@@ -37,7 +37,6 @@ if (isset($_POST["submit"])) {
 
                 mysqli_query($conn, "INSERT INTO products(product_name, product_image, product_imgName, product_detail1, product_detail2, product_detail3) VALUES('$productName', '$pathImg', '$imageName', '$productDetail1', '$productDetail2', '$productDetail3')");
 
-                echo "<p>Arquivo enviado com sucesso! Para acessa-lo: <a target=\"_blank\" href=\"images/$imageName\"><\a></p>";
             } else {
                 echo "<p>Falha ao enviar</p>";
             }

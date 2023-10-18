@@ -28,13 +28,16 @@ if ($currentPage < 1) {
 $offset = ($currentPage - 1) * $itemsPerPage;
 
 $sql = "SELECT * FROM `products` LIMIT $itemsPerPage OFFSET $offset";
+
 if($totalRows > 0){
     $result = $conn->query($sql);
+}else{
+    ("Falha na conexão ao banco de dados ou não foi encontrado registros: " . mysqli_connect_error());
 }
 
 
 
-?>
+?> 
 
 
 <!DOCTYPE html>

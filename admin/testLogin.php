@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-print_r($_REQUEST);
 if (isset($_POST['submit']) && !empty($_POST['email']) && ($_POST['password'])) {
     // acessa
     include_once('../db/connection.php');
@@ -19,7 +18,7 @@ if (isset($_POST['submit']) && !empty($_POST['email']) && ($_POST['password'])) 
         unset($_SESSION['email']);
         unset($_SESSION['password']);
 
-        header('Location: login.php');
+        header('Location: index.php');
     } else {
         $_SESSION['email'] = $email;
         $_SESSION['password'] = $password;
@@ -27,6 +26,6 @@ if (isset($_POST['submit']) && !empty($_POST['email']) && ($_POST['password'])) 
     }
 } else {
 
-    header('Location: login.php');
+    header('Location: index.php');
 
 }

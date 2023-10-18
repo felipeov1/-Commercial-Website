@@ -1,42 +1,28 @@
 <?php
-session_start();
-if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)) {
-    unset($_SESSION['email']);
-    unset($_SESSION['senha']);
-    header('location: login.php');
-    exit();
-}
-$logado = $_SESSION['email'];
+if (!empty($_GET['id'])) {
 
-require_once '../db/connection.php';
+    include_once '../db/connection.php';
 
-if (isset($_POST['submit'])) {
+    $id = $_GET['id'];
 
-    $host = $_POST["host"];
-    $user = $_POST["user"];
-    $password = $_POST["password"];
-    $port = $_POST["port"];
 
-    $sqlSelect = "SELECT * FROM mail";
-    $resultSelect = $conn->query($sqlSelect);
+    $sqlSelect = "SELECT * FROM mail WHERE id = $id";
 
-    if ($resultSelect->num_rows > 0) {
-        echo "Já existe um email cadastrado, edite ou exclua o atual";
-    } else if ($resultSelect->num_rows === 0) {
-        $query = "INSERT INTO mail (host, user, password, port) VALUES ('$host', '$user', '$password', '$port')";
-        $result = $conn->query($query);
+    $result = $conn->query($sqlSelect);
 
-    }else{
-        echo "Erro ao adicionar informações: " . mysqli_error($conn);
+    if ($result->num_rows > 0) {
+        $product_data = $result->fetch_assoc();
+        $id = $product_data['id'];
+        $host = $product_data['host'];
+        $user = $product_data['user'];
+        $password = $product_data['password'];
+        $port = $product_data['port'];
+    } else {
+        echo "Produto não encontrado";
     }
-
-
-
-
-
-   
-    
-} 
+} else {
+    echo "ID do produto não fornecido";
+}
 ?>
 
 <DOCTYPE html>
@@ -62,7 +48,7 @@ if (isset($_POST['submit'])) {
 
         <div class="container">
             <div class="form">
-                <form method="POST" action="./addMail.php" enctype="multipart/form-data">
+                <form method="POST" action="./saveEditMail.php" enctype="multipart/form-data">
                     <div class="formHeader">
                         <div class="returnBtn">
                             <a href="email.php">Voltar</a>
@@ -74,25 +60,25 @@ if (isset($_POST['submit'])) {
                     <div class="inputGroup">
                         <div class="inputBox">
                             <label for="host">Host:</label>
-                            <input type="text" name="host" id="host" required>
+                            <input type="text" name="host" id="host" value="<?php echo $host ?>">
                         </div>
                     </div><br>
                     <div class="inputGroup">
                         <div class="inputBox">
                             <label for="user">Usuário:</label>
-                            <input type="text" name="user" id="user" required>
+                            <input type="text" name="user" id="user" value="<?php echo $user ?>">
                         </div>
                     </div><br>
                     <div class="inputGroup">
                         <div class="inputBox">
                             <label for="password">Senha:</label>
-                            <input type="text" name="password" id="password" required>
+                            <input type="text" name="password" id="password" value="<?php echo $password ?>">
                         </div>
                     </div><br>
                     <div class="inputGroup">
                         <div class="inputBox">
                             <label for="port">Porta:</label>
-                            <input type="text" name="port" id="port" required>
+                            <input type="text" name="port" id="port" value="<?php echo $port ?>">
                         </div>
                     </div>
                     <div class="updateBtn">

@@ -34,6 +34,8 @@ if (isset($_GET['id'])) {
         $tableInfo4 = $product_data["info4"];
         $tableInfo5 = $product_data["info5"];
 
+    }else{
+        echo "Nenhuma informação registrada";
     }
 }
 

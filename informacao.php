@@ -51,9 +51,17 @@ if (isset($_GET['id'])) {
         <div class="colImg col-md-6" style="padding: 0;">
             <div class="imageSide ">
                 <div class="view">
-                    <div id="carouselExample" class="carousel carousel-dark slide">
-                        <img id="fullImage" src="img/FD45T/2-1b.jpg" alt="...">
-                    </div>
+                    <?php
+                    $sql_info = "SELECT products.*, productsinformations.* FROM `products` JOIN `productsinformations` ON products.product_id = productsinformations.id_reference WHERE productsinformations.id_reference = $idReference";
+
+                    while ($products_data = mysqli_fetch_assoc($result)) {
+                        $img = $products_data['product_imgName'];
+                        $path = "./admin/imagesUpload/";
+                        $pathImg = ($path . $img);
+                        echo "<img id='fullImage' src='$pathImg'>";
+
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -80,7 +88,7 @@ if (isset($_GET['id'])) {
 
                 if (!empty($product_data[$smallInfo])) {
                     echo "<p><i class='bi bi-chevron-right' style='color: #fbb400;'></i>" .
-                    $product_data[$smallInfo] . "</p>";
+                        $product_data[$smallInfo] . "</p>";
                 }
             }
 

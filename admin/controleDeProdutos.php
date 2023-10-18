@@ -45,7 +45,7 @@ $result = $conn->query($sql);
 
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="./novoProduto.php">Adicionar Produto</a></li>
-                <li><a class="dropdown-item" href="./addMail.php">Adiconar Email</a></li>
+                <li><a class="dropdown-item" href="./email.php">Email de contato</a></li>
                 <li><a class="dropdown-item" href="./administradores.php">Administradores</a></li>
             </ul>
         </div>
