@@ -9,15 +9,13 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['password']) == t
 $logado = $_SESSION['email'];
 require_once '../db/connection.php';
 
-$sql = "SELECT * FROM  `products` ORDER BY `products`.`product_id` DESC";
+$sql = "SELECT * FROM  `main_page`";
 
 $result = $conn->query($sql);
 
 $sqlLogo = "SELECT * FROM `company`";
 $resultLogo = $conn->query($sqlLogo);
 $dataLogo = mysqli_fetch_assoc($resultLogo);
-
- 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +33,7 @@ $dataLogo = mysqli_fetch_assoc($resultLogo);
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php"><img src="<?php $dataName = $dataLogo['logoName']; 
+        <a class="navbar-brand" href="index.php"><img src="<?php $dataName = $dataLogo['logoName']; 
             $path = "./imagesUpload/";
             $img = ($path . $dataName);
             echo $img ?>" height="100px" alt="Logo"></a>
@@ -50,41 +48,42 @@ $dataLogo = mysqli_fetch_assoc($resultLogo);
             </a>
 
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="./novoProduto.php">Adicionar Produto</a></li>
-                <li><a class="dropdown-item" href="./infoEmpresa.php">Informações da empresa</a></li>
-                <li><a class="dropdown-item" href="./email.php">Email de contato</a></li>
-                <li><a class="dropdown-item" href="./administradores.php">Administradores</a></li>
-                <li><a class="dropdown-item" href="./editarPaginaPrincipal.php">Editar página principal</a></li>
-                <li><a class="dropdown-item" href="./editarPaginaEmpilhadeiras.php">Editar página empilhadeiras</a></li>
-                <li><a class="dropdown-item" href="./editarPaginaSobre.php">Editar página sobre</a></li>
+                <li><a class="dropdown-item" href="./adicionarInfoPaginaPrincipal.php">Adicionar informações</a></li>
+                <li><a class="dropdown-item" href="./controleDeProdutos.php">Controle de produtos</a></li>
             </ul>
         </div>
         <table>
             <thead id="thead">
                 <tr>
-                    <th>Imagem</th>
-                    <th>Título</th>
-                    <th>Detalhe</th>
-                    <th>Detalhe</th>
-                    <th>Detalhe</th>
+                    <th>Banner 1</th>
+                    <th>Banner 2</th>
+                    <th>Banner 3</th>
+                    <th>Título do card</th>
+                    <th>Imagem do card</th>
+                    <th>Texto da sessão de exploração</th>
+                    <th>Nossa missão imagem</th>
                     <th>Ações</th>
                 </tr>
             </thead>
             <?php
             while ($products_data = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
-                $img = $products_data['product_image'];
-                echo "<td><img height='80' src='$img'></td>";
-                echo "<td>" . $products_data['product_name'] . "</td>";
-                echo "<td>" . $products_data['product_detail1'] . "</td>";
-                echo "<td>" . $products_data['product_detail2'] . "</td>";
-                echo "<td>" . $products_data['product_detail3'] . "</td>";
+                $img1 = $products_data['banner1']; 
+                echo "<td><img height='80' src='$img1'></td>";
+                $img2 = $products_data['banner2']; 
+                echo "<td><img height='80' src='$img2'></td>";
+                $img3 = $products_data['banner3']; 
+                echo "<td><img height='80' src='$img3'></td>";
+                echo "<td>" . $products_data['cardName'] . "</td>";
+                $img1 = $products_data['cardImg']; 
+                echo "<td><img height='80' src='$img1'></td>";
+                echo "<td>" . $products_data['exploreSectionText'] . "</td>";
+                $img2 = $products_data['missionImg']; 
+                echo "<td><img height='80' src='$img2'></td>";
                 echo "<td>";
                 echo "<div class='container btnContainer'>
-<button id='btnAction' style='background-color: lightgray;';><a href='addInfo.php?id=" . $products_data['product_id'] . "'>Adicionar informações</a></button>
-                <button id='btnAction' style='background-color: lightgray;';><a href='editInfo.php?id=" . $products_data['product_id'] . "'>Editar tabela técnica</a></button>
-                <button id='btnAction' style='background-color: lightgray;';><a  href='edit.php?id=" . $products_data['product_id'] . "'>Editar caracteristicas</a></button>
-                <button id='btnAction' style='background-color: lightgray;';><a href='delete.php?id=" . $products_data['product_id'] . "'>Excluir</a></button>
+                <button id='btnAction' style='background-color: lightgray;';><a href='editInfoPaginaPrincipal.php?id=" . $products_data['id'] . "'>Editar informações</a></button>
+                <button id='btnAction' style='background-color: lightgray;';><a href='deletePaginaPrincipal.php?id=" . $products_data['id'] . "'>Excluir</a></button>
                 </div>";
                 "</td>";
                 echo "</tr>";

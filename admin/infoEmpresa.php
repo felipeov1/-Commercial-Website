@@ -9,15 +9,13 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['password']) == t
 $logado = $_SESSION['email'];
 require_once '../db/connection.php';
 
-$sql = "SELECT * FROM  `products` ORDER BY `products`.`product_id` DESC";
+$sql = "SELECT * FROM  `company` ORDER BY `company`.`id` DESC";
 
 $result = $conn->query($sql);
 
 $sqlLogo = "SELECT * FROM `company`";
 $resultLogo = $conn->query($sqlLogo);
 $dataLogo = mysqli_fetch_assoc($resultLogo);
-
- 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +33,7 @@ $dataLogo = mysqli_fetch_assoc($resultLogo);
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php"><img src="<?php $dataName = $dataLogo['logoName']; 
+        <a class="navbar-brand" href="index.php"><img src="<?php $dataName = $dataLogo['logoName']; 
             $path = "./imagesUpload/";
             $img = ($path . $dataName);
             echo $img ?>" height="100px" alt="Logo"></a>
@@ -50,41 +48,41 @@ $dataLogo = mysqli_fetch_assoc($resultLogo);
             </a>
 
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="./novoProduto.php">Adicionar Produto</a></li>
-                <li><a class="dropdown-item" href="./infoEmpresa.php">Informações da empresa</a></li>
-                <li><a class="dropdown-item" href="./email.php">Email de contato</a></li>
-                <li><a class="dropdown-item" href="./administradores.php">Administradores</a></li>
-                <li><a class="dropdown-item" href="./editarPaginaPrincipal.php">Editar página principal</a></li>
-                <li><a class="dropdown-item" href="./editarPaginaEmpilhadeiras.php">Editar página empilhadeiras</a></li>
-                <li><a class="dropdown-item" href="./editarPaginaSobre.php">Editar página sobre</a></li>
+                <li><a class="dropdown-item" href="./addInfoEmpresa.php">Adicionar Informações</a></li>
+                <li><a class="dropdown-item" href="./controleDeProdutos.php">Controle de produtos</a></li>
             </ul>
         </div>
         <table>
             <thead id="thead">
                 <tr>
-                    <th>Imagem</th>
-                    <th>Título</th>
-                    <th>Detalhe</th>
-                    <th>Detalhe</th>
-                    <th>Detalhe</th>
+                    <th>Logo</th>
+                    <th>Nome</th>
+                    <th>Número para contato</th>
+                    <th>Email</th>
+                    <th>Endereço</th>
+                    <th>Instagram (Link)</th>
+                    <th>Facebook (Link)</th>
+                    <th>Whatsapp (Link)</th>
                     <th>Ações</th>
                 </tr>
             </thead>
             <?php
             while ($products_data = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
-                $img = $products_data['product_image'];
-                echo "<td><img height='80' src='$img'></td>";
-                echo "<td>" . $products_data['product_name'] . "</td>";
-                echo "<td>" . $products_data['product_detail1'] . "</td>";
-                echo "<td>" . $products_data['product_detail2'] . "</td>";
-                echo "<td>" . $products_data['product_detail3'] . "</td>";
+                $logo = $products_data['logo'];
+                echo "<td><img height='80' src='$logo'></td>";
+                echo "<td>" . $products_data['name'] . "</td>";
+                echo "<td>" . $products_data['tel'] . "</td>";
+                echo "<td>" . $products_data['mail'] . "</td>";
+                echo "<td>" . $products_data['address'] . "</td>";
+                echo "<td>" . $products_data['insta'] . "</td>";
+                echo "<td>" . $products_data['face'] . "</td>";
+                echo "<td>" . $products_data['whats'] . "</td>";
                 echo "<td>";
-                echo "<div class='container btnContainer'>
-<button id='btnAction' style='background-color: lightgray;';><a href='addInfo.php?id=" . $products_data['product_id'] . "'>Adicionar informações</a></button>
-                <button id='btnAction' style='background-color: lightgray;';><a href='editInfo.php?id=" . $products_data['product_id'] . "'>Editar tabela técnica</a></button>
-                <button id='btnAction' style='background-color: lightgray;';><a  href='edit.php?id=" . $products_data['product_id'] . "'>Editar caracteristicas</a></button>
-                <button id='btnAction' style='background-color: lightgray;';><a href='delete.php?id=" . $products_data['product_id'] . "'>Excluir</a></button>
+                echo "<div class='container btnC
+                ontainer'>
+                <button id='btnAction' style='background-color: lightgray;';><a href='editCompanyInfo.php?id=" . $products_data['id'] . "'>Editar informações</a></button>
+                <button id='btnAction' style='background-color: lightgray;';><a href='deleteCompanyInfo.php?id=" . $products_data['id'] . "'>Excluir</a></button>
                 </div>";
                 "</td>";
                 echo "</tr>";

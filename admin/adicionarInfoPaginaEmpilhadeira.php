@@ -8,6 +8,10 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['password']) == t
 }
 require_once '../db/connection.php';
 
+$sqlSelect = "SELECT * FROM `about_page`";
+$result = $conn->query($sqlSelect);
+
+
 if (isset($_POST["submit"])) {
     if (isset($_FILES['imgUpload'])) {
         $image = $_FILES['imgUpload'];
@@ -30,14 +34,11 @@ if (isset($_POST["submit"])) {
             $imageCorrect = move_uploaded_file($image["tmp_name"], $path . $imageName);
             if ($imageCorrect) {
 
-                $productName = $_POST["productName"];
-                $productDetail1 = $_POST["productDetail1"];
-                $productDetail2 = $_POST["productDetail2"];
-                $productDetail3 = $_POST["productDetail3"];
+               
 
-                mysqli_query($conn, "INSERT INTO products(product_name, product_image, product_detail1, product_detail2, product_detail3) VALUES('$productName', '$pathImg', '$productDetail1', '$productDetail2', '$productDetail3')");
 
-                header("location: controleDeProdutos.php");
+                mysqli_query($conn, "INSERT INTO forklift_page (img, pathImg) VALUES('$pathImg', '$imageName')");
+                header("location: editarPaginaEmpilhadeiras.php");
 
             } else {
                 echo "<p>Falha ao enviar</p>";
@@ -48,10 +49,13 @@ if (isset($_POST["submit"])) {
     }
 }
 
+
 $sqlLogo = "SELECT * FROM `company`";
 $resultLogo = $conn->query($sqlLogo);
 $dataLogo = mysqli_fetch_assoc($resultLogo);
+
 ?>
+
 
 <DOCTYPE html>
     <html lang="en">
@@ -69,57 +73,30 @@ $dataLogo = mysqli_fetch_assoc($resultLogo);
     <body>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-            <a class="navbar-brand" href="index.php"><img src="<?php $dataName = $dataLogo['logoName']; 
-            $path = "./imagesUpload/";
-            $img = ($path . $dataName);
-            echo $img ?>" height="100px" alt="Logo"></a>                <a href="../index.php"><button class="btn btn-outline-danger" type="submit">Sair</button></a>
+                <a class="navbar-brand" href="index.php"><img src="<?php $dataName = $dataLogo['logoName'];
+                $path = "./imagesUpload/";
+                $img = ($path . $dataName);
+                echo $img ?>" height="100px" alt="Logo"></a> <a href="../index.php"><button
+                        class="btn btn-outline-danger" type="submit">Sair</button></a>
             </div>
         </nav>
 
         <div class="container">
             <div class="form">
-                <form action="novoProduto.php" method="POST" enctype="multipart/form-data">
+                <form action="adicionarInfoPaginaEmpilhadeira.php" method="POST" enctype="multipart/form-data">
                     <div class="formHeader">
                         <div class="returnBtn">
-                            <a href="controleDeProdutos.php">Voltar</a>
+                            <a href="editarPaginaEmpilhadeiras.php">Voltar</a>
                         </div>
                         <div>
 
-                        </div>
-                    </div>
-                    <div class="inputGroup">
-                        <div class="inputBox">
-                            <label for="productName">Produto:</label>
-                            <input type="text" name="productName" id="productName" placeholder="Nome do produto"
-                                required>
-                        </div>
-                    </div><br>
-                    <div class="inputGroup">
-                        <div class="inputBox">
-                            <label for="productDetail1">Tipo de combustível:</label>
-                            <input type="text" name="productDetail1" id="productDetail1" placeholder="Combustível"
-                                required>
-                        </div>
-                    </div>
-                    <div class="inputGroup">
-                        <div class="inputBox">
-                            <label for="productDetail1">Elevacão:</label>
-                            <input type="text" name="productDetail2" id="productDetail2" placeholder="Elevação"
-                                required>
-                        </div>
-                    </div>
-                    <div class="inputGroup">
-                        <div class="inputBox">
-                            <label for="productDetail1">Capacidade de carga:</label>
-                            <input type="text" name="productDetail3" id="productDetail3"
-                                placeholder="Capacidade de Carga" required>
                         </div>
                     </div>
                     <div id="dynamic-inputs">
                         <div class="imgBtn">
                             <div class="inputBox">
                                 <input type="file" name="imgUpload" id="imgUpload" required hidden>
-                                <a><button id="choose" onclick="upload()">Escolher Imagem</button></a>
+                                <a><button id="choose" style="width: 100%" onclick="upload()">Imagem</button></a>
                             </div>
                         </div>
                     </div>
@@ -138,7 +115,7 @@ $dataLogo = mysqli_fetch_assoc($resultLogo);
                         });
                     </script>
                     <div class="updateBtn">
-                        <input id="update" type="submit" value="Salvar" name="submit">
+                        <input id="update" type="submit" value="Salvar" name="submit" style="width: 300px">
                     </div>
                 </form>
             </div>

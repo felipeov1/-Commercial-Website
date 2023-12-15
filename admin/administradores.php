@@ -13,7 +13,9 @@ $sql = "SELECT * FROM  users";
 
 $result = $conn->query($sql);
 
-
+$sqlLogo = "SELECT * FROM `company`";
+$resultLogo = $conn->query($sqlLogo);
+$dataLogo = mysqli_fetch_assoc($resultLogo);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -31,14 +33,16 @@ $result = $conn->query($sql);
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="controleDeProdutos.php"><img src="../img/logo.png" height="70px"
-                    alt="Imagem Logo"></a>
+            <a class="navbar-brand" href="index.php"><img src="<?php $dataName = $dataLogo['logoName'];
+            $path = "./imagesUpload/";
+            $img = ($path . $dataName);
+            echo $img ?>" height="100px" alt="Logo"></a>
             <a href="../index.php"><button class="btn btn-outline-danger" type="submit">Sair</button></a>
         </div>
     </nav>
     <section>
-    <button id='btnReturn' style='background-color: lightgray;'><a  href='controleDeProdutos.php'>Voltar</a></button>
-    <button id='btnAdd' style='background-color: lightgray;'><a  href='addAdm.php'>Adiconar Usuário</a></button>
+        <button id='btnReturn' style='background-color: lightgray;'><a href='controleDeProdutos.php'>Voltar</a></button>
+        <button id='btnAdd' style='background-color: lightgray;'><a href='addAdm.php'>Adiconar Usuário</a></button>
         <table>
             <thead id="thead">
                 <tr>

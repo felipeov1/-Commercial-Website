@@ -8,6 +8,10 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['password']) == t
 }
 require_once '../db/connection.php';
 
+$sqlSelect = "SELECT * FROM `about_page`";
+$result = $conn->query($sqlSelect);
+
+
 if (isset($_POST["submit"])) {
     if (isset($_FILES['imgUpload'])) {
         $image = $_FILES['imgUpload'];
@@ -30,14 +34,12 @@ if (isset($_POST["submit"])) {
             $imageCorrect = move_uploaded_file($image["tmp_name"], $path . $imageName);
             if ($imageCorrect) {
 
-                $productName = $_POST["productName"];
-                $productDetail1 = $_POST["productDetail1"];
-                $productDetail2 = $_POST["productDetail2"];
-                $productDetail3 = $_POST["productDetail3"];
+                $title = $_POST["title"];
+                $smallText = $_POST["smallText"];
 
-                mysqli_query($conn, "INSERT INTO products(product_name, product_image, product_detail1, product_detail2, product_detail3) VALUES('$productName', '$pathImg', '$productDetail1', '$productDetail2', '$productDetail3')");
 
-                header("location: controleDeProdutos.php");
+                mysqli_query($conn, "INSERT INTO about_page (title, smallText, img, pathImg) VALUES('$title', '$smallText', '$pathImg', '$imageName')");
+                header("location: editarPaginaSobre.php");
 
             } else {
                 echo "<p>Falha ao enviar</p>";
@@ -48,10 +50,13 @@ if (isset($_POST["submit"])) {
     }
 }
 
+
 $sqlLogo = "SELECT * FROM `company`";
 $resultLogo = $conn->query($sqlLogo);
 $dataLogo = mysqli_fetch_assoc($resultLogo);
+
 ?>
+
 
 <DOCTYPE html>
     <html lang="en">
@@ -69,64 +74,53 @@ $dataLogo = mysqli_fetch_assoc($resultLogo);
     <body>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-            <a class="navbar-brand" href="index.php"><img src="<?php $dataName = $dataLogo['logoName']; 
-            $path = "./imagesUpload/";
-            $img = ($path . $dataName);
-            echo $img ?>" height="100px" alt="Logo"></a>                <a href="../index.php"><button class="btn btn-outline-danger" type="submit">Sair</button></a>
+                <a class="navbar-brand" href="index.php"><img src="<?php $dataName = $dataLogo['logoName'];
+                $path = "./imagesUpload/";
+                $img = ($path . $dataName);
+                echo $img ?>" height="100px" alt="Logo"></a> <a href="../index.php"><button
+                        class="btn btn-outline-danger" type="submit">Sair</button></a>
             </div>
         </nav>
 
         <div class="container">
             <div class="form">
-                <form action="novoProduto.php" method="POST" enctype="multipart/form-data">
+                <form action="./adicionarInfoPaginaSobre.php" method="POST" enctype="multipart/form-data">
                     <div class="formHeader">
                         <div class="returnBtn">
-                            <a href="controleDeProdutos.php">Voltar</a>
+                            <a href="./editarPaginaSobre.php">Voltar</a>
                         </div>
                         <div>
 
                         </div>
                     </div>
                     <div class="inputGroup">
+                        <input type="hidden" name="id" value="<?php $id ?>">
+
                         <div class="inputBox">
-                            <label for="productName">Produto:</label>
-                            <input type="text" name="productName" id="productName" placeholder="Nome do produto"
-                                required>
-                        </div>
-                    </div><br>
-                    <div class="inputGroup">
-                        <div class="inputBox">
-                            <label for="productDetail1">Tipo de combustível:</label>
-                            <input type="text" name="productDetail1" id="productDetail1" placeholder="Combustível"
-                                required>
+                            <label for="title">Título:</label>
+                            <textarea name="title" id="title" cols="30" rows="10"></textarea>
                         </div>
                     </div>
                     <div class="inputGroup">
                         <div class="inputBox">
-                            <label for="productDetail1">Elevacão:</label>
-                            <input type="text" name="productDetail2" id="productDetail2" placeholder="Elevação"
-                                required>
-                        </div>
-                    </div>
-                    <div class="inputGroup">
-                        <div class="inputBox">
-                            <label for="productDetail1">Capacidade de carga:</label>
-                            <input type="text" name="productDetail3" id="productDetail3"
-                                placeholder="Capacidade de Carga" required>
+                            <label for="text">Texto:</label>
+                            <textarea name="smallText" id="smallText" cols="30"
+                                rows="10"></textarea>
                         </div>
                     </div>
                     <div id="dynamic-inputs">
                         <div class="imgBtn">
                             <div class="inputBox">
-                                <input type="file" name="imgUpload" id="imgUpload" required hidden>
-                                <a><button id="choose" onclick="upload()">Escolher Imagem</button></a>
+                                <input type="file" name="imgUpload" id="imgUpload" hidden>
+                                <input type="button" id="choose" onclick="upload()" value="Imagem">
                             </div>
                         </div>
                     </div>
                     <script>
-                        var productName = document.getElementById("productName");
+                        var title = document.getElementById("title");
                         var choose = document.getElementById("choose");
                         var imgUpload = document.getElementById("imgUpload");
+                        var imgBanner = document.getElementById("imgBanner");
 
                         function upload() {
                             imgUpload.click();
@@ -134,8 +128,11 @@ $dataLogo = mysqli_fetch_assoc($resultLogo);
 
                         imgUpload.addEventListener("change", function () {
                             var file = this.files[0];
-                            choose.innerHTML = file.name;
+                            choose.innerHTML = "Alterar: " + file.name;
+                            choose.value = "Alterar: " + file.name;
                         });
+
+
                     </script>
                     <div class="updateBtn">
                         <input id="update" type="submit" value="Salvar" name="submit">

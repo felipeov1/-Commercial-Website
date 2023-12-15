@@ -1,72 +1,60 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap');
 
 
-    body {
-        background-color: #f7f6f6;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        font-family: 'Inter', sans-serif;
-    }
+body {
+    background-color: #f7f6f6;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
 
-    #imgLogo{
-        margin: 5px 5px 5px 5px;
-    }
-    #navbarNavAltMarkup{
-        margin: 0px 0px 0px 20px;
-    }
-    .navbar-nav{
-        
-        font-size: 20px;
-    }
-    .navbar{
-        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    }
-    .navbar-nav a:hover{
-        color: #fbb400;
-    }
+#imgLogo {
+    margin: 5px 5px 5px 5px;
+}
+
+#navbarNavAltMarkup {
+    margin: 0px 0px 0px 20px;
+}
+
+.navbar-nav {
+
+    font-size: 20px;
+}
+
+.navbar {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.navbar-nav a:hover {
+    color: #fbb400;
+}
 
 /* main image */
 
-.mainImage{
-    position: relative;
-    background: url(img/mainImageLarge.jpg) no-repeat center;
-    width: 100%;
-    height: 500px;
-    overflow: hidden;
-}
-
-.mainImage .container{
-   position: absolute; 
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   text-align: center;
-   color: #fff;
-   font-weight: 700;
-}
 
 
-.textTitle{
+
+.textTitle {
     margin: 5px;
     display: block;
     font-size: 35px;
     color: #fbb400;
-    
+
 }
 
-.textPrice{
+.textPrice {
     display: block;
     font-size: 20px;
     font-weight: bolder;
 }
 
-.text{
+.text {
     display: block;
     margin: 30px 0 30px 0;
 }
 
-.mainImage .container .btnLink{
+ .btnLink {
     color: black;
     padding: 10px 20px;
     background-color: #fbb400;
@@ -75,7 +63,7 @@
     transition: .6s;
 }
 
-.btnLink:hover{
+.btnLink:hover {
     opacity: .6;
 }
 
@@ -83,15 +71,15 @@
 
 /* products */
 
-.mainProducts{
+.mainProducts {
     display: flex;
     height: auto;
     justify-content: center;
     margin: 0;
-    padding: 0; 
+    padding: 0;
 }
 
-.mainProducts .card{
+.mainProducts .card {
     display: inline-flex;
     position: relative;
     object-fit: contain;
@@ -103,40 +91,40 @@
     box-shadow: 4px 4px 12px #aaa;
 }
 
-.card img{
+.card img {
     width: 100%;
     height: 250px;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
-    
+
 }
 
-.dataCard{
+.dataCard {
     position: absolute;
     display: inline;
-    align-items: center; 
+    align-items: center;
     left: 50%;
     top: 50%;
     transform: translateX(-50%);
 }
 
-.dataCard h1{
+.dataCard h1 {
     text-align: center;
     margin: 40px;
     font-size: 20px;
     inline-size: 500px;
 }
 
-.btnData{
+.btnData {
     position: absolute;
     display: inline;
     align-items: center;
-    top: 90%; 
+    top: 90%;
     left: 50%;
     transform: translateX(-50%);
 }
 
-#btnMoreInformation{
+#btnMoreInformation {
     padding: 10px 20px;
     margin: 20px;
     border: 2px solid #1c1c52;
@@ -146,33 +134,33 @@
     border-radius: 5px;
 }
 
-#btnMoreInformation:hover{
+#btnMoreInformation:hover {
     background-color: #1c1c52;
     color: #fbb400;
 }
 
 
-.information{
+.information {
     display: inline;
     flex-direction: column;
     margin: 50px 20px 0px 20px;
     text-align: center;
 }
 
-.information h1{
+.information h1 {
     padding: 0 20px 0 20px;
     font-size: 30px;
 }
 
-.information h5{
+.information h5 {
     font-size: 16px;
     padding: 0 10px 0 10px;
 }
 
-.information p{
+.information p {
     display: inline-flex;
-    position: absolute; 
-    left: 50%; 
+    position: absolute;
+    left: 50%;
     transform: translate(-50%, -50%);
     inline-size: 850px;
     text-align: center;
@@ -180,10 +168,10 @@
     margin: 20px;
 }
 
-.btnProductsPage{
+.btnProductsPage {
     display: flex;
     position: relative;
-    left: 50%; 
+    left: 50%;
     transform: translate(-50%);
     width: max-content;
 }
@@ -200,62 +188,72 @@
     transition: .6s;
 }
 
-#btnMoreProdutcs:hover{
+#btnMoreProdutcs:hover {
     opacity: .6;
 }
 
-@media screen and (max-width: 800px){
-    .mainImage{
+@media screen and (max-width: 800px) {
+    .mainImage {
         background-size: contain;
     }
-    .container{
+
+    .container {
         inline-size: 300px;
     }
-    .container .text{
+
+    .container .text {
         font-size: 14px;
     }
-    .container .textPrice{
+
+    .container .textPrice {
         font-size: 18px;
     }
-    .container .textTitle{
+
+    .container .textTitle {
         font-size: 22px;
     }
-    .mainImage{
+
+    .mainImage {
         width: 100%;
         background-size: cover;
-        
+
     }
-    .dataCard h1{
+
+    .dataCard h1 {
         margin: 80px 0px 0px 0px;
         width: max-content;
     }
-    
-    .information{
+
+    .information {
         display: flex;
     }
 
-    .information h1{ 
+    .information h1 {
         margin: 0px 0px 10px 0px;
-font-size: 18px; ;
+        font-size: 18px;
+        ;
     }
 
-    .information h5{
+    .information h5 {
         font-size: 14px;
         color: rgb(81, 81, 81);
     }
-    .mainProducts{
+
+    .mainProducts {
         display: flex;
         flex-direction: column;
         align-items: center;
-        
+
     }
-    .mainProducts .card{
+
+    .mainProducts .card {
         margin: 35px 0px 0px 0px;
         width: 200px;
         height: 390px;
         inline-size: 300px;
     }
-    .btnProductsPage{
+
+    .btnProductsPage {
         margin: 0px 0px 0px 10px;
     }
 }
@@ -263,19 +261,64 @@ font-size: 18px; ;
 
 
 
+@media screen and (max-width: 425px) {
+    .contactColum {
+        margin-bottom: 10px;
+    }
+
+    .contactInformation {
+        font-size: 12px;
+    }
+
+    .whatsapp {
+        margin-right: 10px;
+    }
+
+    .frmMain input {
+        width: 200px;
+    }
+
+    .celular {
+        margin-top: 16px;
+    }
+}
+
+.information h6{
+    text-align: center;
+}
+
+
+@media screen and (max-width: 425px) {
+    .contactColum{
+        margin-bottom: 10px;
+    }
+    .contactInformation{
+        font-size: 12px;
+    }
+    .whatsapp{
+        margin-right: 10px;
+    }
+    .frmMain input{
+        width: 200px;
+    }
+    .celular{
+        margin-top: 16px;
+    }
+
+}
+
+
 /* banner movel */
 
-.contact-img{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.618),#00000080) ,url(img/Forklift-Training-Hero-Image.png);
+
+
+.contact-img {
+    color: black;
     text-align: center;
-    background-position: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 350px;
+    margin-top: 80px;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 /* footer */
@@ -286,49 +329,184 @@ font-size: 18px; ;
     color: white;
 }
 
-.footerNav a:hover{
+.footerNav a:hover {
     color: #fbb400;
 }
 
-.mediaIcon i:hover{
+.mediaIcon i:hover {
     color: #fbb400;
 }
 
-.SectionContact{
+
+.mediaIcon i{
+    margin-right: 15px;
+}
+
+.SectionContact {
     color: white;
     font-size: 16px;
 }
 
-.SectionContact p{
+.SectionContact p {
     inline-size: 850px;
 }
 
-.ContactBar a{
+.ContactBar a {
     text-decoration: none;
     color: white;
 }
 
-@media screen and (max-width: 768px){
-    .SectionContact p{
+@media screen and (max-width: 768px) {
+    .SectionContact p {
         font-size: 12px;
         inline-size: 300px;
     }
-    .contact-img{
+
+    .contact-img {
         background-position: 50%;
         height: 250px;
 
     }
 }
 
+.frmTitle {
+    text-align: center;
+    margin: 50px 0px 50px 0px;
+}
+
+.contactColum {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: white;
+    height: auto;
+    margin-right: 50px;
+    text-align: left;
+}
+
+.frmMain {
+    margin: 50px;
+}
+
+.contactColum h1 {
+    text-align: center;
+    margin: 50px 0px 10px 0px;
+    font-size: 20px;
+}
+
+.contactColum p {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.frmMain input {
+    box-shadow: 0 0 0 0;
+    border: 1px solid rgba(0, 0, 0, 0.218);
+    outline: 0;
+}
+
+.frmMain input:hover,
+textarea:hover {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+
+.btn p {
+    font-size: 14px;
+    margin: 10px;
+}
+
+.btn:hover {
+    color: #fbb400;
+}
+
+.mapsColum {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: white;
+    text-align: center;
+}
+
+.information {
+    text-align: left;
+}
+
+.contactInformation {
+    text-align: left;
+    line-height: 10px;
+    margin: 0;
+    padding: 0;
+    margin-top: 50px;
+}
+
+.contactInformation h1 {
+    font-size: 20px;
+}
+
+.adresse {
+    margin-top: 15px;
+}
+
+.information .mediaIcon {
+    font-size: 30px;
+    margin: 10px 0px 0px 25px;
+}
+
+#map {
+    margin-top: 50px;
+    height: 400px;
+}
+
+@media screen and (max-width: 768px) {
+    .contactColum {
+        margin-bottom: 10px;
+    }
+
+    .contactInformation {
+        font-size: 12px;
+    }
+
+    .whatsapp {
+        align-items: center;
+    }
+
+    .frmMain input {
+        width: 200px;
+    }
+
+    .celular {
+        margin-top: 16px;
+    }
+    .information h6{
+        font-size: 12px;
+    }
+
+}
+
+/* footer */
 
 
 
+.footerNav a {
+    text-decoration: none;
+    color: white;
+}
 
+.footerNav a:hover {
+    color: #fbb400;
+}
 
+.mediaIcon i:hover {
+    color: #fbb400;
+}
 
+.SectionContact {
+    color: white;
+    font-size: 16px;
+}
 
+.SectionContact p {
+    inline-size: 850px;
+}
 
-
-
- 
- 
+.ContactBar a {
+    text-decoration: none;
+    color: white;
+}

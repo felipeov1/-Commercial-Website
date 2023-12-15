@@ -23,6 +23,11 @@ if (isset($_POST['submit'])) {
         echo "Erro ao adicionar informações: " . mysqli_error($conn);
     }
 }
+
+
+$sqlLogo = "SELECT * FROM `company`";
+$resultLogo = $conn->query($sqlLogo);
+$dataLogo = mysqli_fetch_assoc($resultLogo);
 ?>
 
 <DOCTYPE html>
@@ -41,8 +46,11 @@ if (isset($_POST['submit'])) {
     <body>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.php"><img src="../img/logo.png" height="70px" alt="Imagem Logo"></a>
-                <a href="../index.php"><button class="btn btn-outline-danger" type="submit">Sair</button></a>
+                <a class="navbar-brand" href="index.php"><img src="<?php $dataName = $dataLogo['logoName'];
+                $path = "./imagesUpload/";
+                $img = ($path . $dataName);
+                echo $img ?>" height="100px" alt="Logo"></a> <a href="../index.php"><button class="btn btn-outline-danger"
+                        type="submit">Sair</button></a>
             </div>
         </nav>
 

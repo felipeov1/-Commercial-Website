@@ -14,6 +14,7 @@ if (!empty($_GET['id'])) {
         $product_data = $result->fetch_assoc();
         $id = $product_data['id'];
         $host = $product_data['host'];
+        $receive = $product_data['receive'];
         $user = $product_data['user'];
         $password = $product_data['password'];
         $port = $product_data['port'];
@@ -23,6 +24,10 @@ if (!empty($_GET['id'])) {
 } else {
     echo "ID do produto não fornecido";
 }
+
+$sqlLogo = "SELECT * FROM `company`";
+$resultLogo = $conn->query($sqlLogo);
+$dataLogo = mysqli_fetch_assoc($resultLogo);
 ?>
 
 <DOCTYPE html>
@@ -41,8 +46,11 @@ if (!empty($_GET['id'])) {
     <body>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.php"><img src="../img/logo.png" height="70px" alt="Imagem Logo"></a>
-                <a href="../index.php"><button class="btn btn-outline-danger" type="submit">Sair</button></a>
+                <a class="navbar-brand" href="index.php"><img src="<?php $dataName = $dataLogo['logoName'];
+                $path = "./imagesUpload/";
+                $img = ($path . $dataName);
+                echo $img ?>" height="100px" alt="Logo"></a> <a href="../index.php"><button class="btn btn-outline-danger"
+                        type="submit">Sair</button></a>
             </div>
         </nav>
 
@@ -61,6 +69,12 @@ if (!empty($_GET['id'])) {
                         <div class="inputBox">
                             <label for="host">Host:</label>
                             <input type="text" name="host" id="host" value="<?php echo $host ?>">
+                        </div>
+                    </div><br>
+                    <div class="inputGroup">
+                        <div class="inputBox">
+                            <label for="host">Email de recebimento:</label>
+                            <input type="text" name="host" id="host" value="<?php echo $receive ?>">
                         </div>
                     </div><br>
                     <div class="inputGroup">

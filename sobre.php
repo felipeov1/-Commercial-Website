@@ -1,3 +1,17 @@
+<?php
+require_once './db/connection.php';
+
+
+
+$sql = "SELECT * FROM `company`";
+$result = $conn->query($sql);
+$data = mysqli_fetch_assoc($result);
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -16,93 +30,53 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php"><img src="img/logo.png" height="70px" alt="Imagem Logo"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="index.php"><img src="<?php $dataName = $data['logoName'];
+            $path = "./admin/imagesUpload/";
+            $img = ($path . $dataName);
+            echo $img ?>" height="100px" alt="Logo"></a> <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+                aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link" aria-current="page" href="index.php">Início</a>
                     <a class="nav-link" href="empilhadeiras.php">Empilhadeiras</a>
-                    <a class="nav-link" href="contato.php">Contato</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <div class="containerContent container-fluid">
-        <div class="image-text" style="padding-right: 50px;">
-            <img src="img/eletrica.jpg" alt="Imagem 1" >
-            <div class="text">
-                <h1>Empilhadeira a Combustão de Contrapeso</h1>
-                <p>A empilhadeira a combustão de contrapeso é conhecida por sua excelente estabilidade e capacidade de
-                    lidar com cargas pesadas. Ela funciona com um motor a gasolina e tem uma capacidade de carga que
-                    varia de 1.5 a 10 toneladas, com uma amplitude de trabalho que vai de 3.5 a 5 metros. Esta
-                    empilhadeira é ideal para uso ao ar livre, pois não possui limite de tempo de uso. Seu motor a
-                    gasolina é caracterizado por ser compacto, leve, silencioso, com baixa vibração e um preço
-                    acessível.
-                </p><br>
-                <a href="empilhadeiras.php"  class="btnProducts">Ver Produtos</a>
-            </div>
-        </div>
-        <div class="image-text" id="invert" style="padding-left: 50px;">
-            <div class="text">
-                <h1 class="fade-in">Empilhadeira Elétrica de Contrapeso</h1>
-                <p class="fade-in">A empilhadeira elétrica de contrapeso é projetada com uma estrutura altamente
-                    rígida e um mastro de elevada visibilidade. Possui recursos como abaixamento inteligente e sistema
-                    de buffering para facilitar a elevação e o abaixamento dos garfos. Para garantir o conforto do
-                    operador, conta com um pedal e um assento suspensos, reduzindo a fadiga durante o trabalho. Além
-                    disso, está equipada com uma chave de emergência e uma capa de bateria com trava de segurança.
-                    Oferece três modos de conversão para maior suporte e flexibilidade nas operações, adequados para
-                    motoristas experientes. Nossa empilhadeira elétrica possui uma quantidade de energia suficiente,
-                    permitindo operações contínuas por até 7 horas após cada carga. Seu controle e motor de corrente
-                    alternada proporcionam um desempenho sólido e eficiente.
-                </p>
-                <a href="empilhadeiras.php"  class="btnProducts fade-in">Ver Produtos</a>
-            </div>
-            <img src="img/combustao.jpg" alt="Imagem 2" class="fade-in">
-        </div>
+    <?php
+    $sqlSelect = "SELECT * FROM `about_page`";
+    $resultImg = $conn->query($sqlSelect); 
 
-        <!-- MOBILE DEVICE -->
-        <div class="image-text" id="mobile" style="padding-left: 50px;">
-            <img src="img/combustao.jpg" alt="Imagem 2" class="fade-in">
-            <div class="text">  
-                <h1 class="fade-in">Empilhadeira Elétrica de Contrapeso</h1>
-                <p class="fade-in">A empilhadeira elétrica de contrapeso é projetada com uma estrutura altamente
-                    rígida e um mastro de elevada visibilidade. Possui recursos como abaixamento inteligente e sistema
-                    de buffering para facilitar a elevação e o abaixamento dos garfos. Para garantir o conforto do
-                    operador, conta com um pedal e um assento suspensos, reduzindo a fadiga durante o trabalho. Além
-                    disso, está equipada com uma chave de emergência e uma capa de bateria com trava de segurança.
-                    Oferece três modos de conversão para maior suporte e flexibilidade nas operações, adequados para
-                    motoristas experientes. Nossa empilhadeira elétrica possui uma quantidade de energia suficiente,
-                    permitindo operações contínuas por até 7 horas após cada carga. Seu controle e motor de corrente
-                    alternada proporcionam um desempenho sólido e eficiente.
-                </p>
-                <a href="empilhadeiras.php"  class="btnProducts fade-in">Ver Produtos</a>
-            </div>
-        </div>
 
-        <div class="image-text" style="padding-right: 50px;">
-            <img src="img/eletrica retratil.jpg" alt="Imagem 3" class="fade-in">
-            <div class="text">
-                <h1 class="fade-in">Empilhadeira Eléctrica Retrátil</h1>
-                <p class="fade-in">A empilhadeira retrátil 1.5-1.8T é equipada com um motor AC de uma marca renomada que
-                    incorpora tecnologia avançada dos Estados Unidos. O motor FB15 deste fornecedor é destacado por sua
-                    excelente performance e impressionante taxa de falha de 0% até a presente data, o que ressalta sua
-                    confiabilidade.
-                    Para garantir a confiabilidade do motor, o empilhador retrátil utiliza um descodificador e sensor de
-                    temperatura importados dos Estados Unidos, produzidos pela conceituada marca Honeywell.
-                    Outros componentes críticos do sistema hidráulico também são provenientes de marcas de renome
-                    internacional. A válvula multi tandem e a bomba de baixo ruído são fornecidas pela famosa marca
-                    japonesa Shimadzu, enquanto a bomba de óleo de alta pressão é importada da mundialmente conhecida
-                    marca EATON. Isso assegura um desempenho consistente e confiável da empilhadeira retrátil em suas
-                    operações.
-                </p>
-                <a href="empilhadeiras.php"  class="btnProducts fade-in">Ver Produtos</a>
-            </div>
-        </div>
-    </div>
+    while($resultSelect =  mysqli_fetch_assoc($resultImg)){
+
+        echo "<div class='containerConten' container-fluid'>";
+        echo "<div class='image-text' style='padding-right: 50px;'>";
+        $img = "admin/imagesUpload/" . $resultSelect['pathImg'];
+        echo "<img src='$img' alt='Imagem 1'>";
+        echo "<div class='text'>";
+        echo "<h1>" . $resultSelect['title'] . "</h1>";
+        echo "<p>" . $resultSelect['smallText'] . "</p><br>";
+        echo "<a href='empilhadeiras.php' class='btnProducts'>Ver Produtos</a>";
+        echo "</div>";
+        echo "</div>";
+    
+        echo "<div class='image-text' id='mobile' style='padding-left: 50px;'>";
+        echo "<img src='img/" . $resultSelect['img'] . "alt='Imagem 2' class='fade-in'>";
+        echo "<div class='text'>";
+        echo "<h1 class='fade-in'>" . $resultSelect['title'] . "</h1>";
+        echo "<p class='fade-in'>" . $resultSelect['text'] . "</p>";
+        echo "<a href='empilhadeiras.php' class='btnProducts fade-in'>Ver Produtos</a>";
+        echo "</div>";
+        echo "</div>";
+        echo "</div>";
+    }
+
+    ?>
     <script>
         window.addEventListener('scroll', () => {
             const images = document.querySelectorAll('.fade-in');
@@ -112,17 +86,20 @@
 
                 if (position < screenHeight) {
                     image.classList.add('show');
-                } 
+                }
             });
         });
     </script>
-
+    
     <footer class="text-white bg-dark pt-5 pb-4">
         <div class="container text-center text-md-start">
             <div class="row text-center text-md-start">
                 <div class="row text-center text-md-start">
                     <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-                        <h5 class="mb-4"><img src="img/logo.png" height="150px" alt="Imagem Logo"></h5>
+                        <h5 class="mb-4"><img src="<?php $dataName = $data['logoName'];
+                        $path = "./admin/imagesUpload/";
+                        $img = ($path . $dataName);
+                        echo $img ?>" height="150px" alt="Imagem Logo"></h5>
                     </div>
 
                     <div class="footerNav col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
@@ -135,9 +112,6 @@
                         </p>
                         <p>
                             <a href="empilhadeiras.php">Empilhadeiras</a>
-                        </p>
-                        <p>
-                            <a href="contato.php">Contato</a>
                         </p>
                     </div>
                     <div class="ContactBar col-md-2 col-lg-2 col-xl-3 mx-auto mt-3">

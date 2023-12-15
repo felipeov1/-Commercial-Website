@@ -13,6 +13,7 @@ require_once '../db/connection.php';
 if (isset($_POST['submit'])) {
 
     $host = $_POST["host"];
+    $receive = $_POST["receive"];
     $user = $_POST["user"];
     $password = $_POST["password"];
     $port = $_POST["port"];
@@ -23,20 +24,17 @@ if (isset($_POST['submit'])) {
     if ($resultSelect->num_rows > 0) {
         echo "Já existe um email cadastrado, edite ou exclua o atual";
     } else if ($resultSelect->num_rows === 0) {
-        $query = "INSERT INTO mail (host, user, password, port) VALUES ('$host', '$user', '$password', '$port')";
+        $query = "INSERT INTO mail (host, user, password, port, receive) VALUES ('$host',  '$user', '$password', '$port', '$receive')";
         $result = $conn->query($query);
 
-    }else{
+    } else {
         echo "Erro ao adicionar informações: " . mysqli_error($conn);
     }
+}
 
-
-
-
-
-   
-    
-} 
+$sqlLogo = "SELECT * FROM `company`";
+$resultLogo = $conn->query($sqlLogo);
+$dataLogo = mysqli_fetch_assoc($resultLogo);
 ?>
 
 <DOCTYPE html>
@@ -55,8 +53,11 @@ if (isset($_POST['submit'])) {
     <body>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.php"><img src="../img/logo.png" height="70px" alt="Imagem Logo"></a>
-                <a href="../index.php"><button class="btn btn-outline-danger" type="submit">Sair</button></a>
+                <a class="navbar-brand" href="index.php"><img src="<?php $dataName = $dataLogo['logoName'];
+                $path = "./imagesUpload/";
+                $img = ($path . $dataName);
+                echo $img ?>" height="100px" alt="Logo"></a> <a href="../index.php"><button class="btn btn-outline-danger"
+                        type="submit">Sair</button></a>
             </div>
         </nav>
 
@@ -75,6 +76,12 @@ if (isset($_POST['submit'])) {
                         <div class="inputBox">
                             <label for="host">Host:</label>
                             <input type="text" name="host" id="host" required>
+                        </div>
+                    </div><br>
+                    <div class="inputGroup">
+                        <div class="inputBox">
+                            <label for="host">Email de recebimento:</label>
+                            <input type="text" name="receive" id="receive" required>
                         </div>
                     </div><br>
                     <div class="inputGroup">

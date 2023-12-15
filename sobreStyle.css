@@ -47,12 +47,15 @@ body {
     height: 100%;
 }
 
+.text{
+    margin-left: 25rem;
+}
+
 
 .image-text {
     display: flex;
     align-items: center;
     width: 100%;
-    justify-content: space-between;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

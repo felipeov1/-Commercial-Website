@@ -29,15 +29,18 @@ $offset = ($currentPage - 1) * $itemsPerPage;
 
 $sql = "SELECT * FROM `products` LIMIT $itemsPerPage OFFSET $offset";
 
-if($totalRows > 0){
+if ($totalRows > 0) {
     $result = $conn->query($sql);
-}else{
+} else {
     ("Falha na conexão ao banco de dados ou não foi encontrado registros: " . mysqli_connect_error());
 }
 
+$sqlLogo = "SELECT * FROM `company`";
+$resultLogo = $conn->query($sqlLogo);
+$dataLogo = mysqli_fetch_assoc($resultLogo);
 
 
-?> 
+?>
 
 
 <!DOCTYPE html>
@@ -61,7 +64,10 @@ if($totalRows > 0){
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php"><img src="img/logo.png" height="70px" alt="Imagem Logo"></a>
+            <a class="navbar-brand" href="index.php"><img src="<?php $dataName = $dataLogo['logoName'];
+            $path = "./admin/imagesUpload/";
+            $img = ($path . $dataName);
+            echo $img ?>" height="100px" alt="Logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -70,29 +76,35 @@ if($totalRows > 0){
                 <div class="navbar-nav">
                     <a class="nav-link" aria-current="page" href="index.php">Início</a>
                     <a class="nav-link" href="empilhadeiras.php">Empilhadeiras</a>
-                    <a class="nav-link" href="contato.php">Contato</a>
                 </div>
             </div>
         </div>
     </nav>
-    <div class="containerImg" style="padding: 0;">
-        <div class="container">
-            <h1>Descubra uma variedade de empilhadeiras de alta qualidade para atender às suas necessidades.</h1>
-            <p>Encontre a empilhadeira perfeita para otimizar suas operações.</p>
-        </div>
+    <div class="containerImg" style="padding: 0; width: 100%">
+        <?php
+        $sqlInfo = "SELECT * FROM `forklift_page`";
+        $resultInfo = $conn->query($sqlInfo);
+        $dataInfo = mysqli_fetch_assoc($resultInfo);
+
+        $banner = $dataInfo['pathImg'];
+        $path = "./admin/imagesUpload/";
+
+
+        echo "<div class='container' style='margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px';>";
+        echo "<img src='$path$banner'alt='banner'>";
+        ?>
     </div>
 
     </div>
     </div>
     <?php
 
-        echo "<div class='container-card container-fluid'>";
+    echo "<div class='container-card container-fluid'>";
     while ($products_data = mysqli_fetch_assoc($result)) {
         echo "<div class='card col-lg-10' style='width: 350px;'>";
-        $img = $products_data['product_imgName'];
-        $path = "./admin/imagesUpload/";
-        $pathImg = ($path . $img);
-        echo "<img src='$pathImg' class='card-img-top' alt='Imagem da '>";
+        $img = "./admin/" . $products_data['product_image'];
+
+        echo "<img src=$img alt='Imagem do card'>";
         echo "<div class='card-body'>";
         echo "<h5 class='card-title'>" . $products_data['product_name'] . "</h5>";
         echo "<hr class='mb-4'>";
@@ -119,7 +131,7 @@ if($totalRows > 0){
         echo "</div>";
     }
     echo "</div>";
-    
+
     ?>
 
 
@@ -135,13 +147,16 @@ if($totalRows > 0){
         </ul>
     </nav>
 
-
     <footer class="text-white bg-dark pt-5 pb-4">
         <div class="container text-center text-md-start">
             <div class="row text-center text-md-start">
                 <div class="row text-center text-md-start">
                     <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-                        <h5 class="mb-4"><img src="img/logo.png" height="150px" alt="Imagem Logo"></h5>
+
+                        <h5 class="mb-4"><img src="<?php $dataName = $dataLogo['logoName'];
+                        $path = "./admin/imagesUpload/";
+                        $img = ($path . $dataName);
+                        echo $img ?>" height="150px" alt="Imagem Logo"></h5>
                     </div>
 
                     <div class="footerNav col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
@@ -155,40 +170,57 @@ if($totalRows > 0){
                         <p>
                             <a href="empilhadeiras.php">Empilhadeiras</a>
                         </p>
-                        <p>
-                            <a href="contato.php">Contato</a>
-                        </p>
                     </div>
                     <div class="ContactBar col-md-2 col-lg-2 col-xl-3 mx-auto mt-3">
                         <h5 class=" mb-4 font-weight-bold text-white">
                             Contato
                         </h5>
                         <hr class="mb-4">
-                        <p>
-                            <a href="" class="bi bi-geo-alt-fill"> Seu endereço</a><br>
-                        </p>
-                        <p>
-                            <a href="" class="bi bi-telephone-fill"> (xx) xxxx-xxxx</a><br>
-                        </p>
-                        <p>
-                        </p>
-                        <a href="" class="bi bi-envelope-fill"> seuemail@contato.com</a>
-                        </p><br><br>
+                        <?php
+                        $sql = "SELECT * FROM `company`";
+                        $result = $conn->query($sql);
+                        while ($data = mysqli_fetch_assoc($result)) {
+                            echo '<p><a href="" class="bi bi-geo-alt-fill"></a><a style="margin-left: 10px">' . $data['address'] . '</a></p>';
+                            echo '<p>';
+                            echo '<a href="" class="bi bi-telephone-fill"></a><a style="margin-left: 10px">' . $data['tel'] . '</a>';
+                            echo '</p>';
+                            echo '<p>';
+                            echo '<a href="" class="bi bi-envelope-fill"></a><a style="margin-left: 10px">' . $data['mail'] . '</a>';
+                            echo '</p>';
+                            echo '<br><br>';
+
+
+                        }
+
+                        ?>
+
+
                     </div>
                     <hr class="mb-4">
-                    <div class=" mediaIcon text-center">
-                        <ul class="list-unstyled list-inline">
-                            <li class="list-inline-item">
-                                <a href="" class="text-white"><i class="bi bi-facebook"></i></a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="" class="text-white"><i class="bi bi-whatsapp"></i></a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="" class="text-white"><i class="bi bi-instagram"></i></a>
-                            </li>
-                        </ul>
-                    </div>
+                    <?php
+                    $sql = "SELECT * FROM `company`";
+                    $result = $conn->query($sql);
+                    $data = mysqli_fetch_assoc($result);
+                    while ($data) {
+                        echo "<div class='mediaIcon text-center' style='text-align: center'>";
+                        echo "<ul class='list-unstyled list-inline'>";
+                        echo "<li class='list-inline-item'>";
+                        echo "<a href='https://www.facebook.com/" . $data['face'] . "' target='_blank' class='text-white'><i class='bi bi-facebook'></i></a>";
+                        echo "</li>";
+                        echo "<li class='list-inline-item'>";
+                        echo "<a href='https://wa.me/" . $data['whats'] . "' target='_blank' class='text-white'><i class='bi bi-whatsapp'></i></a>";
+                        echo "</li>";
+                        echo "<li class='list-inline-item'>";
+                        echo "<a href='https://www.instagram.com/" . $data['insta'] . "' target='_blank' class='text-white'><i class='bi bi-instagram'></i></a>";
+                        echo "</li>";
+                        echo "</ul>";
+                        echo "</div>";
+
+                        $data = mysqli_fetch_assoc($result);
+                    }
+
+                    ?>
+
                 </div>
             </div>
         </div>

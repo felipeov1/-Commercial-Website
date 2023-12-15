@@ -10,9 +10,15 @@ if (isset($_GET['id'])) {
 
     $result = $conn->query($sql);
 
+    $sql = "SELECT * FROM `company`";
+    $result = $conn->query($sql);
+    $data = mysqli_fetch_assoc($result);
+
+    $sqlLogo = "SELECT * FROM `company`";
+    $resultLogo = $conn->query($sqlLogo);
+    $dataLogo = mysqli_fetch_assoc($resultLogo);
+
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -32,16 +38,18 @@ if (isset($_GET['id'])) {
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php"><img src="img/logo.png" height="70px" alt="Imagem Logo"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="index.php"><img src="<?php $dataName = $data['logoName'];
+            $path = "./admin/imagesUpload/";
+            $img = ($path . $dataName);
+            echo $img ?>" height="100px" alt="Logo"></a> <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+                aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link" aria-current="page" href="index.php">Início</a>
                     <a class="nav-link" href="empilhadeiras.php">Empilhadeiras</a>
-                    <a class="nav-link" href="contato.php">Contato</a>
                 </div>
             </div>
         </div>
@@ -54,13 +62,15 @@ if (isset($_GET['id'])) {
                     <?php
                     $sql_info = "SELECT products.*, productsinformations.* FROM `products` JOIN `productsinformations` ON products.product_id = productsinformations.id_reference WHERE productsinformations.id_reference = $idReference";
 
+                    $result = $conn->query($sql_info);
+
                     while ($products_data = mysqli_fetch_assoc($result)) {
                         $img = $products_data['product_imgName'];
                         $path = "./admin/imagesUpload/";
                         $pathImg = ($path . $img);
                         echo "<img id='fullImage' src='$pathImg'>";
-
                     }
+
                     ?>
                 </div>
             </div>
@@ -161,8 +171,10 @@ if (isset($_GET['id'])) {
             <div class="row text-center text-md-start">
                 <div class="row text-center text-md-start">
                     <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-                        <h5 class="mb-4"><img src="img/logo.png" height="150px" alt="Imagem Logo"></h5>
-                    </div>
+                    <h5 class="mb-4"><img src="<?php $dataName = $dataLogo['logoName'];
+                    $path = "./admin/imagesUpload/";
+                    $img = ($path . $dataName);
+                    echo $img ?>" height="150px" alt="Imagem Logo"></h5>                      </div>
 
                     <div class="footerNav col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
                         <h5 class=" mb-4 font-weight-bold text-white">
